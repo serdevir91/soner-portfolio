@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://sonererdevir.github.io/soner-portfolio",
+  "homepage": "https://serdevir91.github.io/soner-portfolio",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
