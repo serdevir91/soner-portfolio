@@ -20,7 +20,7 @@ const Projects = ({ lang }) => {
           title: "YILKAT Electric Vehicle Team",
           role: "Mechanical Division Captain",
           subTitle: "TÜBİTAK Efficiency Challenge",
-          period: "2024 – Present",
+          period: "2024 – 2026",
           details: [
             "Led the design and manufacturing of mechanical systems (chassis, drivetrain, suspension) for a high-efficiency electric vehicle.",
             "Oversaw CAD modeling, FEA simulations, and physical assembly.",
@@ -70,7 +70,7 @@ const Projects = ({ lang }) => {
           title: "YILKAT Elektrikli Araç Takımı",
           role: "Mekanik Birim Kaptanı",
           subTitle: "TÜBİTAK Efficiency Challenge",
-          period: "2024 – Günümüz",
+          period: "2024 – 2026",
           details: [
             "Yüksek verimli bir elektrikli araç için mekanik sistemlerin (şasi, aktarma organları, süspansiyon) tasarım ve imalatına liderlik etti.",
             "CAD modelleme, FEA simülasyonları ve fiziksel montaj süreçlerini yönetti.",
