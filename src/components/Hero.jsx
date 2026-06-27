@@ -8,13 +8,13 @@ const Hero = ({ lang }) => {
   const profileText = {
     en: {
       title: "Mechanical Engineer | R&D, Design & Simulation",
-      location: "Antalya, Turkey",
+      location: "Ankara, Turkey",
       aboutTitle: "Profile",
       aboutDesc: "A highly motivated, results-oriented, and distinguished Mechanical Engineer (Graduated 3rd of Class) with a strong foundation in mechanical design, structural analysis, and manufacturing. Demonstrated leadership excellence as a Team Leader for a TUSAŞ Lift Up R&D project and as Mechanical Division Captain in the TÜBİTAK Efficiency Challenge. Skilled in advanced CAD modeling, FEA simulations, mechanical testing, and cross-functional teamwork, with a proven track record of delivering innovative engineering solutions and sustainable mobility systems from concept to validation."
     },
     tr: {
       title: "Makine Mühendisi | Ar-Ge, Tasarım & Simülasyon",
-      location: "Antalya, Türkiye",
+      location: "Ankara, Türkiye",
       aboutTitle: "Profil",
       aboutDesc: "Mekanik tasarım, yapısal analiz ve imalat konularında güçlü bir temele sahip, yüksek motivasyonlu, sonuç odaklı ve başarılı bir Makine Mühendisidir (Bölüm Üçüncüsü olarak mezun olmuştur). TUSAŞ Lift Up Ar-Ge projesinde Takım Lideri ve TÜBİTAK Efficiency Challenge yarışmasında Mekanik Birim Kaptanı olarak liderlik deneyimi sergilemiştir. Konsept tasarımdan doğrulamaya kadar yenilikçi mühendislik çözümleri ve sürdürülebilir mobilite sistemleri sunma konusunda kanıtlanmış bir geçmişe sahip; gelişmiş CAD modelleme, FEA simülasyonları, mekanik testler ve disiplinler arası ekip çalışması konularında yetkindir."
     }
