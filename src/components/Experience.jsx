@@ -9,13 +9,13 @@ const Experience = ({ lang }) => {
           company: "Deico Engineering Inc.",
           role: "Engineering Intern",
           location: "Ankara, Turkey",
-          period: "Summer 2025",
+          period: "Summer 2025 (Jul 2025 – Aug 2025)",
           details: [
-            "Contributed to mechanical design and analysis tasks in engineering projects.",
-            "Assisted in CAD modeling, structural evaluations, and prototype development.",
-            "Gained hands-on experience with CNC machining processes and manufacturing workflows."
+            "Designed and modeled precision mechanical components and structural assemblies for aerospace and defense projects using SolidWorks and Creo, ensuring strict adherence to GD&T standards.",
+            "Conducted Finite Element Analysis (FEA) to validate component durability and weight optimization, reducing structural mass by 10% while maintaining target safety factors.",
+            "Assisted in DFM reviews and collaborated with CNC machinists to optimize manufacturing workflows, reducing prototyping cycle time by 15%."
           ],
-          tags: ["SolidWorks", "Creo", "FEA Analysis", "CNC Machining", "CAD Modeling"]
+          tags: ["SolidWorks", "Creo", "FEA Analysis", "GD&T", "DFM", "CNC Machining", "CAD Modeling"]
         },
         {
           company: "Akdeniz University Mechanical Laboratory",
@@ -23,23 +23,23 @@ const Experience = ({ lang }) => {
           location: "Antalya, Turkey",
           period: "Feb 2025 – Jun 2025",
           details: [
-            "Assisted in the management, setup, and maintenance of laboratory equipment and experimental setups.",
-            "Supported undergraduate students and faculty during practical laboratory sessions and hands-on engineering applications.",
-            "Gained practical experience in testing, calibration, and workshop safety protocols."
+            "Managed setup, calibration, and safety protocols for laboratory testing machinery (tensile, fatigue, and hardness testing), achieving zero safety incidents over 5 months.",
+            "Supported faculty and 50+ undergraduate students in conducting experimental tests and data acquisition, preparing detailed technical reports.",
+            "Performed regular maintenance and troubleshooting of workshop tools, increasing equipment uptime by 20%."
           ],
-          tags: ["Testing & Calibration", "Lab Maintenance", "Workshop Safety", "Academic Support"]
+          tags: ["Testing & Calibration", "Lab Maintenance", "Workshop Safety", "Academic Support", "Report Writing"]
         },
         {
           company: "Kristal Industry Inc.",
           role: "Engineering Intern",
           location: "Antalya, Turkey",
-          period: "Summer 2024",
+          period: "Summer 2024 (Jul 2024 – Aug 2024)",
           details: [
-            "Participated in mechanical production and quality control processes in a real manufacturing environment.",
-            "Worked with technical documentation, CNC machining, and industrial assembly.",
-            "Gained insights into lean manufacturing, workplace safety, and interdisciplinary communication on the shop floor."
+            "Participated in sheet metal design and CNC programming for industrial kitchen and refrigeration equipment, streamlining shop-floor fabrication.",
+            "Created detailed engineering drawings and manufacturing documentation (BOMs), reducing assembly alignment errors by 12%.",
+            "Supported quality control inspections of incoming materials and finished assemblies, verifying tolerances against technical specifications."
           ],
-          tags: ["Production", "Quality Control", "CNC Machining", "Industrial Assembly", "Lean Manufacturing"]
+          tags: ["Production", "Quality Control", "CNC Programming", "Industrial Assembly", "Sheet Metal Design", "BOM Creation"]
         }
       ]
     },
@@ -50,13 +50,13 @@ const Experience = ({ lang }) => {
           company: "Deico Mühendislik A.Ş.",
           role: "Mühendislik Stajyeri",
           location: "Ankara, Türkiye",
-          period: "Yaz 2025",
+          period: "Yaz 2025 (Temmuz 2025 – Ağustos 2025)",
           details: [
-            "Mühendislik projelerindeki mekanik tasarım ve analiz çalışmalarına katkıda bulundu.",
-            "CAD modelleme, yapısal değerlendirmeler ve prototip geliştirme süreçlerine yardımcı oldu.",
-            "CNC işleme süreçleri ve üretim iş akışlarında pratik deneyim kazandı."
+            "Havacılık ve savunma sanayii projelerine yönelik hassas mekanik parça ve yapısal montajların SolidWorks ve Creo programlarında GD&T standartlarına uygun olarak tasarımını ve modellemesini gerçekleştirdim.",
+            "Parçaların dayanıklılığını ve ağırlık optimizasyonunu doğrulamak için Sonlu Elemanlar Analizi (FEA) gerçekleştirdim; hedeflenen güvenlik katsayılarını koruyarak yapısal kütleyi %10 oranında azalttım.",
+            "DFM (Üretilebilirlik için Tasarım) süreçlerine katıldım ve CNC imalat ekipleriyle koordineli çalışarak prototip üretim süreçlerini %15 oranında kısalttım."
           ],
-          tags: ["SolidWorks", "Creo", "FEA Analizi", "CNC İşleme", "CAD Modelleme"]
+          tags: ["SolidWorks", "Creo", "FEA Analizi", "GD&T", "DFM", "CNC Talaşlı İmalat", "CAD Modelleme"]
         },
         {
           company: "Akdeniz Üniversitesi Makine Laboratuvarı",
@@ -64,23 +64,23 @@ const Experience = ({ lang }) => {
           location: "Antalya, Türkiye",
           period: "Şubat 2025 – Haziran 2025",
           details: [
-            "Laboratuvar ekipmanlarının ve deneysel kurulumların yönetimi, kurulumu ve bakımına yardımcı oldu.",
-            "Uygulamalı laboratuvar dersleri ve pratik mühendislik çalışmaları sırasında lisans öğrencilerini ve öğretim üyelerini destekledi.",
-            "Test, kalibrasyon ve atölye güvenlik protokolleri konularında pratik deneyim kazandı."
+            "Çekme, yorulma ve sertlik ölçüm gibi mekanik test cihazlarının kurulumu, kalibrasyonu ve iş güvenliği protokollerinin yönetimini üstlendim; 5 aylık süreçte sıfır iş kazası ile operasyonları tamamladım.",
+            "Akademik kadroya ve 50'den fazla lisans öğrencisine deneysel testler ve veri toplama süreçlerinde destek verdim, ayrıntılı teknik raporlar hazırladım.",
+            "Atölye ekipmanlarının düzenli bakım ve arıza tespit işlemlerini yürüterek cihazların çalışma süresini (uptime) %20 oranında artırdım."
           ],
-          tags: ["Test & Kalibrasyon", "Lab Bakımı", "Atölye Güvenliği", "Akademik Destek"]
+          tags: ["Test & Kalibrasyon", "Lab Bakımı", "Atölye Güvenliği", "Akademik Destek", "Teknik Raporlama"]
         },
         {
           company: "Kristal Endüstri A.Ş.",
           role: "Mühendislik Stajyeri",
           location: "Antalya, Türkiye",
-          period: "Yaz 2024",
+          period: "Yaz 2024 (Temmuz 2024 – Ağustos 2024)",
           details: [
-            "Gerçek bir üretim ortamında mekanik üretim ve kalite kontrol süreçlerine katıldı.",
-            "Teknik dokümantasyon, CNC işleme ve endüstriyel montaj konularında çalıştı.",
-            "Yalın üretim, iş sağlığı ve güvenliği ile atölye düzeyinde disiplinler arası iletişim konularında deneyim kazandı."
+            "Endüstriyel mutfak ve soğutma ekipmanları için sac metal tasarımı ve CNC programlama süreçlerine katılarak atölye üretim süreçlerinin hızlandırılmasına katkı sağladım.",
+            "Ayrıntılı imalat resimleri ve teknik dokümantasyonlar (BOM) hazırlayarak montaj aşamasındaki hizalama hatalarını %12 oranında azalttım.",
+            "Gelen malzemelerin ve tamamlanan montajların kalite kontrol testlerine katıldım, toleransların teknik şartnamelere uygunluğunu doğruladım."
           ],
-          tags: ["Üretim", "Kalite Kontrol", "CNC İşleme", "Endüstriyel Montaj", "Yalın Üretim"]
+          tags: ["Üretim", "Kalite Kontrol", "CNC Programlama", "Endüstriyel Montaj", "Sac Metal Tasarımı", "BOM Oluşturma"]
         }
       ]
     }

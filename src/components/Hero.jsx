@@ -10,13 +10,13 @@ const Hero = ({ lang }) => {
       title: "Mechanical Engineer | R&D, Design & Simulation",
       location: "Ankara, Turkey",
       aboutTitle: "Profile",
-      aboutDesc: "A highly motivated, results-oriented, and distinguished Mechanical Engineer (Graduated 3rd of Class) with a strong foundation in mechanical design, structural analysis, and manufacturing. Demonstrated leadership excellence as a Team Leader for a TUSAŞ Lift Up R&D project and as Mechanical Division Captain in the TÜBİTAK Efficiency Challenge. Skilled in advanced CAD modeling, FEA simulations, mechanical testing, and cross-functional teamwork, with a proven track record of delivering innovative engineering solutions and sustainable mobility systems from concept to validation."
+      aboutDesc: "I am a highly motivated and results-driven Mechanical Engineer (graduated 3rd of class) with a strong foundation in mechanical design, CAD modeling, structural analysis (FEA), and advanced fabrication. I have demonstrated leadership excellence as a TUSAŞ Lift Up R&D Project Team Leader and TÜBİTAK Electric Vehicle Mechanical Captain. I am experienced in delivering end-to-end engineering solutions—from conceptual CAD and FEA validation to CNC manufacturing and testing—with a key focus on lightweight design, durability, and sustainable mobility."
     },
     tr: {
       title: "Makine Mühendisi | Ar-Ge, Tasarım & Simülasyon",
       location: "Ankara, Türkiye",
       aboutTitle: "Profil",
-      aboutDesc: "Mekanik tasarım, yapısal analiz ve imalat konularında güçlü bir temele sahip, yüksek motivasyonlu, sonuç odaklı ve başarılı bir Makine Mühendisidir (Bölüm Üçüncüsü olarak mezun olmuştur). TUSAŞ Lift Up Ar-Ge projesinde Takım Lideri ve TÜBİTAK Efficiency Challenge yarışmasında Mekanik Birim Kaptanı olarak liderlik deneyimi sergilemiştir. Konsept tasarımdan doğrulamaya kadar yenilikçi mühendislik çözümleri ve sürdürülebilir mobilite sistemleri sunma konusunda kanıtlanmış bir geçmişe sahip; gelişmiş CAD modelleme, FEA simülasyonları, mekanik testler ve disiplinler arası ekip çalışması konularında yetkindir."
+      aboutDesc: "Makine mühendisliği bölümünü dönem 3.sü olarak tamamlamış; mekanik tasarım, CAD modelleme, yapısal analiz (FEA) ve gelişmiş imalat teknikleri konularında güçlü bir temele sahip, motivasyonu yüksek ve sonuç odaklı bir Makine Mühendisiyim. TUSAŞ Lift Up Ar-Ge projesinde Takım Liderliği ve TÜBİTAK Efficiency Challenge elektrikli araç takımında Mekanik Bölüm Kaptanlığı gibi önemli liderlik rolleri üstlendim. Konsept tasarımdan FEA doğrulamasına, CNC imalatından test ve kalite kontrol aşamalarına kadar uçtan uca mühendislik çözümleri sunma konusunda kanıtlanmış bir başarı geçmişine sahibim. Çalışmalarımda özellikle hafif tasarım, dayanıklılık ve sürdürülebilir mobilite sistemlerine odaklanıyorum."
     }
   };
 

@@ -6,15 +6,21 @@ const References = ({ lang }) => {
     en: {
       sectionTitle: "Academic References",
       roleAdvisor: "Academic Advisor",
-      deptConstruction: "Faculty of Engineering, Dept of Mechanical Engineering, Construction & Manufacturing",
-      deptThermodynamics: "Faculty of Engineering, Dept of Mechanical Engineering, Thermodynamics",
+      roleProfessor: "Professor",
+      roleAssocProf: "Associate Professor",
+      deptConstruction: "Faculty of Engineering, Dept of Mechanical Engineering (Construction & Mfg)",
+      deptThermodynamics: "Faculty of Engineering, Dept of Mechanical Engineering (Thermodynamics)",
+      deptMechanical: "Faculty of Engineering, Dept of Mechanical Engineering",
       visitProfile: "View Profile"
     },
     tr: {
       sectionTitle: "Akademik Referanslar",
       roleAdvisor: "Akademik Danışman",
-      deptConstruction: "Mühendislik Fakültesi, Makine Mühendisliği Bölümü, Konstrüksiyon ve İmalat Anabilim Dalı",
-      deptThermodynamics: "Mühendislik Fakültesi, Makine Mühendisliği Bölümü, Termodinamik Anabilim Dalı",
+      roleProfessor: "Profesör",
+      roleAssocProf: "Doçent Doktor",
+      deptConstruction: "Mühendislik Fakültesi, Makine Mühendisliği Bölümü (Konstrüksiyon ve İmalat)",
+      deptThermodynamics: "Mühendislik Fakültesi, Makine Mühendisliği Bölümü (Termodinamik)",
+      deptMechanical: "Mühendislik Fakültesi, Makine Mühendisliği Bölümü",
       visitProfile: "Profili Görüntüle"
     }
   };
@@ -33,12 +39,21 @@ const References = ({ lang }) => {
     },
     {
       name: "Prof. Dr. İbrahim Atmaca",
-      role: lang === 'en' ? "Professor" : "Profesör",
+      role: t.roleProfessor,
       dept: t.deptThermodynamics,
       phone: "+902423106337",
       phoneFormatted: "+90 242 310 6337",
       email: "atmaca@akdeniz.edu.tr",
       profile: "http://makine.muhfak.akdeniz.edu.tr/ibrahim-atmaca"
+    },
+    {
+      name: "Doç. Dr. Okan Oral",
+      role: t.roleAssocProf,
+      dept: t.deptMechanical,
+      phone: "+902423106377",
+      phoneFormatted: "+90 242 310 6377",
+      email: "okan@akdeniz.edu.tr",
+      profile: "https://avesis.akdeniz.edu.tr/okanoral"
     }
   ];
 

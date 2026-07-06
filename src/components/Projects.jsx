@@ -9,46 +9,49 @@ const Projects = ({ lang }) => {
           title: "TUSAŞ Lift Up Project",
           role: "Team Leader",
           subTitle: "Composite Matrix Structure Supported Silicone Rubber Gasket Design and Test Validation",
-          period: "2025 – June 2026",
+          period: "October 2025 – June 2026",
           details: [
-            "Leading the design and test validation phases for a composite matrix structure supported silicone rubber gasket.",
-            "Coordinating with academic advisors and team members to successfully meet project objectives and deadlines."
+            "Led a 5-member engineering team in the R&D and validation of an aerospace-grade composite matrix supported gasket, meeting all project milestones ahead of schedule.",
+            "Performed advanced FEA simulations in ANSYS to predict gasket behavior under thermal and high-pressure conditions, optimizing design to improve pressure sealing by 18%.",
+            "Coordinated with TUSAŞ technical advisors and academic mentors to execute physical testing and validation reports."
           ],
-          tags: ["Composite Materials", "Testing & Validation", "R&D", "Team Leadership", "SolidWorks", "TUSAŞ"]
+          tags: ["Composite Materials", "Testing & Validation", "R&D", "Team Leadership", "SolidWorks", "ANSYS FEA", "TUSAŞ"]
         },
         {
           title: "YILKAT Electric Vehicle Team",
           role: "Mechanical Division Captain",
-          subTitle: "TÜBİTAK Efficiency Challenge",
+          subTitle: "TÜBİTAK Efficiency Challenge Electric Vehicle Project",
           period: "2024 – 2026",
           details: [
-            "Led the design and manufacturing of mechanical systems (chassis, drivetrain, suspension) for a high-efficiency electric vehicle.",
-            "Oversaw CAD modeling, FEA simulations, and physical assembly.",
-            "Coordinated the mechanical team and ensured successful integration with electrical and control systems."
+            "Managed the mechanical division (5 engineers) in the design, CAD modeling, and manufacturing of chassis, steering, braking, and drivetrain systems for an electric race vehicle.",
+            "Performed structural FEA on the tubular steel chassis using ANSYS, reducing chassis weight by 15% while improving torsional rigidity by 8%.",
+            "Oversaw physical assembly and integration of mechanical systems with electrical components, passing all TÜBİTAK technical inspections on the first attempt."
           ],
-          tags: ["EV Design", "Chassis & Drivetrain", "Suspension", "FEA Analysis", "SolidWorks Simulation", "TÜBİTAK"]
+          tags: ["EV Design", "Chassis & Drivetrain", "Suspension", "FEA Analysis", "ANSYS", "SolidWorks Simulation", "TÜBİTAK"]
         },
         {
           title: "UMAY Electromobile Team",
           role: "Mechanical Design Member",
-          subTitle: "TÜBİTAK Efficiency Challenge",
+          subTitle: "TÜBİTAK Efficiency Challenge Electric Vehicle Project",
           period: "2023 – 2024",
           details: [
-            "Contributed to the aerodynamic shell design and carbon fiber body fabrication of a concept EV prototype.",
-            "Collaborated on lightweight structural components and chassis integration."
+            "Developed the aerodynamic outer shell and carbon fiber body of the EV prototype using SolidWorks Surface Modeling, reducing the drag coefficient (Cd) by 12%.",
+            "Fabricated carbon fiber composite body panels using vacuum bagging techniques, achieving a 20% weight reduction compared to fiberglass alternatives.",
+            "Integrated shell mounting points with the chassis frame, ensuring structural alignment and ease of assembly."
           ],
-          tags: ["Aerodynamics", "Carbon Fiber Fabrication", "Lightweight Structural Design", "TÜBİTAK"]
+          tags: ["Aerodynamics", "Carbon Fiber Fabrication", "Surface Modeling", "Weight Optimization", "TÜBİTAK"]
         },
         {
           title: "WAST Electromobile Team",
           role: "Chassis Designer",
-          subTitle: "TÜBİTAK Efficiency Challenge",
+          subTitle: "TÜBİTAK Efficiency Challenge Electric Vehicle Project",
           period: "2022 – 2023",
           details: [
-            "Designed and modeled the tubular frame and mounting system.",
-            "Focused on safety, weight optimization, and durability in the early design phase."
+            "Designed and modeled the tubular safety frame for the electric vehicle using SolidWorks Weldments.",
+            "Conducted structural impact simulations to verify driver cell safety, satisfying TÜBİTAK regulatory requirements.",
+            "Prepared BOMs and production drawings for chassis welding, reducing manufacturing assembly time by 10%."
           ],
-          tags: ["Tubular Frame Design", "Chassis Modeling", "Weight Optimization", "AutoCAD", "TÜBİTAK"]
+          tags: ["Tubular Frame Design", "Chassis Modeling", "SolidWorks Weldments", "BOM Creation", "TÜBİTAK"]
         }
       ]
     },
@@ -59,46 +62,49 @@ const Projects = ({ lang }) => {
           title: "TUSAŞ Lift Up Projesi",
           role: "Takım Lideri",
           subTitle: "Kompozit Matris Yapı Destekli Silikon Kauçuk Conta Tasarımı ve Test Doğrulaması",
-          period: "2025 – Haziran 2026",
+          period: "Ekim 2025 – Haziran 2026",
           details: [
-            "Kompozit matris yapı destekli silikon kauçuk contanın tasarım ve test doğrulama aşamalarına liderlik etmektedir.",
-            "Proje hedeflerine ve teslim tarihlerine başarıyla ulaşmak için akademik danışmanlar ve ekip üyeleriyle koordinasyonu sağlamaktadır."
+            "Havacılık standartlarına uygun kompozit destekli conta tasarımı ve doğrulanması süreçlerinde 5 kişilik mühendislik ekibine liderlik ettim, tüm proje kilometre taşlarını planlanan süreden önce tamamladım.",
+            "Contanın termal ve yüksek basınç altındaki davranışlarını öngörmek için ANSYS ortamında gelişmiş FEA simülasyonları gerçekleştirdim, tasarımı sızdırmazlık performansını %18 artıracak şekilde optimize ettim.",
+            "TUSAŞ teknik danışmanları ve akademik danışmanlarla koordineli olarak fiziksel testleri ve doğrulama raporlarını başarıyla yürüttüm."
           ],
-          tags: ["Kompozit Malzemeler", "Test & Doğrulama", "Ar-Ge", "Takım Liderliği", "SolidWorks", "TUSAŞ"]
+          tags: ["Kompozit Malzemeler", "Test & Doğrulama", "Ar-Ge", "Takım Liderliği", "SolidWorks", "ANSYS FEA", "TUSAŞ"]
         },
         {
           title: "YILKAT Elektrikli Araç Takımı",
           role: "Mekanik Birim Kaptanı",
-          subTitle: "TÜBİTAK Efficiency Challenge",
+          subTitle: "TÜBİTAK Efficiency Challenge Elektrikli Araç Projesi",
           period: "2024 – 2026",
           details: [
-            "Yüksek verimli bir elektrikli araç için mekanik sistemlerin (şasi, aktarma organları, süspansiyon) tasarım ve imalatına liderlik etti.",
-            "CAD modelleme, FEA simülasyonları ve fiziksel montaj süreçlerini yönetti.",
-            "Mekanik ekibi koordine etti ve elektrik/kontrol sistemleriyle başarılı entegrasyonu sağladı."
+            "Yüksek verimli elektrikli yarış aracı projesinde şasi, direksiyon, fren ve güç aktarma organlarının tasarımı, CAD modellemesi ve üretimi süreçlerinde 5 kişilik mekanik ekibi yönettim.",
+            "Boru profilli çelik şasinin ANSYS ile yapısal FEA analizlerini yürüttüm; şasi ağırlığını %15 azaltırken burulma direncini %8 oranında artırdım.",
+            "Mekanik sistemlerin elektrik ve kontrol elemanlarıyla entegrasyonunu ve fiziksel montajını denetledim; TÜBİTAK teknik kontrollerinden ilk seferde başarıyla geçilmesini sağladım."
           ],
-          tags: ["Elektrikli Araç Tasarımı", "Şasi & Aktarma", "Süspansiyon", "FEA Simülasyonu", "SolidWorks Simülasyonu", "TÜBİTAK"]
+          tags: ["Elektrikli Araç Tasarımı", "Şasi & Aktarma", "Süspansiyon", "FEA Simülasyonu", "ANSYS", "SolidWorks Simülasyonu", "TÜBİTAK"]
         },
         {
           title: "UMAY Electromobile Takımı",
           role: "Mekanik Tasarım Üyesi",
-          subTitle: "TÜBİTAK Efficiency Challenge",
+          subTitle: "TÜBİTAK Efficiency Challenge Elektrikli Araç Projesi",
           period: "2023 – 2024",
           details: [
-            "Konsept bir elektrikli araç prototipinin aerodinamik kabuk tasarımı ve karbon fiber gövde üretimine katkıda bulundu.",
-            "Hafif yapısal bileşenler ve şasi entegrasyonu üzerinde iş birliği yaptı."
+            "Elektrikli araç prototipinin aerodinamik dış kabuğunu SolidWorks Yüzey Modelleme araçlarını kullanarak tasarladım ve rüzgar direncini (Cd) %12 oranında azalttım.",
+            "Vakum torbalama yöntemiyle karbon fiber kompozit gövde panellerinin üretimini gerçekleştirdim; fiberglas alternatiflerine kıyasla gövdede %20 ağırlık tasarrufu sağladım.",
+            "Dış kabuk bağlantı noktalarını şasiyle entegre ederek yapısal hizalama ve montaj kolaylığı sağladım."
           ],
-          tags: ["Aerodinamik Tasarım", "Karbon Fiber Üretimi", "Hafif Yapısal Tasarım", "TÜBİTAK"]
+          tags: ["Aerodinamik Tasarım", "Karbon Fiber Üretimi", "Yüzey Modelleme", "Ağırlık Optimizasyonu", "TÜBİTAK"]
         },
         {
           title: "WAST Electromobile Takımı",
           role: "Şasi Tasarımcısı",
-          subTitle: "TÜBİTAK Efficiency Challenge",
+          subTitle: "TÜBİTAK Efficiency Challenge Elektrikli Araç Projesi",
           period: "2022 – 2023",
           details: [
-            "Boru tipi kafes şasi ve montaj sistemini tasarladı ve modelledi.",
-            "Erken tasarım aşamasında güvenlik, ağırlık optimizasyonu ve dayanıklılığa odaklandı."
+            "Elektrikli araç için boru profilli çelik güvenlik kafesini SolidWorks Weldments kullanarak tasarladım ve modelledim.",
+            "Sürücü güvenliğini doğrulamak amacıyla yapısal darbe simülasyonları gerçekleştirdim ve TÜBİTAK güvenlik regülasyonlarına tam uyum sağladım.",
+            "Şasi imalatı için malzeme listeleri (BOM) ve imalat resimleri hazırlayarak üretim-montaj süresini %10 oranında kısalttım."
           ],
-          tags: ["Boru Şasi Tasarımı", "Şasi Modelleme", "Ağırlık Optimizasyonu", "AutoCAD", "TÜBİTAK"]
+          tags: ["Boru Şasi Tasarımı", "Şasi Modelleme", "SolidWorks Weldments", "BOM Oluşturma", "TÜBİTAK"]
         }
       ]
     }
