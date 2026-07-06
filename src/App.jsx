@@ -105,8 +105,12 @@ function App() {
             
             {/* SIDEBAR */}
             <aside class="sidebar-card no-print">
-              <div class="avatar-placeholder">
-                <Settings size={48} />
+              <div class="avatar-placeholder" style={{ overflow: 'hidden', padding: 0 }}>
+                <img 
+                  src="profile.jpeg" 
+                  alt="Soner Erdevir" 
+                  style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
+                />
               </div>
               <h1 class="profile-name">Soner Erdevir</h1>
               <div class="profile-title">
