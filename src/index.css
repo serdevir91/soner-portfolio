@@ -176,11 +176,6 @@ header.dashboard-header {
   margin-top: 16px;
 }
 
-@media (max-width: 900px) {
-  .cv-dashboard {
-    grid-template-columns: 1fr;
-  }
-}
 
 /* LEFT COL - SIDEBAR CARD */
 .sidebar-card {
@@ -718,6 +713,295 @@ footer {
 .view-mode-indicator i, .view-mode-indicator svg {
   color: var(--accent);
   margin-right: 8px;
+}
+
+/* ========================================
+   MOBILE RESPONSIVE RULES
+   ======================================== */
+
+/* Tablet and below */
+@media (max-width: 900px) {
+  .cv-dashboard {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar-card {
+    position: static;
+    top: auto;
+  }
+
+  .header-wrapper {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .controls {
+    width: 100%;
+    justify-content: flex-start;
+  }
+}
+
+/* Mobile phones */
+@media (max-width: 600px) {
+  /* Container */
+  .container {
+    padding: 0 12px;
+  }
+
+  /* Header */
+  header.dashboard-header {
+    padding: 10px 0;
+    margin-bottom: 16px;
+  }
+
+  .header-wrapper {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .logo {
+    font-size: 1rem;
+    justify-content: center;
+  }
+
+  .controls {
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+  }
+
+  .segmented-control {
+    flex-shrink: 0;
+  }
+
+  .segment-btn {
+    padding: 5px 10px;
+    font-size: 0.75rem;
+  }
+
+  .btn {
+    padding: 6px 10px;
+    font-size: 0.8rem;
+  }
+
+  /* View Mode Indicator */
+  .view-mode-indicator {
+    font-size: 0.75rem;
+    text-align: center;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  /* Dashboard Grid */
+  .cv-dashboard {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-top: 8px;
+  }
+
+  /* Sidebar Card */
+  .sidebar-card {
+    position: static;
+    top: auto;
+    padding: 20px;
+    border-radius: 12px;
+  }
+
+  .avatar-placeholder {
+    width: 90px;
+    height: 90px;
+    margin-bottom: 14px;
+  }
+
+  .profile-name {
+    font-size: 1.25rem;
+  }
+
+  .profile-title {
+    font-size: 0.8rem;
+    margin-bottom: 16px;
+  }
+
+  .contact-list {
+    padding-top: 14px;
+    margin-bottom: 16px;
+  }
+
+  .contact-item {
+    font-size: 0.8rem;
+    gap: 8px;
+    margin-bottom: 8px;
+    word-break: break-all;
+  }
+
+  /* Dashboard Cards */
+  .dashboard-card {
+    padding: 16px;
+    border-radius: 12px;
+  }
+
+  .section-title {
+    font-size: 1.05rem;
+    gap: 8px;
+    margin-bottom: 14px;
+    padding-bottom: 8px;
+  }
+
+  .profile-summary-text {
+    font-size: 0.875rem;
+    line-height: 1.6;
+  }
+
+  /* Skills */
+  .skills-group-title {
+    font-size: 0.8rem;
+  }
+
+  .skill-tag {
+    padding: 4px 10px;
+    font-size: 0.75rem;
+  }
+
+  /* Timeline */
+  .timeline {
+    padding-left: 18px;
+  }
+
+  .timeline-dot {
+    left: -27px;
+    width: 14px;
+    height: 14px;
+  }
+
+  .timeline-header {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .timeline-role {
+    font-size: 0.95rem;
+  }
+
+  .timeline-company {
+    font-size: 0.85rem;
+  }
+
+  .timeline-date {
+    font-size: 0.75rem;
+    align-self: flex-start;
+  }
+
+  .timeline-body {
+    font-size: 0.82rem;
+  }
+
+  .timeline-body li {
+    padding-left: 14px;
+    margin-bottom: 6px;
+  }
+
+  .timeline-item {
+    margin-bottom: 20px;
+  }
+
+  /* Education */
+  .edu-item {
+    flex-direction: column;
+    gap: 6px;
+    padding: 12px;
+  }
+
+  .edu-degree {
+    font-size: 0.875rem;
+  }
+
+  .edu-school {
+    font-size: 0.8rem;
+  }
+
+  /* Languages */
+  .lang-list {
+    gap: 10px;
+  }
+
+  .lang-item {
+    min-width: 110px;
+    padding: 10px 14px;
+    flex: 1;
+  }
+
+  .lang-name {
+    font-size: 0.875rem;
+  }
+
+  .lang-level {
+    font-size: 0.75rem;
+  }
+
+  /* References */
+  .ref-item-interactive strong {
+    font-size: 0.875rem;
+  }
+
+  .ref-item-interactive div {
+    font-size: 0.75rem;
+    word-break: break-word;
+  }
+
+  /* ATS Preview Container */
+  .ats-preview-container {
+    padding: 16px;
+    border-radius: 8px;
+  }
+
+  .ats-resume h1 {
+    font-size: 14pt;
+  }
+
+  .ats-resume .ats-title {
+    font-size: 9.5pt;
+  }
+
+  .ats-resume .ats-contacts {
+    font-size: 8.5pt;
+    word-break: break-word;
+  }
+
+  .ats-resume .ats-job-header {
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .ats-resume .ats-job-subheader {
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .ats-resume li {
+    font-size: 9pt;
+  }
+
+  .ats-resume .ats-skills-grid {
+    font-size: 9pt;
+    word-break: break-word;
+  }
+
+  .ats-resume .ats-ref-grid {
+    font-size: 8.5pt;
+  }
+
+  .ats-resume .ats-ref-item {
+    word-break: break-word;
+  }
+
+  /* Footer */
+  footer {
+    margin-top: 32px;
+    font-size: 0.75rem;
+    padding-top: 16px;
+  }
 }
 
 /* PRINT STYLESHEET */
