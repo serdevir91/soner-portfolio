@@ -6,6 +6,13 @@ const Education = ({ lang }) => {
       sectionTitle: "Education",
       education: [
         {
+          school: "Ankara Yıldırım Beyazıt University",
+          degree: "M.Sc. in Mechanical Engineering (With Thesis)",
+          location: "Ankara, Turkey",
+          period: "2026 – 2029 (Ongoing)",
+          details: ["Master's Degree with Thesis in Mechanical Engineering", "Focus on advanced mechanical design, thermal-fluid systems, and R&D"]
+        },
+        {
           school: "Akdeniz University",
           degree: "B.Sc. in Mechanical Engineering",
           location: "Antalya, Turkey",
@@ -31,6 +38,13 @@ const Education = ({ lang }) => {
     tr: {
       sectionTitle: "Eğitim",
       education: [
+        {
+          school: "Ankara Yıldırım Beyazıt Üniversitesi",
+          degree: "Tezli Makine Mühendisliği Yüksek Lisansı (M.Sc.)",
+          location: "Ankara, Türkiye",
+          period: "2026 – 2029 (Devam Ediyor)",
+          details: ["Makine Mühendisliği Tezli Yüksek Lisans Eğitimi", "İleri mekanik tasarım, termal-akışkan sistemler ve Ar-Ge odaklı akademik çalışmalar"]
+        },
         {
           school: "Akdeniz Üniversitesi",
           degree: "Makine Mühendisliği Lisans Derecesi (B.Sc.)",

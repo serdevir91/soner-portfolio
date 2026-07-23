@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { 
   Settings, Sliders, Printer, Sun, Moon, FileText, Eye, 
   User, Mail, Phone, Linkedin, MapPin, CheckCircle2, 
-  Trophy, GraduationCap, Languages, Users, Award, Briefcase, Wrench 
+  Trophy, GraduationCap, Languages, Users, Award, Briefcase, Wrench,
+  ShoppingBag
 } from 'lucide-react';
 
 function App() {
@@ -74,6 +75,11 @@ function App() {
                 <Printer size={14} style={{ marginRight: '4px', display: 'inline' }} /> ATS Print View
               </button>
             </div>
+
+            {/* My Store Link */}
+            <a href="https://serdevir91.github.io/my-store/" target="_blank" rel="noopener noreferrer" class="btn" style={{ textDecoration: 'none' }}>
+              <ShoppingBag size={16} /> {lang === 'en' ? 'My Store' : 'Mağaza'}
+            </a>
 
             {/* Theme Toggle */}
             <button class="btn" onClick={toggleTheme} title="Toggle Theme">
@@ -340,6 +346,13 @@ function App() {
                     <div class="edu-grid">
                       <div class="edu-item">
                         <div>
+                          <div class="edu-degree">M.Sc. in Mechanical Engineering (With Thesis)</div>
+                          <div class="edu-school">Ankara Yıldırım Beyazıt University (Ankara, Turkey)</div>
+                        </div>
+                        <span class="timeline-date">2026 – 2029 (Ongoing)</span>
+                      </div>
+                      <div class="edu-item">
+                        <div>
                           <div class="edu-degree">B.Sc. in Mechanical Engineering</div>
                           <div class="edu-school">Akdeniz University (Antalya, Turkey)</div>
                           <div class="edu-rank"><Award size={12} style={{ display: 'inline', marginRight: '4px' }} /> Graduated 3rd in the Department</div>
@@ -595,6 +608,13 @@ function App() {
                     <div class="edu-grid">
                       <div class="edu-item">
                         <div>
+                          <div class="edu-degree">Tezli Yüksek Lisans (M.Sc.) - Makine Mühendisliği</div>
+                          <div class="edu-school">Ankara Yıldırım Beyazıt Üniversitesi (Ankara, Türkiye)</div>
+                        </div>
+                        <span class="timeline-date">2026 – 2029 (Devam Ediyor)</span>
+                      </div>
+                      <div class="edu-item">
+                        <div>
                           <div class="edu-degree">Lisans (B.Sc.) - Makine Mühendisliği</div>
                           <div class="edu-school">Akdeniz Üniversitesi (Antalya, Türkiye)</div>
                           <div class="edu-rank"><Award size={12} style={{ display: 'inline', marginRight: '4px' }} /> Bölüm Dönem 3.lüğü ile Mezuniyet</div>
@@ -787,6 +807,16 @@ function App() {
                 <h2>Education</h2>
                 <div class="ats-job" style={{ marginBottom: '2px' }}>
                   <div class="ats-job-header">
+                    <span>ANKARA YILDIRIM BEYAZIT UNIVERSITY</span>
+                    <span>2026 – 2029 (Ongoing)</span>
+                  </div>
+                  <div class="ats-job-subheader">
+                    <span>M.Sc. in Mechanical Engineering (With Thesis)</span>
+                    <span>Ankara, Turkey</span>
+                  </div>
+                </div>
+                <div class="ats-job" style={{ marginBottom: '2px' }}>
+                  <div class="ats-job-header">
                     <span>AKDENIZ UNIVERSITY</span>
                     <span>Graduated: 2026</span>
                   </div>
@@ -960,6 +990,16 @@ function App() {
                 </div>
 
                 <h2>Eğitim</h2>
+                <div class="ats-job" style={{ marginBottom: '2px' }}>
+                  <div class="ats-job-header">
+                    <span>ANKARA YILDIRIM BEYAZIT ÜNİVERSİTESİ</span>
+                    <span>2026 – 2029 (Devam Ediyor)</span>
+                  </div>
+                  <div class="ats-job-subheader">
+                    <span>Tezli Makine Mühendisliği Yüksek Lisansı (M.Sc.)</span>
+                    <span>Ankara, Türkiye</span>
+                  </div>
+                </div>
                 <div class="ats-job" style={{ marginBottom: '2px' }}>
                   <div class="ats-job-header">
                     <span>AKDENİZ ÜNİVERSİTESİ</span>
