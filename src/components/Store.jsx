@@ -243,6 +243,46 @@ const APPS = [
     rating: "4.8 (Dev)",
     reviews: "Github Release",
     releaseDate: "2026-07-13"
+  },
+  {
+    id: "stokapp",
+    name: "Stokapp",
+    tagline: {
+      en: "Modern inventory & stock management system with financial analytics.",
+      tr: "Finansal analizler sunan modern stok ve envanter yönetim sistemi."
+    },
+    description: {
+      en: "Stokapp is an intuitive stock and inventory tracking web application built with React, Vite, and Tailwind CSS. It offers real-time profit/loss tracking, low-stock warnings, and Excel import/export capability.",
+      tr: "Stokapp; React, Vite ve Tailwind CSS ile geliştirilmiş sezgisel bir stok ve envanter takip web uygulamasıdır. Anlık kâr/zarar takibi, kritik stok uyarıları ve Excel içe/dışa aktarım desteği sunar."
+    },
+    icon: "./apps/stokapp/icon.png",
+    category: {
+      en: "Business / Finance",
+      tr: "İş & Finans"
+    },
+    platforms: ["Web", "Windows"],
+    playStoreUrl: null,
+    githubUrl: "https://github.com/serdevir91/Stokapp",
+    screenshots: [],
+    features: {
+      en: [
+        "Product Management: Fast stock addition and deduction.",
+        "Smart Alerts: Red alert warnings for critical stock thresholds.",
+        "Financial Analytics: Automatic profit/loss charts and inventory valuation.",
+        "Excel Integration: Import and export inventory lists easily."
+      ],
+      tr: [
+        "Ürün Yönetimi: Hızlı stok ekleme ve düşme işlemleri.",
+        "Akıllı Uyarılar: Kritik stok seviyeleri için kırmızı alarm uyarısı.",
+        "Finansal Analiz: Otomatik kâr/zarar grafikleri ve kasa bakiyesi.",
+        "Excel Entegrasyonu: Envanter listelerini kolayca içe ve dışa aktarın."
+      ]
+    },
+    version: "1.0.0",
+    size: "Web App",
+    rating: "4.9",
+    reviews: "Web App",
+    releaseDate: "2025-12-07"
   }
 ];
 
@@ -562,6 +602,16 @@ const Store = ({ lang }) => {
                           </div>
                         </a>
                       </>
+                    )}
+
+                    {selectedApp.id === 'stokapp' && (
+                      <a href="https://serdevir91.github.io/Stokapp/" target="_blank" rel="noopener noreferrer" className="download-link-btn direct-download" style={{ background: 'rgba(59, 130, 246, 0.15)', borderColor: 'rgba(59, 130, 246, 0.3)', color: '#60a5fa' }}>
+                        <span className="download-btn-icon"><ExternalLink size={16} /></span>
+                        <div className="download-btn-text">
+                          <span className="dl-small">Live Web App</span>
+                          <span className="dl-large">Open Stokapp</span>
+                        </div>
+                      </a>
                     )}
                   </div>
                 </div>

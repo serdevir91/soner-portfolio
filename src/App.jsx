@@ -6,6 +6,8 @@ import {
   ShoppingBag
 } from 'lucide-react';
 
+import Store from './components/Store';
+
 function App() {
   const [lang, setLang] = useState('en');
   const [viewMode, setViewMode] = useState('interactive');
@@ -60,13 +62,19 @@ function App() {
               </button>
             </div>
 
-            {/* Layout Selector (Interactive vs ATS Print) */}
-            <div class="segmented-control">
+            {/* Layout Selector (Interactive vs App Store vs ATS Print) */}
+            <div className="segmented-control">
               <button 
                 className={`segment-btn ${viewMode === 'interactive' ? 'active' : ''}`} 
                 onClick={() => setViewMode('interactive')}
               >
                 <Sliders size={14} style={{ marginRight: '4px', display: 'inline' }} /> Dashboard
+              </button>
+              <button 
+                className={`segment-btn ${viewMode === 'store' ? 'active' : ''}`} 
+                onClick={() => setViewMode('store')}
+              >
+                <ShoppingBag size={14} style={{ marginRight: '4px', display: 'inline' }} /> {lang === 'en' ? 'App Store' : 'Mağaza'}
               </button>
               <button 
                 className={`segment-btn ${viewMode === 'ats' ? 'active' : ''}`} 
@@ -76,10 +84,13 @@ function App() {
               </button>
             </div>
 
-            {/* My Store Link */}
-            <a href="https://serdevir91.github.io/Stokapp/" target="_blank" rel="noopener noreferrer" className="btn" style={{ textDecoration: 'none' }}>
-              <ShoppingBag size={16} /> {lang === 'en' ? 'My Store' : 'Mağaza'}
-            </a>
+            {/* App Store Toggle */}
+            <button 
+              className={`btn ${viewMode === 'store' ? 'btn-primary' : ''}`} 
+              onClick={() => setViewMode(prev => prev === 'store' ? 'interactive' : 'store')}
+            >
+              <ShoppingBag size={16} /> {lang === 'en' ? 'App Store' : 'Mağaza'}
+            </button>
 
             {/* Theme Toggle */}
             <button class="btn" onClick={toggleTheme} title="Toggle Theme">
@@ -680,11 +691,23 @@ function App() {
                 </div>
               )}
 
+              {/* STORE SECTION IN DASHBOARD */}
+              <div style={{ marginTop: '32px' }}>
+                <Store lang={lang} />
+              </div>
+
             </div>
           </div>
         )}
 
-        {/* 2. ATS PREVIEW VIEW (SCREEN & PRINT COMPATIBLE) */}
+        {/* 2. APP STORE FULL VIEW */}
+        {viewMode === 'store' && (
+          <div style={{ padding: '20px 0' }}>
+            <Store lang={lang} />
+          </div>
+        )}
+
+        {/* 3. ATS PREVIEW VIEW (SCREEN & PRINT COMPATIBLE) */}
         {viewMode === 'ats' && (
           <div class="ats-preview-container" style={{ display: 'block' }}>
             
