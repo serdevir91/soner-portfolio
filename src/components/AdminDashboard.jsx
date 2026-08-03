@@ -3,9 +3,11 @@ import {
   ShieldCheck, User, KeyRound, LogOut, LayoutDashboard, 
   ShoppingBag, Download, Upload, RefreshCw, Save, Plus, Trash2, 
   Edit3, AlertCircle, Eye, Briefcase, GraduationCap,
-  Award, BookOpen, PlusCircle, Globe, Smartphone, Monitor
+  Award, BookOpen, PlusCircle, Globe, Smartphone, Languages,
+  FileCheck2
 } from 'lucide-react';
 import { authenticateAdmin } from '../utils/auth';
+import { INITIAL_PORTFOLIO_DATA } from '../data/initialData';
 
 const AdminDashboard = ({ 
   isLoggedIn, 
@@ -24,15 +26,28 @@ const AdminDashboard = ({
   const [loginLoading, setLoginLoading] = useState(false);
 
   // Admin Navigation Tab
-  const [activeTab, setActiveTab] = useState('overview'); // 'overview', 'profile', 'experience', 'projects', 'education', 'references', 'apps', 'backup'
+  const [activeTab, setActiveTab] = useState('overview'); // 'overview', 'profile', 'experience', 'projects', 'education', 'languages', 'certificates', 'references', 'apps', 'backup'
 
   // Item Editor States
   const [editingItem, setEditingItem] = useState(null);
   const [isNewItem, setIsNewItem] = useState(false);
-  const [editingSection, setEditingSection] = useState(''); // 'apps', 'experience', 'projects', 'education', 'languages', 'references'
+  const [editingSection, setEditingSection] = useState('');
 
-  // Form State
-  const [formData, setFormData] = useState(data);
+  // Form State with fallback merging
+  const [formData, setFormData] = useState(() => {
+    return {
+      ...INITIAL_PORTFOLIO_DATA,
+      ...data,
+      profile: { ...INITIAL_PORTFOLIO_DATA.profile, ...(data?.profile || {}) },
+      experience: (data?.experience && data.experience.length > 0) ? data.experience : INITIAL_PORTFOLIO_DATA.experience,
+      projects: (data?.projects && data.projects.length > 0) ? data.projects : INITIAL_PORTFOLIO_DATA.projects,
+      education: (data?.education && data.education.length > 0) ? data.education : INITIAL_PORTFOLIO_DATA.education,
+      languages: (data?.languages && data.languages.length > 0) ? data.languages : INITIAL_PORTFOLIO_DATA.languages,
+      certificates: (data?.certificates && data.certificates.length > 0) ? data.certificates : INITIAL_PORTFOLIO_DATA.certificates,
+      references: (data?.references && data.references.length > 0) ? data.references : INITIAL_PORTFOLIO_DATA.references,
+      apps: (data?.apps && data.apps.length > 0) ? data.apps : INITIAL_PORTFOLIO_DATA.apps,
+    };
+  });
 
   // Handle Login Submit
   const handleLoginSubmit = async (e) => {
@@ -339,7 +354,7 @@ const AdminDashboard = ({
           <nav style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
             <button 
               className={`btn ${activeTab === 'overview' ? 'btn-primary' : ''}`}
-              onClick={() => { setActiveTab('overview'); setEditingItem(null); }}
+              onClick={() => { setActiveTab('overview'); setEditingItem(null); setEditingSection(''); }}
               style={{ justifyContent: 'flex-start', padding: '12px 14px', fontSize: '14px' }}
             >
               <LayoutDashboard size={17} /> {lang === 'tr' ? 'Genel Bakış' : 'Overview'}
@@ -347,7 +362,7 @@ const AdminDashboard = ({
 
             <button 
               className={`btn ${activeTab === 'profile' ? 'btn-primary' : ''}`}
-              onClick={() => { setActiveTab('profile'); setEditingItem(null); }}
+              onClick={() => { setActiveTab('profile'); setEditingItem(null); setEditingSection(''); }}
               style={{ justifyContent: 'flex-start', padding: '12px 14px', fontSize: '14px' }}
             >
               <User size={17} /> {lang === 'tr' ? 'Profil & Biyografi' : 'Profile & Bio'}
@@ -355,7 +370,7 @@ const AdminDashboard = ({
 
             <button 
               className={`btn ${activeTab === 'experience' ? 'btn-primary' : ''}`}
-              onClick={() => { setActiveTab('experience'); setEditingItem(null); }}
+              onClick={() => { setActiveTab('experience'); setEditingItem(null); setEditingSection(''); }}
               style={{ justifyContent: 'flex-start', padding: '12px 14px', fontSize: '14px' }}
             >
               <Briefcase size={17} /> {lang === 'tr' ? 'İş Deneyimleri' : 'Experience'}
@@ -363,7 +378,7 @@ const AdminDashboard = ({
 
             <button 
               className={`btn ${activeTab === 'projects' ? 'btn-primary' : ''}`}
-              onClick={() => { setActiveTab('projects'); setEditingItem(null); }}
+              onClick={() => { setActiveTab('projects'); setEditingItem(null); setEditingSection(''); }}
               style={{ justifyContent: 'flex-start', padding: '12px 14px', fontSize: '14px' }}
             >
               <Award size={17} /> {lang === 'tr' ? 'Projeler & Liderlik' : 'Projects'}
@@ -371,15 +386,31 @@ const AdminDashboard = ({
 
             <button 
               className={`btn ${activeTab === 'education' ? 'btn-primary' : ''}`}
-              onClick={() => { setActiveTab('education'); setEditingItem(null); }}
+              onClick={() => { setActiveTab('education'); setEditingItem(null); setEditingSection(''); }}
               style={{ justifyContent: 'flex-start', padding: '12px 14px', fontSize: '14px' }}
             >
-              <GraduationCap size={17} /> {lang === 'tr' ? 'Eğitim & Diller' : 'Education & Langs'}
+              <GraduationCap size={17} /> {lang === 'tr' ? 'Eğitim Geçmişi' : 'Education'}
+            </button>
+
+            <button 
+              className={`btn ${activeTab === 'languages' ? 'btn-primary' : ''}`}
+              onClick={() => { setActiveTab('languages'); setEditingItem(null); setEditingSection(''); }}
+              style={{ justifyContent: 'flex-start', padding: '12px 14px', fontSize: '14px' }}
+            >
+              <Languages size={17} /> {lang === 'tr' ? 'Bilinen Diller' : 'Languages'}
+            </button>
+
+            <button 
+              className={`btn ${activeTab === 'certificates' ? 'btn-primary' : ''}`}
+              onClick={() => { setActiveTab('certificates'); setEditingItem(null); setEditingSection(''); }}
+              style={{ justifyContent: 'flex-start', padding: '12px 14px', fontSize: '14px' }}
+            >
+              <FileCheck2 size={17} /> {lang === 'tr' ? 'Sertifikalar' : 'Certificates'}
             </button>
 
             <button 
               className={`btn ${activeTab === 'references' ? 'btn-primary' : ''}`}
-              onClick={() => { setActiveTab('references'); setEditingItem(null); }}
+              onClick={() => { setActiveTab('references'); setEditingItem(null); setEditingSection(''); }}
               style={{ justifyContent: 'flex-start', padding: '12px 14px', fontSize: '14px' }}
             >
               <BookOpen size={17} /> {lang === 'tr' ? 'Referanslar' : 'References'}
@@ -387,7 +418,7 @@ const AdminDashboard = ({
 
             <button 
               className={`btn ${activeTab === 'apps' ? 'btn-primary' : ''}`}
-              onClick={() => { setActiveTab('apps'); setEditingItem(null); }}
+              onClick={() => { setActiveTab('apps'); setEditingItem(null); setEditingSection(''); }}
               style={{ justifyContent: 'flex-start', padding: '12px 14px', fontSize: '14px' }}
             >
               <ShoppingBag size={17} /> {lang === 'tr' ? 'App Store Yöneticisi' : 'App Store Manager'}
@@ -395,7 +426,7 @@ const AdminDashboard = ({
 
             <button 
               className={`btn ${activeTab === 'backup' ? 'btn-primary' : ''}`}
-              onClick={() => { setActiveTab('backup'); setEditingItem(null); }}
+              onClick={() => { setActiveTab('backup'); setEditingItem(null); setEditingSection(''); }}
               style={{ justifyContent: 'flex-start', padding: '12px 14px', fontSize: '14px' }}
             >
               <Download size={17} /> {lang === 'tr' ? 'Yedek & Senkronizasyon' : 'Backup & Sync'}
@@ -413,57 +444,37 @@ const AdminDashboard = ({
                 {lang === 'tr' ? 'Sistem & Düzenleme Özeti' : 'System & Editing Overview'}
               </h3>
 
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '20px', marginBottom: '32px' }}>
-                <div style={{
-                  padding: '20px', background: 'rgba(59, 130, 246, 0.08)', border: '1px solid rgba(59, 130, 246, 0.2)',
-                  borderRadius: '16px'
-                }}>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(190px, 1fr))', gap: '16px', marginBottom: '32px' }}>
+                <div style={{ padding: '18px', background: 'rgba(59, 130, 246, 0.08)', border: '1px solid rgba(59, 130, 246, 0.2)', borderRadius: '16px' }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', color: '#3b82f6', marginBottom: '8px' }}>
                     <Briefcase size={22} />
-                    <span style={{ fontSize: '24px', fontWeight: '800' }}>{(formData.experience || []).length}</span>
+                    <span style={{ fontSize: '22px', fontWeight: '800' }}>{(formData.experience || []).length}</span>
                   </div>
-                  <div style={{ fontWeight: '700', fontSize: '14px', color: 'var(--text-primary)' }}>
-                    {lang === 'tr' ? 'İş Deneyimi' : 'Experience Entries'}
-                  </div>
+                  <div style={{ fontWeight: '700', fontSize: '13px', color: 'var(--text-primary)' }}>İş Deneyimi</div>
                 </div>
 
-                <div style={{
-                  padding: '20px', background: 'rgba(139, 92, 246, 0.08)', border: '1px solid rgba(139, 92, 246, 0.2)',
-                  borderRadius: '16px'
-                }}>
+                <div style={{ padding: '18px', background: 'rgba(139, 92, 246, 0.08)', border: '1px solid rgba(139, 92, 246, 0.2)', borderRadius: '16px' }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', color: '#8b5cf6', marginBottom: '8px' }}>
                     <Award size={22} />
-                    <span style={{ fontSize: '24px', fontWeight: '800' }}>{(formData.projects || []).length}</span>
+                    <span style={{ fontSize: '22px', fontWeight: '800' }}>{(formData.projects || []).length}</span>
                   </div>
-                  <div style={{ fontWeight: '700', fontSize: '14px', color: 'var(--text-primary)' }}>
-                    {lang === 'tr' ? 'Proje & Liderlik' : 'Projects & Roles'}
-                  </div>
+                  <div style={{ fontWeight: '700', fontSize: '13px', color: 'var(--text-primary)' }}>Proje & Liderlik</div>
                 </div>
 
-                <div style={{
-                  padding: '20px', background: 'rgba(16, 185, 129, 0.08)', border: '1px solid rgba(16, 185, 129, 0.2)',
-                  borderRadius: '16px'
-                }}>
+                <div style={{ padding: '18px', background: 'rgba(16, 185, 129, 0.08)', border: '1px solid rgba(16, 185, 129, 0.2)', borderRadius: '16px' }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', color: '#10b981', marginBottom: '8px' }}>
-                    <ShoppingBag size={22} />
-                    <span style={{ fontSize: '24px', fontWeight: '800' }}>{(formData.apps || []).length}</span>
+                    <GraduationCap size={22} />
+                    <span style={{ fontSize: '22px', fontWeight: '800' }}>{(formData.education || []).length}</span>
                   </div>
-                  <div style={{ fontWeight: '700', fontSize: '14px', color: 'var(--text-primary)' }}>
-                    {lang === 'tr' ? 'App Store Uygulamaları' : 'Store Apps'}
-                  </div>
+                  <div style={{ fontWeight: '700', fontSize: '13px', color: 'var(--text-primary)' }}>Eğitim</div>
                 </div>
 
-                <div style={{
-                  padding: '20px', background: 'rgba(245, 158, 11, 0.08)', border: '1px solid rgba(245, 158, 11, 0.2)',
-                  borderRadius: '16px'
-                }}>
+                <div style={{ padding: '18px', background: 'rgba(245, 158, 11, 0.08)', border: '1px solid rgba(245, 158, 11, 0.2)', borderRadius: '16px' }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', color: '#f59e0b', marginBottom: '8px' }}>
-                    <BookOpen size={22} />
-                    <span style={{ fontSize: '24px', fontWeight: '800' }}>{(formData.references || []).length}</span>
+                    <FileCheck2 size={22} />
+                    <span style={{ fontSize: '22px', fontWeight: '800' }}>{(formData.certificates || []).length}</span>
                   </div>
-                  <div style={{ fontWeight: '700', fontSize: '14px', color: 'var(--text-primary)' }}>
-                    {lang === 'tr' ? 'Referans Hocalar' : 'References'}
-                  </div>
+                  <div style={{ fontWeight: '700', fontSize: '13px', color: 'var(--text-primary)' }}>Sertifikalar</div>
                 </div>
               </div>
 
@@ -472,12 +483,12 @@ const AdminDashboard = ({
                 borderRadius: '16px', lineHeight: 1.6
               }}>
                 <h4 style={{ fontSize: '16px', fontWeight: '700', marginTop: 0, marginBottom: '10px', color: 'var(--text-primary)' }}>
-                  ✨ {lang === 'tr' ? 'Canlı Yönetim Kılavuzu' : 'Live Management Guide'}
+                  ✨ {lang === 'tr' ? 'Tam Yetkili Yönetim Modu' : 'Full Control Mode'}
                 </h4>
                 <p style={{ color: 'var(--text-secondary)', fontSize: '14px', margin: 0 }}>
                   {lang === 'tr' 
-                    ? 'Sol menüden İş Deneyimleri, Projeler, Eğitim, Referanslar ve App Store sekmelerine tıklayarak istediğiniz ögeyi düzenleyebilir veya yenisini ekleyebilirsiniz. Yapılan her güncelleme anında sitenizde ve PDF indirme alanında güncellenir.'
-                    : 'Select any tab on the left to edit Work Experience, Projects, Education, References, or App Store apps. All changes instantly reflect live across your site and generated PDF.'}
+                    ? 'Sol menüdeki tüm sekmeler aktif hale getirildi. İş Deneyimleriniz, Projeleriniz, Eğitim Geçmişiniz, Bilinen Diller, Sertifikalarınız, Referanslarınız ve App Store Uygulamalarınızın tamamını canlı olarak düzenleyebilirsiniz.'
+                    : 'All tabs in the sidebar are now fully populated and active. Manage Experience, Projects, Education, Languages, Certificates, References, and App Store apps seamlessly.'}
                 </p>
               </div>
             </div>
@@ -578,15 +589,13 @@ const AdminDashboard = ({
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '18px' }}>
                   <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
                     <div>
-                      <label style={{ display: 'block', fontSize: '13px', fontWeight: '600', marginBottom: '6px' }}>Unvan / Rol (TR)</label>
+                      <label style={{ display: 'block', fontSize: '13px', fontWeight: '600', marginBottom: '6px' }}>Unvan / Rol</label>
                       <input 
                         type="text"
-                        value={typeof editingItem.role === 'object' ? editingItem.role.tr : editingItem.role}
+                        value={typeof editingItem.role === 'object' ? (editingItem.role.tr || editingItem.role.en || '') : editingItem.role}
                         onChange={e => setEditingItem({
                           ...editingItem,
-                          role: typeof editingItem.role === 'object' 
-                            ? { ...editingItem.role, tr: e.target.value } 
-                            : { tr: e.target.value, en: e.target.value }
+                          role: { tr: e.target.value, en: e.target.value }
                         })}
                         style={{ width: '100%', padding: '12px', background: 'var(--bg-secondary)', border: '1px solid var(--border-color)', borderRadius: '10px', color: 'var(--text-primary)' }}
                       />
@@ -612,18 +621,18 @@ const AdminDashboard = ({
 
                   <div>
                     <label style={{ display: 'block', fontSize: '13px', fontWeight: '600', marginBottom: '6px' }}>
-                      Deneyim Maddeleri / Başarılar (TR - Her Satıra Bir Maddelendirme)
+                      Deneyim Maddeleri / Başarılar (Her Satıra Bir Maddelendirme)
                     </label>
                     <textarea 
-                      rows="5"
-                      value={Array.isArray(editingItem.bullets?.tr) ? editingItem.bullets.tr.join('\n') : (editingItem.bullets || []).join('\n')}
+                      rows="6"
+                      value={Array.isArray(editingItem.bullets?.tr) ? editingItem.bullets.tr.join('\n') : (Array.isArray(editingItem.bullets) ? editingItem.bullets.join('\n') : '')}
                       onChange={e => {
                         const lines = e.target.value.split('\n');
                         setEditingItem({
                           ...editingItem,
                           bullets: {
                             tr: lines,
-                            en: editingItem.bullets?.en || lines
+                            en: lines
                           }
                         });
                       }}
@@ -635,19 +644,19 @@ const AdminDashboard = ({
                     <button className="btn btn-primary" onClick={() => handleSaveSectionItem('experience', editingItem)}>
                       <Save size={16} /> {lang === 'tr' ? 'Deneyimi Kaydet' : 'Save Experience'}
                     </button>
-                    <button className="btn" onClick={() => setEditingItem(null)}>İptal</button>
+                    <button className="btn" onClick={() => { setEditingItem(null); setEditingSection(''); }}>İptal</button>
                   </div>
                 </div>
               ) : (
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-                  {(formData.experience || []).map(item => (
+                  {(formData.experience || INITIAL_PORTFOLIO_DATA.experience).map(item => (
                     <div key={item.id} style={{
                       padding: '20px', background: 'var(--bg-secondary)', border: '1px solid var(--border-color)',
                       borderRadius: '16px', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start'
                     }}>
                       <div>
                         <div style={{ fontWeight: '800', fontSize: '16px', color: 'var(--text-primary)' }}>
-                          {typeof item.role === 'object' ? item.role.tr : item.role}
+                          {typeof item.role === 'object' ? (item.role.tr || item.role.en) : item.role}
                         </div>
                         <div style={{ color: '#3b82f6', fontWeight: '600', fontSize: '14px', margin: '4px 0' }}>{item.company}</div>
                         <div style={{ fontSize: '12px', color: 'var(--text-secondary)', marginBottom: '8px' }}>{item.date}</div>
@@ -718,12 +727,12 @@ const AdminDashboard = ({
                     <button className="btn btn-primary" onClick={() => handleSaveSectionItem('projects', editingItem)}>
                       <Save size={16} /> Kaydet
                     </button>
-                    <button className="btn" onClick={() => setEditingItem(null)}>İptal</button>
+                    <button className="btn" onClick={() => { setEditingItem(null); setEditingSection(''); }}>İptal</button>
                   </div>
                 </div>
               ) : (
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-                  {(formData.projects || []).map(item => (
+                  {(formData.projects || INITIAL_PORTFOLIO_DATA.projects).map(item => (
                     <div key={item.id} style={{
                       padding: '20px', background: 'var(--bg-secondary)', border: '1px solid var(--border-color)',
                       borderRadius: '16px', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start'
@@ -744,12 +753,12 @@ const AdminDashboard = ({
             </div>
           )}
 
-          {/* TAB 5: EDUCATION & LANGUAGES EDITOR */}
+          {/* TAB 5: EDUCATION EDITOR */}
           {activeTab === 'education' && (
             <div>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px' }}>
                 <h3 style={{ fontSize: '22px', fontWeight: '800', margin: 0, color: 'var(--text-primary)' }}>
-                  {lang === 'tr' ? 'Eğitim Geçmişi ve Yabancı Diller' : 'Education & Languages'}
+                  {lang === 'tr' ? 'Eğitim Geçmişi' : 'Education History'}
                 </h3>
                 <button className="btn btn-primary" onClick={() => {
                   setEditingItem({ id: `edu_${Date.now()}`, degree: '', school: '', date: '', honors: '' });
@@ -804,12 +813,12 @@ const AdminDashboard = ({
                     <button className="btn btn-primary" onClick={() => handleSaveSectionItem('education', editingItem)}>
                       <Save size={16} /> Kaydet
                     </button>
-                    <button className="btn" onClick={() => setEditingItem(null)}>İptal</button>
+                    <button className="btn" onClick={() => { setEditingItem(null); setEditingSection(''); }}>İptal</button>
                   </div>
                 </div>
               ) : (
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-                  {(formData.education || []).map(item => (
+                  {(formData.education || INITIAL_PORTFOLIO_DATA.education).map(item => (
                     <div key={item.id} style={{
                       padding: '20px', background: 'var(--bg-secondary)', border: '1px solid var(--border-color)',
                       borderRadius: '16px', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start'
@@ -830,7 +839,148 @@ const AdminDashboard = ({
             </div>
           )}
 
-          {/* TAB 6: REFERENCES EDITOR */}
+          {/* TAB 6: LANGUAGES EDITOR */}
+          {activeTab === 'languages' && (
+            <div>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px' }}>
+                <h3 style={{ fontSize: '22px', fontWeight: '800', margin: 0, color: 'var(--text-primary)' }}>
+                  {lang === 'tr' ? 'Bilinen Yabancı Diller' : 'Known Languages'}
+                </h3>
+                <button className="btn btn-primary" onClick={() => {
+                  setEditingItem({ id: `lang_${Date.now()}`, name: '', level: '' });
+                  setIsNewItem(true);
+                  setEditingSection('languages');
+                }} style={{ gap: '8px' }}>
+                  <PlusCircle size={16} /> {lang === 'tr' ? 'Yeni Dil Ekle' : 'Add Language'}
+                </button>
+              </div>
+
+              {editingItem && editingSection === 'languages' ? (
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+                    <div>
+                      <label style={{ display: 'block', fontSize: '13px', fontWeight: '600', marginBottom: '6px' }}>Dil Adı (Örn: İngilizce)</label>
+                      <input 
+                        type="text"
+                        value={editingItem.name} onChange={e => setEditingItem({...editingItem, name: e.target.value})}
+                        style={{ width: '100%', padding: '12px', background: 'var(--bg-secondary)', border: '1px solid var(--border-color)', borderRadius: '10px', color: 'var(--text-primary)' }}
+                      />
+                    </div>
+                    <div>
+                      <label style={{ display: 'block', fontSize: '13px', fontWeight: '600', marginBottom: '6px' }}>Seviye / Yetkinlik (Örn: B2+ İleri Düzey)</label>
+                      <input 
+                        type="text"
+                        value={editingItem.level} onChange={e => setEditingItem({...editingItem, level: e.target.value})}
+                        style={{ width: '100%', padding: '12px', background: 'var(--bg-secondary)', border: '1px solid var(--border-color)', borderRadius: '10px', color: 'var(--text-primary)' }}
+                      />
+                    </div>
+                  </div>
+
+                  <div style={{ display: 'flex', gap: '12px', marginTop: '12px' }}>
+                    <button className="btn btn-primary" onClick={() => handleSaveSectionItem('languages', editingItem)}>
+                      <Save size={16} /> Kaydet
+                    </button>
+                    <button className="btn" onClick={() => { setEditingItem(null); setEditingSection(''); }}>İptal</button>
+                  </div>
+                </div>
+              ) : (
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+                  {(formData.languages || INITIAL_PORTFOLIO_DATA.languages).map(item => (
+                    <div key={item.id} style={{
+                      padding: '20px', background: 'var(--bg-secondary)', border: '1px solid var(--border-color)',
+                      borderRadius: '16px', display: 'flex', justifyContent: 'space-between', alignItems: 'center'
+                    }}>
+                      <div>
+                        <div style={{ fontWeight: '800', fontSize: '16px', color: 'var(--text-primary)' }}>{item.name}</div>
+                        <div style={{ color: '#3b82f6', fontWeight: '600', fontSize: '14px', marginTop: '4px' }}>{item.level}</div>
+                      </div>
+                      <div style={{ display: 'flex', gap: '8px' }}>
+                        <button className="btn" onClick={() => { setEditingItem(item); setIsNewItem(false); setEditingSection('languages'); }}><Edit3 size={15} /></button>
+                        <button className="btn" onClick={() => handleDeleteSectionItem('languages', item.id)} style={{ color: '#ef4444' }}><Trash2 size={15} /></button>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          )}
+
+          {/* TAB 7: CERTIFICATES EDITOR */}
+          {activeTab === 'certificates' && (
+            <div>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px' }}>
+                <h3 style={{ fontSize: '22px', fontWeight: '800', margin: 0, color: 'var(--text-primary)' }}>
+                  {lang === 'tr' ? 'Sertifikalar ve Başarı Belgeleri' : 'Certificates & Awards'}
+                </h3>
+                <button className="btn btn-primary" onClick={() => {
+                  setEditingItem({ id: `cert_${Date.now()}`, title: '', issuer: '', date: '', credentialUrl: '' });
+                  setIsNewItem(true);
+                  setEditingSection('certificates');
+                }} style={{ gap: '8px' }}>
+                  <PlusCircle size={16} /> {lang === 'tr' ? 'Yeni Sertifika Ekle' : 'Add Certificate'}
+                </button>
+              </div>
+
+              {editingItem && editingSection === 'certificates' ? (
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+                  <div>
+                    <label style={{ display: 'block', fontSize: '13px', fontWeight: '600', marginBottom: '6px' }}>Sertifika / Başarı Belgesi Adı</label>
+                    <input 
+                      type="text"
+                      value={editingItem.title} onChange={e => setEditingItem({...editingItem, title: e.target.value})}
+                      style={{ width: '100%', padding: '12px', background: 'var(--bg-secondary)', border: '1px solid var(--border-color)', borderRadius: '10px', color: 'var(--text-primary)' }}
+                    />
+                  </div>
+
+                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+                    <div>
+                      <label style={{ display: 'block', fontSize: '13px', fontWeight: '600', marginBottom: '6px' }}>Veren Kurum / Organizasyon</label>
+                      <input 
+                        type="text"
+                        value={editingItem.issuer} onChange={e => setEditingItem({...editingItem, issuer: e.target.value})}
+                        style={{ width: '100%', padding: '12px', background: 'var(--bg-secondary)', border: '1px solid var(--border-color)', borderRadius: '10px', color: 'var(--text-primary)' }}
+                      />
+                    </div>
+                    <div>
+                      <label style={{ display: 'block', fontSize: '13px', fontWeight: '600', marginBottom: '6px' }}>Tarih / Yıl</label>
+                      <input 
+                        type="text"
+                        value={editingItem.date} onChange={e => setEditingItem({...editingItem, date: e.target.value})}
+                        style={{ width: '100%', padding: '12px', background: 'var(--bg-secondary)', border: '1px solid var(--border-color)', borderRadius: '10px', color: 'var(--text-primary)' }}
+                      />
+                    </div>
+                  </div>
+
+                  <div style={{ display: 'flex', gap: '12px', marginTop: '12px' }}>
+                    <button className="btn btn-primary" onClick={() => handleSaveSectionItem('certificates', editingItem)}>
+                      <Save size={16} /> Kaydet
+                    </button>
+                    <button className="btn" onClick={() => { setEditingItem(null); setEditingSection(''); }}>İptal</button>
+                  </div>
+                </div>
+              ) : (
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+                  {(formData.certificates || INITIAL_PORTFOLIO_DATA.certificates).map(item => (
+                    <div key={item.id} style={{
+                      padding: '20px', background: 'var(--bg-secondary)', border: '1px solid var(--border-color)',
+                      borderRadius: '16px', display: 'flex', justifyContent: 'space-between', alignItems: 'center'
+                    }}>
+                      <div>
+                        <div style={{ fontWeight: '800', fontSize: '16px', color: 'var(--text-primary)' }}>{item.title}</div>
+                        <div style={{ color: '#f59e0b', fontWeight: '600', fontSize: '14px', marginTop: '4px' }}>{item.issuer} • {item.date}</div>
+                      </div>
+                      <div style={{ display: 'flex', gap: '8px' }}>
+                        <button className="btn" onClick={() => { setEditingItem(item); setIsNewItem(false); setEditingSection('certificates'); }}><Edit3 size={15} /></button>
+                        <button className="btn" onClick={() => handleDeleteSectionItem('certificates', item.id)} style={{ color: '#ef4444' }}><Trash2 size={15} /></button>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          )}
+
+          {/* TAB 8: REFERENCES EDITOR */}
           {activeTab === 'references' && (
             <div>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px' }}>
@@ -890,12 +1040,12 @@ const AdminDashboard = ({
                     <button className="btn btn-primary" onClick={() => handleSaveSectionItem('references', editingItem)}>
                       <Save size={16} /> Kaydet
                     </button>
-                    <button className="btn" onClick={() => setEditingItem(null)}>İptal</button>
+                    <button className="btn" onClick={() => { setEditingItem(null); setEditingSection(''); }}>İptal</button>
                   </div>
                 </div>
               ) : (
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-                  {(formData.references || []).map(item => (
+                  {(formData.references || INITIAL_PORTFOLIO_DATA.references).map(item => (
                     <div key={item.id} style={{
                       padding: '20px', background: 'var(--bg-secondary)', border: '1px solid var(--border-color)',
                       borderRadius: '16px', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start'
@@ -916,7 +1066,7 @@ const AdminDashboard = ({
             </div>
           )}
 
-          {/* TAB 7: APP STORE MANAGER */}
+          {/* TAB 9: APP STORE MANAGER */}
           {activeTab === 'apps' && editingSection !== 'apps' && (
             <div>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px' }}>
@@ -934,7 +1084,7 @@ const AdminDashboard = ({
               </div>
 
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '20px' }}>
-                {formData.apps.map(app => (
+                {(formData.apps || INITIAL_PORTFOLIO_DATA.apps).map(app => (
                   <div key={app.id} style={{
                     background: 'var(--bg-secondary)', border: '1px solid var(--border-color)',
                     borderRadius: '16px', padding: '20px', display: 'flex', flexDirection: 'column',
@@ -951,13 +1101,13 @@ const AdminDashboard = ({
                         <div>
                           <div style={{ fontWeight: '800', fontSize: '16px', color: 'var(--text-primary)' }}>{app.name}</div>
                           <div style={{ fontSize: '12px', color: 'var(--text-secondary)' }}>
-                            {app.category[lang] || app.category.tr} • v{app.version}
+                            {app.category ? (app.category[lang] || app.category.tr || app.category) : 'App'} • v{app.version}
                           </div>
                         </div>
                       </div>
 
                       <p style={{ fontSize: '13px', color: 'var(--text-secondary)', margin: 0, lineHeight: 1.45 }}>
-                        {app.tagline[lang] || app.tagline.tr}
+                        {app.tagline ? (app.tagline[lang] || app.tagline.tr || app.tagline) : ''}
                       </p>
                     </div>
 
@@ -982,7 +1132,7 @@ const AdminDashboard = ({
                 <h3 style={{ fontSize: '20px', fontWeight: '800', margin: 0 }}>
                   {isNewItem ? (lang === 'tr' ? 'Yeni Uygulama Ekle' : 'Add New App') : (lang === 'tr' ? 'Uygulamayı Düzenle' : 'Edit App')}
                 </h3>
-                <button type="button" className="btn" onClick={() => setEditingItem(null)}>
+                <button type="button" className="btn" onClick={() => { setEditingItem(null); setEditingSection(''); }}>
                   {lang === 'tr' ? 'İptal' : 'Cancel'}
                 </button>
               </div>
@@ -1011,7 +1161,11 @@ const AdminDashboard = ({
                   <label style={{ display: 'block', fontSize: '13px', fontWeight: '600', color: 'var(--text-secondary)', marginBottom: '6px' }}>Tagline (TR)</label>
                   <input 
                     type="text"
-                    value={editingItem.tagline?.tr || ''} onChange={e => setEditingItem({...editingItem, tagline: {...editingItem.tagline, tr: e.target.value}})}
+                    value={typeof editingItem.tagline === 'object' ? (editingItem.tagline.tr || '') : editingItem.tagline} 
+                    onChange={e => setEditingItem({
+                      ...editingItem,
+                      tagline: typeof editingItem.tagline === 'object' ? { ...editingItem.tagline, tr: e.target.value } : { tr: e.target.value, en: e.target.value }
+                    })}
                     style={{ width: '100%', padding: '12px 14px', background: 'var(--bg-secondary)', border: '1px solid var(--border-color)', borderRadius: '10px', color: 'var(--text-primary)', outline: 'none' }}
                   />
                 </div>
@@ -1019,7 +1173,11 @@ const AdminDashboard = ({
                   <label style={{ display: 'block', fontSize: '13px', fontWeight: '600', color: 'var(--text-secondary)', marginBottom: '6px' }}>Tagline (EN)</label>
                   <input 
                     type="text"
-                    value={editingItem.tagline?.en || ''} onChange={e => setEditingItem({...editingItem, tagline: {...editingItem.tagline, en: e.target.value}})}
+                    value={typeof editingItem.tagline === 'object' ? (editingItem.tagline.en || '') : editingItem.tagline} 
+                    onChange={e => setEditingItem({
+                      ...editingItem,
+                      tagline: typeof editingItem.tagline === 'object' ? { ...editingItem.tagline, en: e.target.value } : { tr: e.target.value, en: e.target.value }
+                    })}
                     style={{ width: '100%', padding: '12px 14px', background: 'var(--bg-secondary)', border: '1px solid var(--border-color)', borderRadius: '10px', color: 'var(--text-primary)', outline: 'none' }}
                   />
                 </div>
@@ -1048,7 +1206,7 @@ const AdminDashboard = ({
                 <label style={{ display: 'block', fontSize: '13px', fontWeight: '600', color: 'var(--text-secondary)', marginBottom: '6px' }}>{lang === 'tr' ? 'İkon Yolu / URL' : 'Icon Path / URL'}</label>
                 <input 
                   type="text" placeholder="./apps/my_app/icon.png"
-                  value={editingItem.icon} onChange={e => setEditingItem({...editingItem, icon: e.target.value})}
+                  value={editingItem.icon || ''} onChange={e => setEditingItem({...editingItem, icon: e.target.value})}
                   style={{ width: '100%', padding: '12px 14px', background: 'var(--bg-secondary)', border: '1px solid var(--border-color)', borderRadius: '10px', color: 'var(--text-primary)', outline: 'none' }}
                 />
               </div>
@@ -1061,7 +1219,7 @@ const AdminDashboard = ({
             </form>
           )}
 
-          {/* TAB 8: BACKUP & SYNC */}
+          {/* TAB 10: BACKUP & SYNC */}
           {activeTab === 'backup' && (
             <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
               <h3 style={{ fontSize: '22px', fontWeight: '800', marginTop: 0, marginBottom: '8px', color: 'var(--text-primary)' }}>

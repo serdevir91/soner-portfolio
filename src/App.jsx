@@ -18,11 +18,25 @@ function App() {
     return localStorage.getItem('theme') || 'dark';
   });
 
-  // Portfolio Data state
+  // Portfolio Data state (with robust default merging)
   const [portfolioData, setPortfolioData] = useState(() => {
     const saved = localStorage.getItem('portfolio_data');
     if (saved) {
-      try { return JSON.parse(saved); } catch (e) {}
+      try {
+        const parsed = JSON.parse(saved);
+        return {
+          ...INITIAL_PORTFOLIO_DATA,
+          ...parsed,
+          profile: { ...INITIAL_PORTFOLIO_DATA.profile, ...(parsed.profile || {}) },
+          experience: (parsed.experience && parsed.experience.length > 0) ? parsed.experience : INITIAL_PORTFOLIO_DATA.experience,
+          projects: (parsed.projects && parsed.projects.length > 0) ? parsed.projects : INITIAL_PORTFOLIO_DATA.projects,
+          education: (parsed.education && parsed.education.length > 0) ? parsed.education : INITIAL_PORTFOLIO_DATA.education,
+          languages: (parsed.languages && parsed.languages.length > 0) ? parsed.languages : INITIAL_PORTFOLIO_DATA.languages,
+          certificates: (parsed.certificates && parsed.certificates.length > 0) ? parsed.certificates : INITIAL_PORTFOLIO_DATA.certificates,
+          references: (parsed.references && parsed.references.length > 0) ? parsed.references : INITIAL_PORTFOLIO_DATA.references,
+          apps: (parsed.apps && parsed.apps.length > 0) ? parsed.apps : INITIAL_PORTFOLIO_DATA.apps,
+        };
+      } catch (e) {}
     }
     return INITIAL_PORTFOLIO_DATA;
   });

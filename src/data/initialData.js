@@ -120,6 +120,30 @@ export const INITIAL_PORTFOLIO_DATA = {
     { id: "lang_2", name: "İngilizce", level: "Profesyonel Çalışma Yetkinliği (B2+)" }
   ],
 
+  certificates: [
+    {
+      id: "cert_1",
+      title: "TUSAŞ Lift Up Ar-Ge Projesi Başarı Belgesi",
+      issuer: "Türk Havacılık ve Uzay Sanayii (TUSAŞ)",
+      date: "2026",
+      credentialUrl: ""
+    },
+    {
+      id: "cert_2",
+      title: "Berlitz İleri Düzey İngilizce Sertifikası (B2+)",
+      issuer: "Berlitz Dil Akademisi & Esas Sosyal",
+      date: "2026",
+      credentialUrl: ""
+    },
+    {
+      id: "cert_3",
+      title: "TÜBİTAK Efficiency Challenge Katılım & Derece Belgesi",
+      issuer: "TÜBİTAK",
+      date: "2025",
+      credentialUrl: ""
+    }
+  ],
+
   references: [
     {
       id: "ref_1",
