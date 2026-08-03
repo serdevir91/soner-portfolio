@@ -31,6 +31,7 @@ function App() {
           experience: (parsed.experience && parsed.experience.length > 0) ? parsed.experience : INITIAL_PORTFOLIO_DATA.experience,
           projects: (parsed.projects && parsed.projects.length > 0) ? parsed.projects : INITIAL_PORTFOLIO_DATA.projects,
           education: (parsed.education && parsed.education.length > 0) ? parsed.education : INITIAL_PORTFOLIO_DATA.education,
+          skills: (parsed.skills && parsed.skills.length > 0) ? parsed.skills : INITIAL_PORTFOLIO_DATA.skills,
           languages: (parsed.languages && parsed.languages.length > 0) ? parsed.languages : INITIAL_PORTFOLIO_DATA.languages,
           certificates: (parsed.certificates && parsed.certificates.length > 0) ? parsed.certificates : INITIAL_PORTFOLIO_DATA.certificates,
           references: (parsed.references && parsed.references.length > 0) ? parsed.references : INITIAL_PORTFOLIO_DATA.references,
@@ -225,47 +226,19 @@ function App() {
                   </section>
 
                   {/* Technical Skills Card */}
-                  <section class="dashboard-card" style={{ marginBottom: '24px' }}>
-                    <h2 class="section-title"><Wrench size={18} /> Technical & Soft Skills</h2>
-                    <div class="skills-category-wrapper">
-                      <div class="skills-group">
-                        <div class="skills-group-title">CAD & Modeling</div>
-                        <div class="skills-list">
-                          <span class="skill-tag">SolidWorks</span>
-                          <span class="skill-tag">PTC Creo</span>
-                          <span class="skill-tag">AutoCAD</span>
-                          <span class="skill-tag">Autodesk Fusion 360</span>
-                          <span class="skill-tag">Surface Modeling</span>
-                          <span class="skill-tag">Weldments</span>
-                          <span class="skill-tag">Engineering Drawings</span>
+                  <section className="dashboard-card" style={{ marginBottom: '24px' }}>
+                    <h2 className="section-title"><Wrench size={18} /> Technical & Soft Skills</h2>
+                    <div className="skills-category-wrapper">
+                      {(portfolioData.skills || INITIAL_PORTFOLIO_DATA.skills).map(sk => (
+                        <div key={sk.id} className="skills-group">
+                          <div className="skills-group-title">{typeof sk.category === 'object' ? (sk.category.en || sk.category.tr) : sk.category}</div>
+                          <div className="skills-list">
+                            {(sk.tags || []).map((tag, idx) => (
+                              <span key={idx} className="skill-tag">{tag}</span>
+                            ))}
+                          </div>
                         </div>
-                      </div>
-                      <div class="skills-group">
-                        <div class="skills-group-title">Simulation & Engineering Methodologies</div>
-                        <div class="skills-list">
-                          <span class="skill-tag">ANSYS</span>
-                          <span class="skill-tag">SolidWorks Simulation</span>
-                          <span class="skill-tag">Finite Element Analysis (FEA)</span>
-                          <span class="skill-tag">GD&T (Geometric Dimensioning)</span>
-                          <span class="skill-tag">DFM (Design for Manufacturing)</span>
-                          <span class="skill-tag">BOM Creation</span>
-                          <span class="skill-tag">Tolerance Analysis</span>
-                          <span class="skill-tag">Material Selection</span>
-                        </div>
-                      </div>
-                      <div class="skills-group">
-                        <div class="skills-group-title">Manufacturing & Software</div>
-                        <div class="skills-list">
-                          <span class="skill-tag">CNC Machining Workflows</span>
-                          <span class="skill-tag">Composite Fabrication (Carbon Fiber)</span>
-                          <span class="skill-tag">3D Printing / Additive Mfg</span>
-                          <span class="skill-tag">Sheet Metal Design</span>
-                          <span class="skill-tag">MATLAB</span>
-                          <span class="skill-tag">Python (Basic)</span>
-                          <span class="skill-tag">Flutter</span>
-                          <span class="skill-tag">Technical Report Writing</span>
-                        </div>
-                      </div>
+                      ))}
                     </div>
                   </section>
 
@@ -490,47 +463,19 @@ function App() {
                     </p>
                   </section>
 
-                  <section class="dashboard-card" style={{ marginBottom: '24px' }}>
-                    <h2 class="section-title"><Wrench size={18} /> Teknik & Kişisel Yetkinlikler</h2>
-                    <div class="skills-category-wrapper">
-                      <div class="skills-group">
-                        <div class="skills-group-title">CAD & Modelleme</div>
-                        <div class="skills-list">
-                          <span class="skill-tag">SolidWorks</span>
-                          <span class="skill-tag">PTC Creo</span>
-                          <span class="skill-tag">AutoCAD</span>
-                          <span class="skill-tag">Autodesk Fusion 360</span>
-                          <span class="skill-tag">Gelişmiş Yüzey Modelleme</span>
-                          <span class="skill-tag">Profil Tasarımı (Weldments)</span>
-                          <span class="skill-tag">İmalat Çizimleri</span>
+                  <section className="dashboard-card" style={{ marginBottom: '24px' }}>
+                    <h2 className="section-title"><Wrench size={18} /> Teknik & Kişisel Yetkinlikler</h2>
+                    <div className="skills-category-wrapper">
+                      {(portfolioData.skills || INITIAL_PORTFOLIO_DATA.skills).map(sk => (
+                        <div key={sk.id} className="skills-group">
+                          <div className="skills-group-title">{typeof sk.category === 'object' ? (sk.category.tr || sk.category.en) : sk.category}</div>
+                          <div className="skills-list">
+                            {(sk.tags || []).map((tag, idx) => (
+                              <span key={idx} className="skill-tag">{tag}</span>
+                            ))}
+                          </div>
                         </div>
-                      </div>
-                      <div class="skills-group">
-                        <div class="skills-group-title">Simülasyon & Mühendislik Metotları</div>
-                        <div class="skills-list">
-                          <span class="skill-tag">ANSYS</span>
-                          <span class="skill-tag">SolidWorks Simulation</span>
-                          <span class="skill-tag">Sonlu Elemanlar Analizi (FEA)</span>
-                          <span class="skill-tag">GD&T (Geometrik Toleranslandırma)</span>
-                          <span class="skill-tag">DFM (Üretilebilirlik için Tasarım)</span>
-                          <span class="skill-tag">BOM (Malzeme Listesi) Oluşturma</span>
-                          <span class="skill-tag">Tolerans Analizi</span>
-                          <span class="skill-tag">Malzeme Seçimi</span>
-                        </div>
-                      </div>
-                      <div class="skills-group">
-                        <div class="skills-group-title">İmalat & Yazılım</div>
-                        <div class="skills-list">
-                          <span class="skill-tag">CNC İşleme Süreçleri</span>
-                          <span class="skill-tag">Kompozit İmalatı (Karbon Fiber)</span>
-                          <span class="skill-tag">3D Yazıcı / Eklemeli İmalat</span>
-                          <span class="skill-tag">Sac Metal Tasarımı</span>
-                          <span class="skill-tag">MATLAB</span>
-                          <span class="skill-tag">Python (Temel Seviye)</span>
-                          <span class="skill-tag">Flutter</span>
-                          <span class="skill-tag">Teknik Rapor Hazırlama</span>
-                        </div>
-                      </div>
+                      ))}
                     </div>
                   </section>
 

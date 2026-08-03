@@ -13,6 +13,24 @@ export const INITIAL_PORTFOLIO_DATA = {
     }
   },
 
+  skills: [
+    {
+      id: "skill_cat_1",
+      category: { tr: "CAD & Modelleme", en: "CAD & Modeling" },
+      tags: ["SolidWorks", "PTC Creo", "AutoCAD", "Autodesk Fusion 360", "Gelişmiş Yüzey Modelleme", "Profil Tasarımı (Weldments)", "İmalat Çizimleri"]
+    },
+    {
+      id: "skill_cat_2",
+      category: { tr: "Simülasyon & Mühendislik Metotları", en: "Simulation & Engineering Methods" },
+      tags: ["ANSYS", "SolidWorks Simulation", "Sonlu Elemanlar Analizi (FEA)", "GD&T (Geometrik Toleranslandırma)", "DFM (Üretilebilirlik için Tasarım)", "BOM Oluşturma", "Tolerans Analizi", "Malzeme Seçimi"]
+    },
+    {
+      id: "skill_cat_3",
+      category: { tr: "İmalat & Yazılım", en: "Manufacturing & Software" },
+      tags: ["CNC İşleme Süreçleri", "Kompozit İmalatı (Karbon Fiber)", "3D Yazıcı / Eklemeli İmalat", "Sac Metal Tasarımı", "MATLAB", "Python", "Flutter", "Teknik Rapor Hazırlama"]
+    }
+  ],
+
   experience: [
     {
       id: "exp_1",
