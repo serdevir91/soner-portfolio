@@ -33,7 +33,7 @@ export const INITIAL_PORTFOLIO_DATA = {
 
   experience: [
     {
-      id: "exp_1",
+      id: "exp_deico",
       role: { en: "Engineering Intern", tr: "Mühendislik Stajyeri" },
       company: "Deico Engineering Inc.",
       date: "July 2025 – August 2025",
@@ -51,7 +51,7 @@ export const INITIAL_PORTFOLIO_DATA = {
       }
     },
     {
-      id: "exp_2",
+      id: "exp_akdeniz",
       role: { en: "Laboratory Assistant (İŞKUR Program)", tr: "Laboratuvar Mühendisi (Araştırmacı - İŞKUR)" },
       company: "Akdeniz University Mechanical Laboratory",
       date: "February 2025 – June 2025",
@@ -69,7 +69,7 @@ export const INITIAL_PORTFOLIO_DATA = {
       }
     },
     {
-      id: "exp_3",
+      id: "exp_kristal",
       role: { en: "Engineering Intern", tr: "Mühendislik Stajyeri" },
       company: "Kristal Industry Inc.",
       date: "July 2024 – August 2024",
@@ -90,7 +90,7 @@ export const INITIAL_PORTFOLIO_DATA = {
 
   projects: [
     {
-      id: "proj_1",
+      id: "proj_tusas",
       title: "Composite Matrix Structure Supported Silicone Rubber Gasket Design and Test Validation",
       role: "Team Leader",
       company: "TUSAŞ Lift Up R&D Project",
@@ -109,7 +109,7 @@ export const INITIAL_PORTFOLIO_DATA = {
       }
     },
     {
-      id: "proj_2",
+      id: "proj_yilkat",
       title: "YILKAT Electric Vehicle Team (TÜBİTAK Challenge)",
       role: "Mechanical Division Captain",
       company: "YILKAT Electric Vehicle Team",
@@ -128,7 +128,7 @@ export const INITIAL_PORTFOLIO_DATA = {
       }
     },
     {
-      id: "proj_3",
+      id: "proj_umay",
       title: "UMAY Electromobile Team (TÜBİTAK Challenge)",
       role: "Mechanical Designer",
       company: "UMAY Electromobile Team",
@@ -147,7 +147,7 @@ export const INITIAL_PORTFOLIO_DATA = {
       }
     },
     {
-      id: "proj_4",
+      id: "proj_wast",
       title: "WAST Electromobile Team (TÜBİTAK Challenge)",
       role: "Chassis Designer",
       company: "WAST Electromobile Team",

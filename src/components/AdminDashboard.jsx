@@ -372,7 +372,19 @@ const AdminDashboard = ({
           </div>
         </div>
 
-        <div style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
+        <div style={{ display: 'flex', gap: '12px', alignItems: 'center', flexWrap: 'wrap' }}>
+          <button 
+            className="btn" 
+            onClick={() => {
+              setFormData(INITIAL_PORTFOLIO_DATA);
+              onSaveData(INITIAL_PORTFOLIO_DATA);
+              alert(lang === 'tr' ? 'Tüm CV verileri tam fabrika listesi olarak yenilendi!' : 'All CV data synchronized with full factory dataset!');
+            }}
+            style={{ gap: '8px', color: '#10b981', borderColor: 'rgba(16, 185, 129, 0.35)' }}
+            title="Tüm CV verilerini fabrika ayarlarına ve eksiksiz öğelere yenile"
+          >
+            <RefreshCw size={16} /> {lang === 'tr' ? 'CV Verilerini Senkronize Et' : 'Sync Full CV Data'}
+          </button>
           <button className="btn" onClick={() => onSwitchView('interactive')} style={{ gap: '8px' }}>
             <Eye size={16} /> {lang === 'tr' ? 'Canlı Siteyi Gör' : 'View Live Site'}
           </button>
