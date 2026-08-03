@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import { 
-  ShieldCheck, Lock, User, KeyRound, LogOut, LayoutDashboard, 
+  ShieldCheck, User, KeyRound, LogOut, LayoutDashboard, 
   ShoppingBag, Download, Upload, RefreshCw, Save, Plus, Trash2, 
-  Edit3, ExternalLink, Check, AlertCircle, Eye, Sparkles, Layers,
-  Smartphone, Monitor, Globe, PlusCircle, Briefcase, GraduationCap,
-  Award, FileText, BookOpen
+  Edit3, AlertCircle, Eye, Briefcase, GraduationCap,
+  Award, BookOpen, PlusCircle, Globe, Smartphone, Monitor
 } from 'lucide-react';
 import { authenticateAdmin } from '../utils/auth';
 
@@ -30,6 +29,7 @@ const AdminDashboard = ({
   // Item Editor States
   const [editingItem, setEditingItem] = useState(null);
   const [isNewItem, setIsNewItem] = useState(false);
+  const [editingSection, setEditingSection] = useState(''); // 'apps', 'experience', 'projects', 'education', 'languages', 'references'
 
   // Form State
   const [formData, setFormData] = useState(data);
@@ -86,7 +86,7 @@ const AdminDashboard = ({
     alert(lang === 'tr' ? 'Profil bilgileri başarıyla güncellendi!' : 'Profile updated successfully!');
   };
 
-  // Generic Section Handlers (Experience, Projects, Education, References)
+  // Generic Section Item Handlers
   const handleSaveSectionItem = (sectionKey, item) => {
     let list = [...(formData[sectionKey] || [])];
     if (isNewItem) {
@@ -98,6 +98,7 @@ const AdminDashboard = ({
     setFormData(updated);
     onSaveData(updated);
     setEditingItem(null);
+    setEditingSection('');
   };
 
   const handleDeleteSectionItem = (sectionKey, itemId) => {
@@ -107,6 +108,41 @@ const AdminDashboard = ({
       setFormData(updated);
       onSaveData(updated);
     }
+  };
+
+  // Open App Editor
+  const handleEditApp = (app = null) => {
+    setEditingSection('apps');
+    if (app) {
+      setEditingItem(JSON.parse(JSON.stringify(app)));
+      setIsNewItem(false);
+    } else {
+      setEditingItem({
+        id: `app_${Date.now()}`,
+        name: '',
+        tagline: { en: '', tr: '' },
+        description: { en: '', tr: '' },
+        icon: '',
+        category: { en: 'Tools', tr: 'Araçlar' },
+        platforms: ['Android'],
+        playStoreUrl: '',
+        githubUrl: '',
+        screenshots: [],
+        features: { en: ['High Performance'], tr: ['Yüksek Performans'] },
+        version: '1.0.0',
+        size: '15 MB',
+        rating: '5.0',
+        reviews: '1',
+        releaseDate: new Date().toISOString().split('T')[0]
+      });
+      setIsNewItem(true);
+    }
+  };
+
+  const handleSaveApp = (e) => {
+    e.preventDefault();
+    if (!editingItem || !editingItem.name) return;
+    handleSaveSectionItem('apps', editingItem);
   };
 
   // Backup Handlers
@@ -144,7 +180,7 @@ const AdminDashboard = ({
   };
 
   // ----------------------------------------------------
-  // UNAUTHENTICATED: FULL-PAGE LOGIN PORTAL (SEAMLESS THEME BLENDING)
+  // UNAUTHENTICATED: LOGIN SCREEN
   // ----------------------------------------------------
   if (!isLoggedIn) {
     return (
@@ -256,12 +292,12 @@ const AdminDashboard = ({
   }
 
   // ----------------------------------------------------
-  // AUTHENTICATED: FULL-PAGE MODERN ADMIN CONTROL CENTER
+  // AUTHENTICATED: FULL-PAGE MODERN ADMIN DASHBOARD
   // ----------------------------------------------------
   return (
     <div style={{ padding: '20px 0 60px 0' }}>
       
-      {/* ADMIN CONTROL HEADER BAR */}
+      {/* HEADER BAR */}
       <div className="dashboard-card" style={{
         padding: '20px 24px', marginBottom: '28px',
         display: 'flex', flexWrap: 'wrap', gap: '16px', alignItems: 'center', justifyContent: 'space-between'
@@ -295,7 +331,7 @@ const AdminDashboard = ({
         </div>
       </div>
 
-      {/* MAIN DASHBOARD LAYOUT: SIDEBAR + CONTENT */}
+      {/* SIDEBAR + MAIN CONTENT GRID */}
       <div style={{ display: 'grid', gridTemplateColumns: '260px 1fr', gap: '28px' }}>
         
         {/* SIDEBAR NAVIGATION */}
@@ -436,12 +472,12 @@ const AdminDashboard = ({
                 borderRadius: '16px', lineHeight: 1.6
               }}>
                 <h4 style={{ fontSize: '16px', fontWeight: '700', marginTop: 0, marginBottom: '10px', color: 'var(--text-primary)' }}>
-                  ✨ {lang === 'tr' ? 'Tam Sayfa Canlı Düzenleme Reberi' : 'Full Page Live Edit Guide'}
+                  ✨ {lang === 'tr' ? 'Canlı Yönetim Kılavuzu' : 'Live Management Guide'}
                 </h4>
                 <p style={{ color: 'var(--text-secondary)', fontSize: '14px', margin: 0 }}>
                   {lang === 'tr' 
-                    ? 'Sol menüyü kullanarak İş Deneyimlerinizi, Projelerinizi, Eğitiminizi, Referanslarınızı ve App Store uygulamalarınızı düzenleyebilirsiniz. Değişiklikler anında hem ekrandaki interaktif portfolyonuza hem de PDF (ATS Print View) indirme çıktısına yansır.'
-                    : 'Use the left navigation sidebar to manage Work Experience, Projects, Education, References, and App Store apps. All changes apply live to both screen display and PDF export.'}
+                    ? 'Sol menüden İş Deneyimleri, Projeler, Eğitim, Referanslar ve App Store sekmelerine tıklayarak istediğiniz ögeyi düzenleyebilir veya yenisini ekleyebilirsiniz. Yapılan her güncelleme anında sitenizde ve PDF indirme alanında güncellenir.'
+                    : 'Select any tab on the left to edit Work Experience, Projects, Education, References, or App Store apps. All changes instantly reflect live across your site and generated PDF.'}
                 </p>
               </div>
             </div>
@@ -516,7 +552,7 @@ const AdminDashboard = ({
             </form>
           )}
 
-          {/* TAB 3: EXPERIENCE EDITOR */}
+          {/* TAB 3: WORK EXPERIENCE EDITOR */}
           {activeTab === 'experience' && (
             <div>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px' }}>
@@ -524,28 +560,41 @@ const AdminDashboard = ({
                   {lang === 'tr' ? 'İş Deneyimleri Yönetimi' : 'Work Experience Management'}
                 </h3>
                 <button className="btn btn-primary" onClick={() => {
-                  setEditingItem({ id: `exp_${Date.now()}`, role: { tr: '', en: '' }, company: '', date: '', bullets: { tr: [''], en: [''] } });
+                  setEditingItem({
+                    id: `exp_${Date.now()}`,
+                    role: { tr: '', en: '' },
+                    company: '',
+                    date: '',
+                    bullets: { tr: [''], en: [''] }
+                  });
                   setIsNewItem(true);
+                  setEditingSection('experience');
                 }} style={{ gap: '8px' }}>
                   <PlusCircle size={16} /> {lang === 'tr' ? 'Yeni Deneyim Ekle' : 'Add Experience'}
                 </button>
               </div>
 
-              {editingItem ? (
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+              {editingItem && editingSection === 'experience' ? (
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '18px' }}>
                   <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
                     <div>
-                      <label style={{ display: 'block', fontSize: '13px', fontWeight: '600', marginBottom: '6px' }}>Unvan / Rol</label>
+                      <label style={{ display: 'block', fontSize: '13px', fontWeight: '600', marginBottom: '6px' }}>Unvan / Rol (TR)</label>
                       <input 
-                        type="text" className="form-input"
-                        value={editingItem.role.tr} onChange={e => setEditingItem({...editingItem, role: { tr: e.target.value, en: e.target.value }})}
+                        type="text"
+                        value={typeof editingItem.role === 'object' ? editingItem.role.tr : editingItem.role}
+                        onChange={e => setEditingItem({
+                          ...editingItem,
+                          role: typeof editingItem.role === 'object' 
+                            ? { ...editingItem.role, tr: e.target.value } 
+                            : { tr: e.target.value, en: e.target.value }
+                        })}
                         style={{ width: '100%', padding: '12px', background: 'var(--bg-secondary)', border: '1px solid var(--border-color)', borderRadius: '10px', color: 'var(--text-primary)' }}
                       />
                     </div>
                     <div>
                       <label style={{ display: 'block', fontSize: '13px', fontWeight: '600', marginBottom: '6px' }}>Şirket / Kurum</label>
                       <input 
-                        type="text" className="form-input"
+                        type="text"
                         value={editingItem.company} onChange={e => setEditingItem({...editingItem, company: e.target.value})}
                         style={{ width: '100%', padding: '12px', background: 'var(--bg-secondary)', border: '1px solid var(--border-color)', borderRadius: '10px', color: 'var(--text-primary)' }}
                       />
@@ -555,15 +604,36 @@ const AdminDashboard = ({
                   <div>
                     <label style={{ display: 'block', fontSize: '13px', fontWeight: '600', marginBottom: '6px' }}>Tarih Aralığı (Örn: Şubat 2025 – Haziran 2025)</label>
                     <input 
-                      type="text" className="form-input"
+                      type="text"
                       value={editingItem.date} onChange={e => setEditingItem({...editingItem, date: e.target.value})}
                       style={{ width: '100%', padding: '12px', background: 'var(--bg-secondary)', border: '1px solid var(--border-color)', borderRadius: '10px', color: 'var(--text-primary)' }}
                     />
                   </div>
 
+                  <div>
+                    <label style={{ display: 'block', fontSize: '13px', fontWeight: '600', marginBottom: '6px' }}>
+                      Deneyim Maddeleri / Başarılar (TR - Her Satıra Bir Maddelendirme)
+                    </label>
+                    <textarea 
+                      rows="5"
+                      value={Array.isArray(editingItem.bullets?.tr) ? editingItem.bullets.tr.join('\n') : (editingItem.bullets || []).join('\n')}
+                      onChange={e => {
+                        const lines = e.target.value.split('\n');
+                        setEditingItem({
+                          ...editingItem,
+                          bullets: {
+                            tr: lines,
+                            en: editingItem.bullets?.en || lines
+                          }
+                        });
+                      }}
+                      style={{ width: '100%', padding: '12px', background: 'var(--bg-secondary)', border: '1px solid var(--border-color)', borderRadius: '10px', color: 'var(--text-primary)', outline: 'none' }}
+                    />
+                  </div>
+
                   <div style={{ display: 'flex', gap: '12px', marginTop: '12px' }}>
                     <button className="btn btn-primary" onClick={() => handleSaveSectionItem('experience', editingItem)}>
-                      <Save size={16} /> Kaydet
+                      <Save size={16} /> {lang === 'tr' ? 'Deneyimi Kaydet' : 'Save Experience'}
                     </button>
                     <button className="btn" onClick={() => setEditingItem(null)}>İptal</button>
                   </div>
@@ -576,12 +646,19 @@ const AdminDashboard = ({
                       borderRadius: '16px', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start'
                     }}>
                       <div>
-                        <div style={{ fontWeight: '800', fontSize: '16px', color: 'var(--text-primary)' }}>{item.role.tr || item.role}</div>
+                        <div style={{ fontWeight: '800', fontSize: '16px', color: 'var(--text-primary)' }}>
+                          {typeof item.role === 'object' ? item.role.tr : item.role}
+                        </div>
                         <div style={{ color: '#3b82f6', fontWeight: '600', fontSize: '14px', margin: '4px 0' }}>{item.company}</div>
-                        <div style={{ fontSize: '12px', color: 'var(--text-secondary)' }}>{item.date}</div>
+                        <div style={{ fontSize: '12px', color: 'var(--text-secondary)', marginBottom: '8px' }}>{item.date}</div>
+                        <ul style={{ margin: 0, paddingLeft: '18px', fontSize: '13px', color: 'var(--text-secondary)' }}>
+                          {(item.bullets?.tr || item.bullets || []).map((b, idx) => (
+                            <li key={idx} style={{ marginBottom: '4px' }}>{b}</li>
+                          ))}
+                        </ul>
                       </div>
                       <div style={{ display: 'flex', gap: '8px' }}>
-                        <button className="btn" onClick={() => { setEditingItem(item); setIsNewItem(false); }}><Edit3 size={15} /></button>
+                        <button className="btn" onClick={() => { setEditingItem(item); setIsNewItem(false); setEditingSection('experience'); }}><Edit3 size={15} /></button>
                         <button className="btn" onClick={() => handleDeleteSectionItem('experience', item.id)} style={{ color: '#ef4444' }}><Trash2 size={15} /></button>
                       </div>
                     </div>
@@ -601,12 +678,13 @@ const AdminDashboard = ({
                 <button className="btn btn-primary" onClick={() => {
                   setEditingItem({ id: `proj_${Date.now()}`, title: '', role: '', company: '', date: '', bullets: { tr: [''], en: [''] } });
                   setIsNewItem(true);
+                  setEditingSection('projects');
                 }} style={{ gap: '8px' }}>
                   <PlusCircle size={16} /> {lang === 'tr' ? 'Yeni Proje Ekle' : 'Add Project'}
                 </button>
               </div>
 
-              {editingItem ? (
+              {editingItem && editingSection === 'projects' ? (
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
                   <div>
                     <label style={{ display: 'block', fontSize: '13px', fontWeight: '600', marginBottom: '6px' }}>Proje Başlığı</label>
@@ -656,7 +734,7 @@ const AdminDashboard = ({
                         <div style={{ fontSize: '12px', color: 'var(--text-secondary)' }}>{item.date}</div>
                       </div>
                       <div style={{ display: 'flex', gap: '8px' }}>
-                        <button className="btn" onClick={() => { setEditingItem(item); setIsNewItem(false); }}><Edit3 size={15} /></button>
+                        <button className="btn" onClick={() => { setEditingItem(item); setIsNewItem(false); setEditingSection('projects'); }}><Edit3 size={15} /></button>
                         <button className="btn" onClick={() => handleDeleteSectionItem('projects', item.id)} style={{ color: '#ef4444' }}><Trash2 size={15} /></button>
                       </div>
                     </div>
@@ -666,7 +744,93 @@ const AdminDashboard = ({
             </div>
           )}
 
-          {/* TAB 5: REFERENCES EDITOR */}
+          {/* TAB 5: EDUCATION & LANGUAGES EDITOR */}
+          {activeTab === 'education' && (
+            <div>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px' }}>
+                <h3 style={{ fontSize: '22px', fontWeight: '800', margin: 0, color: 'var(--text-primary)' }}>
+                  {lang === 'tr' ? 'Eğitim Geçmişi ve Yabancı Diller' : 'Education & Languages'}
+                </h3>
+                <button className="btn btn-primary" onClick={() => {
+                  setEditingItem({ id: `edu_${Date.now()}`, degree: '', school: '', date: '', honors: '' });
+                  setIsNewItem(true);
+                  setEditingSection('education');
+                }} style={{ gap: '8px' }}>
+                  <PlusCircle size={16} /> {lang === 'tr' ? 'Yeni Eğitim Ekle' : 'Add Education'}
+                </button>
+              </div>
+
+              {editingItem && editingSection === 'education' ? (
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+                    <div>
+                      <label style={{ display: 'block', fontSize: '13px', fontWeight: '600', marginBottom: '6px' }}>Derece / Program</label>
+                      <input 
+                        type="text"
+                        value={editingItem.degree} onChange={e => setEditingItem({...editingItem, degree: e.target.value})}
+                        style={{ width: '100%', padding: '12px', background: 'var(--bg-secondary)', border: '1px solid var(--border-color)', borderRadius: '10px', color: 'var(--text-primary)' }}
+                      />
+                    </div>
+                    <div>
+                      <label style={{ display: 'block', fontSize: '13px', fontWeight: '600', marginBottom: '6px' }}>Okul / Akademi</label>
+                      <input 
+                        type="text"
+                        value={editingItem.school} onChange={e => setEditingItem({...editingItem, school: e.target.value})}
+                        style={{ width: '100%', padding: '12px', background: 'var(--bg-secondary)', border: '1px solid var(--border-color)', borderRadius: '10px', color: 'var(--text-primary)' }}
+                      />
+                    </div>
+                  </div>
+
+                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+                    <div>
+                      <label style={{ display: 'block', fontSize: '13px', fontWeight: '600', marginBottom: '6px' }}>Tarih / Mezuniyet</label>
+                      <input 
+                        type="text"
+                        value={editingItem.date} onChange={e => setEditingItem({...editingItem, date: e.target.value})}
+                        style={{ width: '100%', padding: '12px', background: 'var(--bg-secondary)', border: '1px solid var(--border-color)', borderRadius: '10px', color: 'var(--text-primary)' }}
+                      />
+                    </div>
+                    <div>
+                      <label style={{ display: 'block', fontSize: '13px', fontWeight: '600', marginBottom: '6px' }}>Derece / Başarı Notu</label>
+                      <input 
+                        type="text"
+                        value={editingItem.honors} onChange={e => setEditingItem({...editingItem, honors: e.target.value})}
+                        style={{ width: '100%', padding: '12px', background: 'var(--bg-secondary)', border: '1px solid var(--border-color)', borderRadius: '10px', color: 'var(--text-primary)' }}
+                      />
+                    </div>
+                  </div>
+
+                  <div style={{ display: 'flex', gap: '12px', marginTop: '12px' }}>
+                    <button className="btn btn-primary" onClick={() => handleSaveSectionItem('education', editingItem)}>
+                      <Save size={16} /> Kaydet
+                    </button>
+                    <button className="btn" onClick={() => setEditingItem(null)}>İptal</button>
+                  </div>
+                </div>
+              ) : (
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+                  {(formData.education || []).map(item => (
+                    <div key={item.id} style={{
+                      padding: '20px', background: 'var(--bg-secondary)', border: '1px solid var(--border-color)',
+                      borderRadius: '16px', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start'
+                    }}>
+                      <div>
+                        <div style={{ fontWeight: '800', fontSize: '16px', color: 'var(--text-primary)' }}>{item.degree}</div>
+                        <div style={{ color: '#10b981', fontWeight: '600', fontSize: '14px', margin: '4px 0' }}>{item.school}</div>
+                        <div style={{ fontSize: '12px', color: 'var(--text-secondary)' }}>{item.date} {item.honors && `• ${item.honors}`}</div>
+                      </div>
+                      <div style={{ display: 'flex', gap: '8px' }}>
+                        <button className="btn" onClick={() => { setEditingItem(item); setIsNewItem(false); setEditingSection('education'); }}><Edit3 size={15} /></button>
+                        <button className="btn" onClick={() => handleDeleteSectionItem('education', item.id)} style={{ color: '#ef4444' }}><Trash2 size={15} /></button>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          )}
+
+          {/* TAB 6: REFERENCES EDITOR */}
           {activeTab === 'references' && (
             <div>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px' }}>
@@ -676,12 +840,13 @@ const AdminDashboard = ({
                 <button className="btn btn-primary" onClick={() => {
                   setEditingItem({ id: `ref_${Date.now()}`, name: '', title: '', phone: '', email: '', profileUrl: '' });
                   setIsNewItem(true);
+                  setEditingSection('references');
                 }} style={{ gap: '8px' }}>
                   <PlusCircle size={16} /> {lang === 'tr' ? 'Yeni Referans Ekle' : 'Add Reference'}
                 </button>
               </div>
 
-              {editingItem ? (
+              {editingItem && editingSection === 'references' ? (
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
                   <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
                     <div>
@@ -741,7 +906,7 @@ const AdminDashboard = ({
                         <div style={{ fontSize: '12px', color: 'var(--text-muted)' }}>{item.email} • {item.phone}</div>
                       </div>
                       <div style={{ display: 'flex', gap: '8px' }}>
-                        <button className="btn" onClick={() => { setEditingItem(item); setIsNewItem(false); }}><Edit3 size={15} /></button>
+                        <button className="btn" onClick={() => { setEditingItem(item); setIsNewItem(false); setEditingSection('references'); }}><Edit3 size={15} /></button>
                         <button className="btn" onClick={() => handleDeleteSectionItem('references', item.id)} style={{ color: '#ef4444' }}><Trash2 size={15} /></button>
                       </div>
                     </div>
@@ -751,8 +916,8 @@ const AdminDashboard = ({
             </div>
           )}
 
-          {/* TAB 6: APP STORE MANAGER */}
-          {activeTab === 'apps' && !editingItem && (
+          {/* TAB 7: APP STORE MANAGER */}
+          {activeTab === 'apps' && editingSection !== 'apps' && (
             <div>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px' }}>
                 <div>
@@ -763,7 +928,7 @@ const AdminDashboard = ({
                     {lang === 'tr' ? 'Uygulamalarınızı yönetin veya yeni projeler yayınlayın' : 'Manage published applications or showcase new projects'}
                   </p>
                 </div>
-                <button className="btn btn-primary" onClick={() => handleOpenAppForm(null)} style={{ gap: '8px', padding: '10px 18px' }}>
+                <button className="btn btn-primary" onClick={() => handleEditApp(null)} style={{ gap: '8px', padding: '10px 18px' }}>
                   <PlusCircle size={18} /> {lang === 'tr' ? 'Yeni Uygulama Ekle' : 'Add New App'}
                 </button>
               </div>
@@ -797,10 +962,10 @@ const AdminDashboard = ({
                     </div>
 
                     <div style={{ display: 'flex', gap: '8px', paddingTop: '14px', borderTop: '1px solid var(--border-color)' }}>
-                      <button className="btn" onClick={() => handleOpenAppForm(app)} style={{ flex: 1, gap: '6px', justifyContent: 'center' }}>
+                      <button className="btn" onClick={() => handleEditApp(app)} style={{ flex: 1, gap: '6px', justifyContent: 'center' }}>
                         <Edit3 size={14} /> {lang === 'tr' ? 'Düzenle' : 'Edit'}
                       </button>
-                      <button className="btn" onClick={() => handleDeleteApp(app.id)} style={{ color: '#ef4444', borderColor: 'rgba(239, 68, 68, 0.3)', padding: '8px 12px' }}>
+                      <button className="btn" onClick={() => handleDeleteSectionItem('apps', app.id)} style={{ color: '#ef4444', borderColor: 'rgba(239, 68, 68, 0.3)', padding: '8px 12px' }}>
                         <Trash2 size={14} />
                       </button>
                     </div>
@@ -811,7 +976,7 @@ const AdminDashboard = ({
           )}
 
           {/* APP EDIT FORM */}
-          {activeTab === 'apps' && editingItem && (
+          {activeTab === 'apps' && editingSection === 'apps' && editingItem && (
             <form onSubmit={handleSaveApp} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingBottom: '16px', borderBottom: '1px solid var(--border-color)' }}>
                 <h3 style={{ fontSize: '20px', fontWeight: '800', margin: 0 }}>
@@ -843,6 +1008,25 @@ const AdminDashboard = ({
 
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '18px' }}>
                 <div>
+                  <label style={{ display: 'block', fontSize: '13px', fontWeight: '600', color: 'var(--text-secondary)', marginBottom: '6px' }}>Tagline (TR)</label>
+                  <input 
+                    type="text"
+                    value={editingItem.tagline?.tr || ''} onChange={e => setEditingItem({...editingItem, tagline: {...editingItem.tagline, tr: e.target.value}})}
+                    style={{ width: '100%', padding: '12px 14px', background: 'var(--bg-secondary)', border: '1px solid var(--border-color)', borderRadius: '10px', color: 'var(--text-primary)', outline: 'none' }}
+                  />
+                </div>
+                <div>
+                  <label style={{ display: 'block', fontSize: '13px', fontWeight: '600', color: 'var(--text-secondary)', marginBottom: '6px' }}>Tagline (EN)</label>
+                  <input 
+                    type="text"
+                    value={editingItem.tagline?.en || ''} onChange={e => setEditingItem({...editingItem, tagline: {...editingItem.tagline, en: e.target.value}})}
+                    style={{ width: '100%', padding: '12px 14px', background: 'var(--bg-secondary)', border: '1px solid var(--border-color)', borderRadius: '10px', color: 'var(--text-primary)', outline: 'none' }}
+                  />
+                </div>
+              </div>
+
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '18px' }}>
+                <div>
                   <label style={{ display: 'block', fontSize: '13px', fontWeight: '600', color: 'var(--text-secondary)', marginBottom: '6px' }}>Play Store URL</label>
                   <input 
                     type="text" placeholder="https://play.google.com/store/apps/details?id=..."
@@ -860,6 +1044,15 @@ const AdminDashboard = ({
                 </div>
               </div>
 
+              <div>
+                <label style={{ display: 'block', fontSize: '13px', fontWeight: '600', color: 'var(--text-secondary)', marginBottom: '6px' }}>{lang === 'tr' ? 'İkon Yolu / URL' : 'Icon Path / URL'}</label>
+                <input 
+                  type="text" placeholder="./apps/my_app/icon.png"
+                  value={editingItem.icon} onChange={e => setEditingItem({...editingItem, icon: e.target.value})}
+                  style={{ width: '100%', padding: '12px 14px', background: 'var(--bg-secondary)', border: '1px solid var(--border-color)', borderRadius: '10px', color: 'var(--text-primary)', outline: 'none' }}
+                />
+              </div>
+
               <div style={{ display: 'flex', gap: '12px', marginTop: '16px' }}>
                 <button type="submit" className="btn btn-primary" style={{ padding: '12px 24px', fontSize: '14px', gap: '8px' }}>
                   <Save size={16} /> {lang === 'tr' ? 'Uygulamayı Kaydet' : 'Save App'}
@@ -868,7 +1061,7 @@ const AdminDashboard = ({
             </form>
           )}
 
-          {/* TAB 7: BACKUP & SYNC */}
+          {/* TAB 8: BACKUP & SYNC */}
           {activeTab === 'backup' && (
             <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
               <h3 style={{ fontSize: '22px', fontWeight: '800', marginTop: 0, marginBottom: '8px', color: 'var(--text-primary)' }}>
