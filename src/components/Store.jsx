@@ -286,11 +286,13 @@ const APPS = [
   }
 ];
 
-const Store = ({ lang }) => {
+const Store = ({ lang, customApps }) => {
   const [filter, setFilter] = useState('all'); // 'all', 'android', 'windows', 'playstore'
   const [selectedApp, setSelectedApp] = useState(null);
   const [currentImgIndex, setCurrentImgIndex] = useState(0);
   const [zoomedImage, setZoomedImage] = useState(null);
+
+  const activeApps = (customApps && customApps.length > 0) ? customApps : APPS;
 
   // Prevent scroll when modal is open
   useEffect(() => {
@@ -304,7 +306,7 @@ const Store = ({ lang }) => {
     };
   }, [selectedApp]);
 
-  const filteredApps = APPS.filter(app => {
+  const filteredApps = activeApps.filter(app => {
     if (filter === 'all') return true;
     if (filter === 'android') return app.platforms.includes('Android');
     if (filter === 'windows') return app.platforms.includes('Windows');

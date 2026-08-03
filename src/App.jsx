@@ -3,10 +3,14 @@ import {
   Settings, Sliders, Printer, Sun, Moon, FileText, Eye, 
   User, Mail, Phone, Linkedin, MapPin, CheckCircle2, 
   Trophy, GraduationCap, Languages, Users, Award, Briefcase, Wrench,
-  ShoppingBag
+  ShoppingBag, Lock, ShieldCheck, LogOut
 } from 'lucide-react';
 
 import Store from './components/Store';
+import LoginModal from './components/LoginModal';
+import AdminPanel from './components/AdminPanel';
+import { isAdminAuthenticated, logoutAdmin } from './utils/auth';
+import { INITIAL_PORTFOLIO_DATA } from './data/initialData';
 
 function App() {
   const [lang, setLang] = useState('en');
@@ -15,6 +19,20 @@ function App() {
     return localStorage.getItem('theme') || 'dark';
   });
 
+  // Portfolio Data state
+  const [portfolioData, setPortfolioData] = useState(() => {
+    const saved = localStorage.getItem('portfolio_data');
+    if (saved) {
+      try { return JSON.parse(saved); } catch (e) {}
+    }
+    return INITIAL_PORTFOLIO_DATA;
+  });
+
+  // Admin Auth states
+  const [isLoggedIn, setIsLoggedIn] = useState(() => isAdminAuthenticated());
+  const [showLoginModal, setShowLoginModal] = useState(false);
+  const [showAdminPanel, setShowAdminPanel] = useState(false);
+
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
     localStorage.setItem('theme', theme);
@@ -22,6 +40,24 @@ function App() {
 
   const toggleTheme = () => {
     setTheme(prev => (prev === 'dark' ? 'light' : 'dark'));
+  };
+
+  const handleSaveData = (newData) => {
+    setPortfolioData(newData);
+    localStorage.setItem('portfolio_data', JSON.stringify(newData));
+  };
+
+  const handleResetData = () => {
+    setPortfolioData(INITIAL_PORTFOLIO_DATA);
+    localStorage.removeItem('portfolio_data');
+    setShowAdminPanel(false);
+    alert(lang === 'tr' ? 'Tüm veriler varsayılana sıfırlandı!' : 'Data reset to defaults!');
+  };
+
+  const handleLogout = () => {
+    logoutAdmin();
+    setIsLoggedIn(false);
+    setShowAdminPanel(false);
   };
 
   const handlePrint = () => {
@@ -83,6 +119,22 @@ function App() {
                 <Printer size={14} style={{ marginRight: '4px', display: 'inline' }} /> ATS Print View
               </button>
             </div>
+
+            {/* Admin Action */}
+            {isLoggedIn ? (
+              <div style={{ display: 'inline-flex', gap: '6px', alignItems: 'center' }}>
+                <button className="btn btn-primary" onClick={() => setShowAdminPanel(true)} title="Admin Panel" style={{ background: 'linear-gradient(135deg, #10b981, #059669)', border: 'none' }}>
+                  <ShieldCheck size={16} /> Admin
+                </button>
+                <button className="btn" onClick={handleLogout} title="Logout" style={{ padding: '8px 10px' }}>
+                  <LogOut size={16} />
+                </button>
+              </div>
+            ) : (
+              <button className="btn" onClick={() => setShowLoginModal(true)} title="Admin Login">
+                <Lock size={16} />
+              </button>
+            )}
 
             {/* Theme Toggle */}
             <button class="btn" onClick={toggleTheme} title="Toggle Theme">
@@ -685,7 +737,7 @@ function App() {
 
               {/* STORE SECTION IN DASHBOARD */}
               <div style={{ marginTop: '32px' }}>
-                <Store lang={lang} />
+                <Store lang={lang} customApps={portfolioData.apps} />
               </div>
 
             </div>
@@ -695,7 +747,7 @@ function App() {
         {/* 2. APP STORE FULL VIEW */}
         {viewMode === 'store' && (
           <div style={{ padding: '20px 0' }}>
-            <Store lang={lang} />
+            <Store lang={lang} customApps={portfolioData.apps} />
           </div>
         )}
 
@@ -1080,14 +1132,28 @@ function App() {
       </main>
 
       {/* SCREEN ONLY FOOTER */}
-      <footer class="no-print">
-        <div class="container">
+      <footer className="no-print">
+        <div className="container">
           <p>&copy; 2026 Soner Erdevir. Interactive Resume designed in compliance with modern HR ATS recruitment guidelines.</p>
-          <p style={{ marginTop: '6px', color: 'var(--text-muted)' }}>
-            Tips: Switch to <strong>ATS Print View</strong> and click <strong>Save / Print PDF</strong> to download a perfectly formatted PDF for your applications.
-          </p>
         </div>
       </footer>
+
+      {/* ADMIN LOGIN & MANAGEMENT MODALS */}
+      <LoginModal 
+        isOpen={showLoginModal} 
+        onClose={() => setShowLoginModal(false)} 
+        onLoginSuccess={() => { setIsLoggedIn(true); setShowAdminPanel(true); }}
+        lang={lang}
+      />
+
+      <AdminPanel 
+        isOpen={showAdminPanel} 
+        onClose={() => setShowAdminPanel(false)} 
+        data={portfolioData}
+        onSaveData={handleSaveData}
+        onResetData={handleResetData}
+        lang={lang}
+      />
     </div>
   );
 }
