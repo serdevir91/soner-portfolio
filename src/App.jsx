@@ -77,7 +77,7 @@ function App() {
             </div>
 
             {/* My Store Link */}
-            <a href="https://serdevir91.github.io/my-store/" target="_blank" rel="noopener noreferrer" class="btn" style={{ textDecoration: 'none' }}>
+            <a href="https://serdevir91.github.io/Stokapp/" target="_blank" rel="noopener noreferrer" className="btn" style={{ textDecoration: 'none' }}>
               <ShoppingBag size={16} /> {lang === 'en' ? 'My Store' : 'Mağaza'}
             </a>
 
