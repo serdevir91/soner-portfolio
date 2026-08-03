@@ -84,14 +84,6 @@ function App() {
               </button>
             </div>
 
-            {/* App Store Toggle */}
-            <button 
-              className={`btn ${viewMode === 'store' ? 'btn-primary' : ''}`} 
-              onClick={() => setViewMode(prev => prev === 'store' ? 'interactive' : 'store')}
-            >
-              <ShoppingBag size={16} /> {lang === 'en' ? 'App Store' : 'Mağaza'}
-            </button>
-
             {/* Theme Toggle */}
             <button class="btn" onClick={toggleTheme} title="Toggle Theme">
               {theme === 'dark' ? <Sun size={16} /> : <Moon size={16} />}
