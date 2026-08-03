@@ -7,8 +7,7 @@ import {
 } from 'lucide-react';
 
 import Store from './components/Store';
-import LoginModal from './components/LoginModal';
-import AdminPanel from './components/AdminPanel';
+import AdminDashboard from './components/AdminDashboard';
 import { isAdminAuthenticated, logoutAdmin } from './utils/auth';
 import { INITIAL_PORTFOLIO_DATA } from './data/initialData';
 
@@ -120,21 +119,16 @@ function App() {
               </button>
             </div>
 
-            {/* Admin Action */}
-            {isLoggedIn ? (
-              <div style={{ display: 'inline-flex', gap: '6px', alignItems: 'center' }}>
-                <button className="btn btn-primary" onClick={() => setShowAdminPanel(true)} title="Admin Panel" style={{ background: 'linear-gradient(135deg, #10b981, #059669)', border: 'none' }}>
-                  <ShieldCheck size={16} /> Admin
-                </button>
-                <button className="btn" onClick={handleLogout} title="Logout" style={{ padding: '8px 10px' }}>
-                  <LogOut size={16} />
-                </button>
-              </div>
-            ) : (
-              <button className="btn" onClick={() => setShowLoginModal(true)} title="Admin Login">
-                <Lock size={16} />
-              </button>
-            )}
+            {/* Admin Dashboard Action */}
+            <button 
+              className={`btn ${viewMode === 'admin' ? 'btn-primary' : ''}`}
+              onClick={() => setViewMode('admin')}
+              title="Admin Control Center"
+              style={isLoggedIn ? { background: 'linear-gradient(135deg, #10b981, #059669)', border: 'none', color: 'white' } : {}}
+            >
+              {isLoggedIn ? <ShieldCheck size={16} /> : <Lock size={16} />}
+              <span>{isLoggedIn ? 'Admin Panel' : 'Admin'}</span>
+            </button>
 
             {/* Theme Toggle */}
             <button class="btn" onClick={toggleTheme} title="Toggle Theme">
@@ -751,6 +745,20 @@ function App() {
           </div>
         )}
 
+        {/* 3. DEDICATED ADMIN CONTROL CENTER VIEW */}
+        {viewMode === 'admin' && (
+          <AdminDashboard 
+            isLoggedIn={isLoggedIn}
+            onLoginSuccess={() => setIsLoggedIn(true)}
+            onLogout={handleLogout}
+            data={portfolioData}
+            onSaveData={handleSaveData}
+            onResetData={handleResetData}
+            onSwitchView={setViewMode}
+            lang={lang}
+          />
+        )}
+
         {/* 3. ATS PREVIEW VIEW (SCREEN & PRINT COMPATIBLE) */}
         {viewMode === 'ats' && (
           <div class="ats-preview-container" style={{ display: 'block' }}>
@@ -1137,23 +1145,6 @@ function App() {
           <p>&copy; 2026 Soner Erdevir. Interactive Resume designed in compliance with modern HR ATS recruitment guidelines.</p>
         </div>
       </footer>
-
-      {/* ADMIN LOGIN & MANAGEMENT MODALS */}
-      <LoginModal 
-        isOpen={showLoginModal} 
-        onClose={() => setShowLoginModal(false)} 
-        onLoginSuccess={() => { setIsLoggedIn(true); setShowAdminPanel(true); }}
-        lang={lang}
-      />
-
-      <AdminPanel 
-        isOpen={showAdminPanel} 
-        onClose={() => setShowAdminPanel(false)} 
-        data={portfolioData}
-        onSaveData={handleSaveData}
-        onResetData={handleResetData}
-        lang={lang}
-      />
     </div>
   );
 }
