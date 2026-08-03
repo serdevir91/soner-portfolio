@@ -160,34 +160,34 @@ function App() {
             
             {/* SIDEBAR */}
             <aside class="sidebar-card no-print">
-              <div class="avatar-placeholder" style={{ overflow: 'hidden', padding: 0 }}>
+              <div className="avatar-placeholder" style={{ overflow: 'hidden', padding: 0 }}>
                 <img 
-                  src="profile.jpeg" 
-                  alt="Soner Erdevir" 
+                  src={portfolioData.profile.avatar || "profile.jpeg"} 
+                  alt={portfolioData.profile.name} 
                   style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
                 />
               </div>
-              <h1 class="profile-name">Soner Erdevir</h1>
-              <div class="profile-title">
-                {lang === 'en' ? 'Mechanical Engineer' : 'Makine Mühendisi'}
+              <h1 className="profile-name">{portfolioData.profile.name}</h1>
+              <div className="profile-title">
+                {portfolioData.profile.title}
               </div>
               
-              <ul class="contact-list">
-                <li class="contact-item">
+              <ul className="contact-list">
+                <li className="contact-item">
                   <Mail size={16} />
-                  <a href="mailto:sonererdevir@gmail.com">sonererdevir@gmail.com</a>
+                  <a href={`mailto:${portfolioData.profile.email}`}>{portfolioData.profile.email}</a>
                 </li>
-                <li class="contact-item">
+                <li className="contact-item">
                   <Phone size={16} />
-                  <span>+90 544 123 01 19</span>
+                  <span>{portfolioData.profile.phone}</span>
                 </li>
-                <li class="contact-item">
+                <li className="contact-item">
                   <Linkedin size={16} />
-                  <a href="https://www.linkedin.com/in/soner-erdevir" target="_blank" rel="noopener noreferrer">linkedin.com/in/soner-erdevir</a>
+                  <a href={portfolioData.profile.linkedin} target="_blank" rel="noopener noreferrer">linkedin.com/in/soner-erdevir</a>
                 </li>
-                <li class="contact-item">
+                <li className="contact-item">
                   <MapPin size={16} />
-                  <span>{lang === 'en' ? 'Ankara, Turkey' : 'Ankara, Türkiye'}</span>
+                  <span>{portfolioData.profile.location}</span>
                 </li>
               </ul>
 
@@ -197,16 +197,16 @@ function App() {
             </aside>
 
             {/* DETAILS AREA */}
-            <div class="details-area">
+            <div className="details-area">
               
               {/* ENGLISH INTERACTIVE VERSION */}
               {lang === 'en' ? (
                 <div>
                   {/* Profile Card */}
-                  <section class="dashboard-card" style={{ marginBottom: '24px' }}>
-                    <h2 class="section-title"><User size={18} /> Professional Summary</h2>
-                    <p class="profile-summary-text">
-                      I am a highly motivated and results-driven Mechanical Engineer (graduated 3rd of class) with a strong foundation in mechanical design, CAD modeling, structural analysis (FEA), and advanced fabrication. I have demonstrated leadership excellence as a TUSAŞ Lift Up R&D Project Team Leader and TÜBİTAK Electric Vehicle Mechanical Captain. I am experienced in delivering end-to-end engineering solutions—from conceptual CAD and FEA validation to CNC manufacturing and testing—with a key focus on lightweight design, durability, and sustainable mobility.
+                  <section className="dashboard-card" style={{ marginBottom: '24px' }}>
+                    <h2 className="section-title"><User size={18} /> Professional Summary</h2>
+                    <p className="profile-summary-text">
+                      {portfolioData.profile.bio.en || portfolioData.profile.bio.tr}
                     </p>
                   </section>
 
@@ -469,10 +469,10 @@ function App() {
               ) : (
                 /* TURKISH INTERACTIVE VERSION */
                 <div>
-                  <section class="dashboard-card" style={{ marginBottom: '24px' }}>
-                    <h2 class="section-title"><User size={18} /> Profesyonel Özet</h2>
-                    <p class="profile-summary-text">
-                      Makine mühendisliği bölümünü dönem 3.sü olarak tamamlamış; mekanik tasarım, CAD modelleme, yapısal analiz (FEA) ve gelişmiş imalat teknikleri konularında güçlü bir temele sahip, motivasyonu yüksek ve sonuç odaklı bir Makine Mühendisim. TUSAŞ Lift Up Ar-Ge projesinde Takım Liderliği ve TÜBİTAK Efficiency Challenge elektrikli araç takımında Mekanik Bölüm Kaptanlığı gibi önemli liderlik rolleri üstlendim. Konsept tasarımdan FEA doğrulamasına, CNC imalatından test ve kalite kontrol aşamalarına kadar uçtan uca mühendislik çözümleri sunma konusunda kanıtlanmış bir başarı geçmişine sahibim. Çalışmalarımda özellikle hafif tasarım, dayanıklılık ve sürdürülebilir mobilite sistemlerine odaklanıyorum.
+                  <section className="dashboard-card" style={{ marginBottom: '24px' }}>
+                    <h2 className="section-title"><User size={18} /> Profesyonel Özet</h2>
+                    <p className="profile-summary-text">
+                      {portfolioData.profile.bio.tr || portfolioData.profile.bio.en}
                     </p>
                   </section>
 
