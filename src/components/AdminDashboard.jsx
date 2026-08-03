@@ -36,20 +36,27 @@ const AdminDashboard = ({
   // New Screenshot URL state for App Store editor
   const [newScreenshotUrl, setNewScreenshotUrl] = useState('');
 
-  // Form State with fallback merging
+  // Form State with smart ID-based merging
   const [formData, setFormData] = useState(() => {
+    const mergeById = (dataList, initialList) => {
+      if (!dataList || !Array.isArray(dataList) || dataList.length === 0) return initialList;
+      const existingIds = new Set(dataList.map(item => item.id));
+      const missing = initialList.filter(item => !existingIds.has(item.id));
+      return [...dataList, ...missing];
+    };
+
     return {
       ...INITIAL_PORTFOLIO_DATA,
       ...data,
       profile: { ...INITIAL_PORTFOLIO_DATA.profile, ...(data?.profile || {}) },
-      experience: (data?.experience && data.experience.length > 0) ? data.experience : INITIAL_PORTFOLIO_DATA.experience,
-      projects: (data?.projects && data.projects.length > 0) ? data.projects : INITIAL_PORTFOLIO_DATA.projects,
-      skills: (data?.skills && data.skills.length > 0) ? data.skills : INITIAL_PORTFOLIO_DATA.skills,
-      education: (data?.education && data.education.length > 0) ? data.education : INITIAL_PORTFOLIO_DATA.education,
-      languages: (data?.languages && data.languages.length > 0) ? data.languages : INITIAL_PORTFOLIO_DATA.languages,
-      certificates: (data?.certificates && data.certificates.length > 0) ? data.certificates : INITIAL_PORTFOLIO_DATA.certificates,
-      references: (data?.references && data.references.length > 0) ? data.references : INITIAL_PORTFOLIO_DATA.references,
-      apps: (data?.apps && data.apps.length > 0) ? data.apps : INITIAL_PORTFOLIO_DATA.apps,
+      experience: mergeById(data?.experience, INITIAL_PORTFOLIO_DATA.experience),
+      projects: mergeById(data?.projects, INITIAL_PORTFOLIO_DATA.projects),
+      skills: mergeById(data?.skills, INITIAL_PORTFOLIO_DATA.skills),
+      education: mergeById(data?.education, INITIAL_PORTFOLIO_DATA.education),
+      languages: mergeById(data?.languages, INITIAL_PORTFOLIO_DATA.languages),
+      certificates: mergeById(data?.certificates, INITIAL_PORTFOLIO_DATA.certificates),
+      references: mergeById(data?.references, INITIAL_PORTFOLIO_DATA.references),
+      apps: mergeById(data?.apps, INITIAL_PORTFOLIO_DATA.apps),
     };
   });
 

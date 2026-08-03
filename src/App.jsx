@@ -18,24 +18,31 @@ function App() {
     return localStorage.getItem('theme') || 'dark';
   });
 
-  // Portfolio Data state (with robust default merging)
+  // Portfolio Data state (with smart ID-based merging)
   const [portfolioData, setPortfolioData] = useState(() => {
     const saved = localStorage.getItem('portfolio_data');
     if (saved) {
       try {
         const parsed = JSON.parse(saved);
+        const mergeById = (parsedList, initialList) => {
+          if (!parsedList || !Array.isArray(parsedList) || parsedList.length === 0) return initialList;
+          const existingIds = new Set(parsedList.map(item => item.id));
+          const missing = initialList.filter(item => !existingIds.has(item.id));
+          return [...parsedList, ...missing];
+        };
+
         return {
           ...INITIAL_PORTFOLIO_DATA,
           ...parsed,
           profile: { ...INITIAL_PORTFOLIO_DATA.profile, ...(parsed.profile || {}) },
-          experience: (parsed.experience && parsed.experience.length > 0) ? parsed.experience : INITIAL_PORTFOLIO_DATA.experience,
-          projects: (parsed.projects && parsed.projects.length > 0) ? parsed.projects : INITIAL_PORTFOLIO_DATA.projects,
-          education: (parsed.education && parsed.education.length > 0) ? parsed.education : INITIAL_PORTFOLIO_DATA.education,
-          skills: (parsed.skills && parsed.skills.length > 0) ? parsed.skills : INITIAL_PORTFOLIO_DATA.skills,
-          languages: (parsed.languages && parsed.languages.length > 0) ? parsed.languages : INITIAL_PORTFOLIO_DATA.languages,
-          certificates: (parsed.certificates && parsed.certificates.length > 0) ? parsed.certificates : INITIAL_PORTFOLIO_DATA.certificates,
-          references: (parsed.references && parsed.references.length > 0) ? parsed.references : INITIAL_PORTFOLIO_DATA.references,
-          apps: (parsed.apps && parsed.apps.length > 0) ? parsed.apps : INITIAL_PORTFOLIO_DATA.apps,
+          experience: mergeById(parsed.experience, INITIAL_PORTFOLIO_DATA.experience),
+          projects: mergeById(parsed.projects, INITIAL_PORTFOLIO_DATA.projects),
+          education: mergeById(parsed.education, INITIAL_PORTFOLIO_DATA.education),
+          skills: mergeById(parsed.skills, INITIAL_PORTFOLIO_DATA.skills),
+          languages: mergeById(parsed.languages, INITIAL_PORTFOLIO_DATA.languages),
+          certificates: mergeById(parsed.certificates, INITIAL_PORTFOLIO_DATA.certificates),
+          references: mergeById(parsed.references, INITIAL_PORTFOLIO_DATA.references),
+          apps: mergeById(parsed.apps, INITIAL_PORTFOLIO_DATA.apps),
         };
       } catch (e) {}
     }
