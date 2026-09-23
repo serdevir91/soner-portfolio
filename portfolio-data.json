@@ -1,66 +1,104 @@
 {
   "profile": {
     "name": "Soner Erdevir",
-    "title": "Mechanical R&D, Design & Simulation Engineer",
+    "title": {
+      "en": "Mechanical Engineer | R&D, Design & Simulation",
+      "tr": "Makine Mühendisi | Ar-Ge, Tasarım & Simülasyon"
+    },
     "location": "Ankara, Turkey",
     "phone": "+90 544 123 01 19",
     "email": "sonererdevir@gmail.com",
     "linkedin": "https://www.linkedin.com/in/soner-erdevir",
     "avatar": "profile.jpeg",
     "bio": {
-      "en": "Mechanical Engineer specializing in composite-supported rubber seals, FEA simulation (ANSYS/SolidWorks), thermo-fluid systems, and cross-platform software development (Flutter/React/Python).",
-      "tr": "Kompozit destekli kauçuk conta tasarımı, FEA simülasyonları (ANSYS/SolidWorks), termo-akışkan sistemler ve çapraz platform yazılım geliştirme (Flutter/React/Python) alanlarında uzmanlaşmış Makine Mühendisi."
+      "en": "Results-driven Mechanical Engineer (graduated 3rd of class) with a strong foundation in mechanical design, CAD modeling, structural FEA, and advanced fabrication. Proven leadership as TUSAŞ Lift Up R&D Project Team Leader and TÜBİTAK Electric Vehicle Mechanical Captain. Experienced in delivering end-to-end engineering solutions—from conceptual CAD and FEA validation to CNC manufacturing and testing—with a primary focus on lightweight design, durability, and sustainable mobility.",
+      "tr": "Bölüm üçüncüsü olarak mezun olmuş; mekanik tasarım, CAD modelleme, yapısal FEA analizi ve ileri imalat alanlarında güçlü yetkinliklere sahip Makine Mühendisi. TUSAŞ Lift Up Ar-Ge Projesi Takım Lideri ve TÜBİTAK Elektrikli Araç Mekanik Kaptanı olarak kanıtlanmış liderlik deneyimi. Hafif tasarım, dayanıklılık ve sürdürülebilir mobilite odaklı; kavramsal CAD ve FEA doğrulamasından CNC imalat ve test süreçlerine kadar uçtan uca mühendislik çözümleri üretmektedir."
     }
   },
   "skills": [
     {
-      "id": "skill_cat_1",
+      "id": "skill_cad",
       "category": {
-        "tr": "CAD & Modelleme",
-        "en": "CAD & Modeling"
+        "tr": "CAD & Tasarım",
+        "en": "CAD & Design"
       },
       "tags": [
         "SolidWorks",
         "PTC Creo",
         "AutoCAD",
         "Autodesk Fusion 360",
-        "Gelişmiş Yüzey Modelleme",
         "Profil Tasarımı (Weldments)",
-        "İmalat Çizimleri"
+        "Gelişmiş Yüzey Modelleme",
+        "Teknik İmalat Çizimleri"
       ]
     },
     {
-      "id": "skill_cat_2",
+      "id": "skill_simulation",
       "category": {
-        "tr": "Simülasyon & Mühendislik Metotları",
-        "en": "Simulation & Engineering Methods"
+        "tr": "Simülasyon & Analiz",
+        "en": "Simulation & Analysis"
       },
       "tags": [
         "ANSYS",
         "SolidWorks Simulation",
         "Sonlu Elemanlar Analizi (FEA)",
-        "GD&T (Geometrik Toleranslandırma)",
-        "DFM (Üretilebilirlik için Tasarım)",
-        "BOM Oluşturma",
+        "Gerilme ve Titreşim Analizi",
         "Tolerans Analizi",
         "Malzeme Seçimi"
       ]
     },
     {
-      "id": "skill_cat_3",
+      "id": "skill_methodologies",
       "category": {
-        "tr": "İmalat & Yazılım",
-        "en": "Manufacturing & Software"
+        "tr": "Tasarım Metodolojileri",
+        "en": "Design Methodologies"
       },
       "tags": [
-        "CNC İşleme Süreçleri",
+        "GD&T (Geometrik Boyutlandırma & Toleranslandırma)",
+        "DFM (Üretilebilirlik için Tasarım)",
+        "BOM (Malzeme Listesi) Oluşturma"
+      ]
+    },
+    {
+      "id": "skill_manufacturing",
+      "category": {
+        "tr": "İmalat & Prototipleme",
+        "en": "Manufacturing & Prototyping"
+      },
+      "tags": [
+        "CNC Talaşlı İmalat",
         "Kompozit İmalatı (Karbon Fiber)",
         "3D Yazıcı / Eklemeli İmalat",
-        "Sac Metal Tasarımı",
+        "Sac Metal Şekillendirme"
+      ]
+    },
+    {
+      "id": "skill_software",
+      "category": {
+        "tr": "Programlama & Yazılım",
+        "en": "Programming & Software"
+      },
+      "tags": [
         "MATLAB",
-        "Python",
-        "Flutter",
-        "Teknik Rapor Hazırlama"
+        "Python (Temel / Veri Analitiği)",
+        "Flutter (Mobil / Masaüstü)",
+        "MS Office"
+      ]
+    },
+    {
+      "id": "skill_soft",
+      "category": {
+        "tr": "Yetkinlikler & Liderlik",
+        "en": "Soft Skills & Leadership"
+      },
+      "tags": [
+        "Liderlik & Takım Yönetimi",
+        "Problem Çözme",
+        "Analitik Düşünme",
+        "Multidisipliner İş Birliği",
+        "Teknik Rapor Hazırlama",
+        "Etkili İletişim",
+        "Adaptasyon Yeteneği"
       ]
     }
   ],
@@ -72,38 +110,40 @@
         "tr": "Mühendislik Stajyeri"
       },
       "company": "Deico Engineering Inc.",
+      "location": "Ankara, Turkey",
       "date": "July 2025 – August 2025",
       "bullets": {
         "en": [
-          "Designed and modeled precision mechanical components and structural assemblies for aerospace and defense projects using SolidWorks and Creo, ensuring strict adherence to GD&T standards.",
-          "Conducted Finite Element Analysis (FEA) to validate component durability and weight optimization, reducing structural mass by 10% while maintaining target safety factors.",
-          "Assisted in DFM reviews and collaborated with CNC machinists to optimize manufacturing workflows, reducing prototyping cycle time by 15%."
+          "Mechanical Design: Designed and modeled precision mechanical components and structural assemblies for aerospace and defense projects using SolidWorks and Creo, ensuring strict adherence to GD&T standards.",
+          "FEA & Optimization: Conducted Finite Element Analysis (FEA) to validate component durability and weight optimization, reducing structural mass by 10% while maintaining target safety factors.",
+          "DFM & Prototyping: Assisted in Design for Manufacturing (DFM) reviews and collaborated with CNC machinists to optimize manufacturing workflows, reducing prototyping cycle time by 15%."
         ],
         "tr": [
           "Havacılık ve savunma projeleri için hassas mekanik bileşenlerin ve yapısal montajların SolidWorks ve Creo kullanarak tasarımını ve modellemesini gerçekleştirdim, GD&T standartlarına tam uyum sağladım.",
           "Bileşen dayanıklılığını ve ağırlık optimizasyonunu doğrulamak için Sonlu Elemanlar Analizi (FEA) yürüttüm, hedeflenen güvenlik faktörlerini koruyarak yapısal kütleyi %10 azalttım.",
-          "DFM incelemelerine yardımcı oldum ve imalat iş akışlarını optimize etmek için CNC operatörleriyle iş birliği yaparak prototip oluşturma döngü süresini %15 kısalttım."
+          "Üretilebilirlik için Tasarım (DFM) incelemelerine destek verdim ve imalat iş akışlarını optimize etmek için CNC operatörleriyle iş birliği yaparak prototip döngü süresini %15 kısalttım."
         ]
       }
     },
     {
       "id": "exp_akdeniz",
       "role": {
-        "en": "Laboratory Assistant (İŞKUR Program)",
-        "tr": "Laboratuvar Mühendisi (Araştırmacı - İŞKUR)"
+        "en": "Laboratory Assistant (İŞKUR Youth Program)",
+        "tr": "Laboratuvar Asistanı (İŞKUR Gençlik Programı)"
       },
       "company": "Akdeniz University Mechanical Laboratory",
+      "location": "Antalya, Turkey",
       "date": "February 2025 – June 2025",
       "bullets": {
         "en": [
-          "Managed setup, calibration, and safety protocols for laboratory testing machinery (tensile, fatigue, and hardness testing), achieving zero safety incidents over 5 months.",
-          "Supported faculty and 50+ undergraduate students in conducting experimental tests and data acquisition, preparing detailed technical reports.",
-          "Performed regular maintenance and troubleshooting of workshop tools, increasing equipment uptime by 20%."
+          "Equipment Management: Managed setup, calibration, and safety protocols for laboratory testing machinery (tensile, fatigue, and hardness testing), achieving zero safety incidents over 5 months.",
+          "Academic Support: Supported faculty and 50+ undergraduate students in conducting experimental tests and data acquisition, preparing detailed technical reports.",
+          "Maintenance: Performed regular maintenance and troubleshooting of workshop tools, increasing equipment uptime by 20%."
         ],
         "tr": [
-          "Çekme, yorulma ve sertlik ölçüm gibi mekanik test cihazlarının kurulumu, kalibrasyonu ve iş güvenliği protokollerinin yönetimini üstlendim; 5 aylık süreçte sıfır iş kazası ile operasyonları tamamladım.",
-          "Akademik kadroya ve 50'den fazla lisans öğrencisine deneysel testler ve veri toplama süreçlerinde destek verdim, ayrıntılı teknik raporlar hazırladım.",
-          "Atölye ekipmanlarının düzenli bakım ve arıza tespit işlemlerini yürüterek cihazların çalışma süresini (uptime) %20 oranında artırdım."
+          "Mekanik test cihazlarının (çekme, yorulma ve sertlik ölçüm) kurulumu, kalibrasyonu ve güvenlik protokollerini yönettim; 5 aylık süreçte sıfır iş kazası ile operasyonları tamamladım.",
+          "50'den fazla lisans öğrencisine ve akademik personele deneysel testler ve veri toplama süreçlerinde destek sağladım, kapsamlı teknik raporlar hazırladım.",
+          "Atölye ekipman ve cihazlarının düzenli bakım ve arıza giderme işlemlerini gerçekleştirerek ekipman çalışma süresini %20 artırdım."
         ]
       }
     },
@@ -114,17 +154,18 @@
         "tr": "Mühendislik Stajyeri"
       },
       "company": "Kristal Industry Inc.",
+      "location": "Antalya, Turkey",
       "date": "July 2024 – August 2024",
       "bullets": {
         "en": [
-          "Participated in sheet metal design and CNC programming for industrial kitchen and refrigeration equipment, streamlining shop-floor fabrication.",
-          "Created detailed engineering drawings and manufacturing documentation (BOMs), reducing assembly alignment errors by 12%.",
-          "Supported quality control inspections of incoming materials and finished assemblies, verifying tolerances against technical specifications."
+          "Production Floor Operations: Participated in sheet metal design and CNC programming for industrial kitchen and refrigeration equipment, streamlining shop-floor fabrication.",
+          "Documentation: Created detailed engineering drawings and manufacturing documentation (BOMs), reducing assembly alignment errors by 12%.",
+          "Quality Control: Supported quality control inspections of incoming materials and finished assemblies, verifying tolerances against technical specifications."
         ],
         "tr": [
           "Endüstriyel mutfak ve soğutma ekipmanları için sac metal tasarımı ve CNC programlama süreçlerine katılarak atölye üretim süreçlerinin hızlandırılmasına katkı sağladım.",
           "Ayrıntılı imalat resimleri ve teknik dokümantasyonlar (BOM) hazırlayarak montaj aşamasındaki hizalama hatalarını %12 oranında azalttım.",
-          "Gelen malzemelerin ve tamamlanan montajların kalite kontrol testlerine katıldım, toleransların teknik şartnamelere uygunluğunu doğruladım."
+          "Gelen hammaddelerin ve tamamlanan montajların kalite kontrol muayenelerini yürüttüm, toleransların teknik şartnamelere uygunluğunu doğruladım."
         ]
       }
     }
@@ -133,7 +174,10 @@
     {
       "id": "proj_tusas",
       "title": "Composite Matrix Structure Supported Silicone Rubber Gasket Design and Test Validation",
-      "role": "Team Leader",
+      "role": {
+        "en": "Team Leader",
+        "tr": "Takım Lideri"
+      },
       "company": "TUSAŞ Lift Up R&D Project",
       "date": "October 2025 – June 2026",
       "bullets": {
@@ -143,16 +187,19 @@
           "Coordinated with TUSAŞ technical advisors and academic mentors to execute physical testing and validation reports."
         ],
         "tr": [
-          "Havacılık standartlarına uygun kompozit destekli conta tasarımı ve doğrulanması süreçlerinde 5 kişilik mühendislik ekibine liderlik ettim.",
-          "Contanın termal ve yüksek basınç altındaki davranışlarını öngörmek için ANSYS ortamında gelişmiş FEA simülasyonları gerçekleştirdim, sızdırmazlık performansını %18 artırdım.",
-          "TUSAŞ teknik danışmanları ve akademik danışmanlarla koordineli olarak fiziksel testleri ve doğrulama raporlarını başarıyla yürüttüm."
+          "Havacılık standartlarına uygun kompozit matris destekli conta tasarımı ve doğrulanması süreçlerinde 5 kişilik mühendislik ekibine liderlik ettim; tüm proje aşamalarını takvimden önce tamamladım.",
+          "Contanın termal ve yüksek basınç altındaki davranışlarını öngörmek için ANSYS ortamında gelişmiş FEA simülasyonları yürüttüm; tasarımı optimize ederek sızdırmazlık performansını %18 artırdım.",
+          "TUSAŞ teknik danışmanları ve akademik danışmanlarla koordineli olarak fiziksel testleri ve doğrulama raporlarını başarıyla tamamladım."
         ]
       }
     },
     {
       "id": "proj_yilkat",
-      "title": "YILKAT Electric Vehicle Team (TÜBİTAK Challenge)",
-      "role": "Mechanical Division Captain",
+      "title": "YILKAT Electric Vehicle Team (TÜBİTAK Efficiency Challenge)",
+      "role": {
+        "en": "Mechanical Division Captain",
+        "tr": "Mekanik Takım Kaptanı"
+      },
       "company": "YILKAT Electric Vehicle Team",
       "date": "2024 – 2026",
       "bullets": {
@@ -162,16 +209,19 @@
           "Oversaw physical assembly and integration of mechanical systems with electrical components, passing all TÜBİTAK technical inspections on the first attempt."
         ],
         "tr": [
-          "Elektrikli yarış aracının şasi, direksiyon, fren ve aktarma organları sistemlerinin tasarımı, CAD modellemesi ve imalatında 5 kişilik mekanik ekibi yönettim.",
-          "ANSYS kullanarak boru tipi çelik şasi üzerinde yapısal FEA gerçekleştirdim, burulma rijitliğini %8 artırırken şasi ağırlığını %15 hafiflettim.",
-          "Mekanik sistemlerin elektrikli bileşenlerle fiziksel montajını ve entegrasyonunu gözeterek tüm TÜBİTAK teknik kontrollerinden ilk seferde geçmeyi sağladım."
+          "Elektrikli yarış aracının şasi, direksiyon, fren ve aktarma organları sistemlerinin tasarımı, CAD modellemesi ve imalatında 5 mühendisten oluşan mekanik ekibi yönettim.",
+          "ANSYS kullanarak boru tipi çelik şasi üzerinde yapısal FEA analizleri gerçekleştirdim; burulma rijitliğini %8 artırırken şasi ağırlığını %15 hafiflettim.",
+          "Mekanik sistemlerin elektriksel bileşenlerle montajını ve entegrasyonunu denetledim; ilk denemede tüm TÜBİTAK teknik kontrollerinden başarıyla geçilmesini sağladım."
         ]
       }
     },
     {
       "id": "proj_umay",
-      "title": "UMAY Electromobile Team (TÜBİTAK Challenge)",
-      "role": "Mechanical Designer",
+      "title": "UMAY Electromobile Team (TÜBİTAK Efficiency Challenge)",
+      "role": {
+        "en": "Mechanical Designer",
+        "tr": "Mekanik Tasarımcı"
+      },
       "company": "UMAY Electromobile Team",
       "date": "2023 – 2024",
       "bullets": {
@@ -181,16 +231,19 @@
           "Integrated shell mounting points with the chassis frame, ensuring structural alignment and ease of assembly."
         ],
         "tr": [
-          "SolidWorks Yüzey Modelleme kullanarak EV prototipinin aerodinamik dış kabuğunu ve karbon fiber gövdesini geliştirdim, sürüklenme katsayısını (Cd) %12 azalttım.",
-          "Vakum torbalama tekniklerini kullanarak karbon fiber kompozit gövde panelleri imal ettim, cam elyaf alternatiflerine kıyasla %20 ağırlık tasarrufu sağladım.",
-          "Kabuk montaj noktalarını şasi çerçevesi ile entegre ederek yapısal hizalamayı ve montaj kolaylığını sağladım."
+          "SolidWorks Yüzey Modelleme kullanarak EV prototipinin aerodinamik dış kabuğunu ve karbon fiber gövdesini geliştirdim; sürüklenme katsayısını (Cd) %12 düşürdüm.",
+          "Vakum torbalama teknikleri ile karbon fiber kompozit gövde panelleri imal ederek cam elyaf alternatiflere göre %20 ağırlık tasarrufu elde ettim.",
+          "Kabuk montaj noktalarını şasi çerçevesine entegre ederek yapısal hizalamayı ve montaj kolaylığını güvenceye aldım."
         ]
       }
     },
     {
       "id": "proj_wast",
-      "title": "WAST Electromobile Team (TÜBİTAK Challenge)",
-      "role": "Chassis Designer",
+      "title": "WAST Electromobile Team (TÜBİTAK Efficiency Challenge)",
+      "role": {
+        "en": "Chassis Designer",
+        "tr": "Şasi Tasarımcısı"
+      },
       "company": "WAST Electromobile Team",
       "date": "2022 – 2023",
       "bullets": {
@@ -200,9 +253,9 @@
           "Prepared BOMs and production drawings for chassis welding, reducing manufacturing assembly time by 10%."
         ],
         "tr": [
-          "SolidWorks Weldments kullanarak elektrikli araç için boru tipi güvenlik çerçevesini tasarladım ve modelledim.",
-          "Sürücü hücresi güvenliğini doğrulamak ve TÜBİTAK mevzuat gereksinimlerini karşılamak için yapısal darbe simülasyonları yürüttüm.",
-          "Şasi kaynağı için malzeme listeleri (BOM) ve üretim çizimleri hazırlayarak imalat montaj süresini %10 azalttım."
+          "SolidWorks Weldments kullanarak elektrikli yarış aracı için boru tipi güvenlik şasisini tasarladım ve modelledim.",
+          "Sürücü kabini güvenliğini doğrulamak ve TÜBİTAK kural kitapçığı gereksinimlerini sağlamak için yapısal darbe simülasyonları yürüttüm.",
+          "Şasi kaynağı için malzeme listeleri (BOM) ve imalat çizimleri hazırlayarak atölye montaj süresini %10 kısalttım."
         ]
       }
     }
@@ -210,89 +263,111 @@
   "education": [
     {
       "id": "edu_master",
-      "degree": "M.Sc. in Mechanical Engineering (With Thesis)",
+      "degree": {
+        "en": "M.Sc. in Mechanical Engineering (With Thesis)",
+        "tr": "Yüksek Lisans, Makine Mühendisliği (Tezli)"
+      },
       "school": "Ankara Yıldırım Beyazıt University (Ankara, Turkey)",
       "date": "2026 – 2029 (Ongoing)",
-      "honors": "Yüksek Lisans (Tezli)"
+      "honors": "M.Sc. Candidate / Yüksek Lisans Öğrencisi"
     },
     {
-      "id": "edu_1",
-      "degree": "B.Sc. in Mechanical Engineering",
+      "id": "edu_bachelor",
+      "degree": {
+        "en": "B.Sc. in Mechanical Engineering",
+        "tr": "Lisans, Makine Mühendisliği"
+      },
       "school": "Akdeniz University (Antalya, Turkey)",
       "date": "Graduated: 2026",
-      "honors": "Graduated 3rd in the Department"
+      "honors": "Graduated 3rd in the Department / Bölüm 3.sü"
     },
     {
-      "id": "edu_2",
-      "degree": "Intensive English Language Program",
-      "school": "Berlitz Language Academy (Esas Sosyal Program)",
-      "date": "2025 – 2026",
-      "honors": "B2+ İleri Düzey Sertifika"
+      "id": "edu_berlitz",
+      "degree": {
+        "en": "Intensive English Training (Esas Sosyal Program)",
+        "tr": "Yoğun İngilizce Eğitimi (Esas Sosyal Programı)"
+      },
+      "school": "Berlitz Language Academy (Istanbul, Turkey)",
+      "date": "May 2025 – March 2026",
+      "honors": "B2 Professional Working Proficiency / B2+ İleri Düzey"
     },
     {
-      "id": "edu_3",
-      "degree": "High School Diploma",
-      "school": "Ceyhan Science High School (Adana, Turkey)",
+      "id": "edu_highschool",
+      "degree": {
+        "en": "High School Diploma (Science High School)",
+        "tr": "Lise Diploması (Fen Lisesi)"
+      },
+      "school": "Ceyhan Eczacı Bahattin Sevinç Erdinç Science High School (Adana, Turkey)",
       "date": "Graduated: 2021",
-      "honors": "Fen Lisesi Derece Mezunu"
+      "honors": "Science High School Graduate / Fen Lisesi Derecesi"
     }
   ],
   "languages": [
     {
-      "id": "lang_1",
-      "name": "Turkish",
-      "level": "Native Speaker"
+      "id": "lang_tr",
+      "name": {
+        "en": "Turkish",
+        "tr": "Türkçe"
+      },
+      "level": {
+        "en": "Native",
+        "tr": "Anadil"
+      }
     },
     {
-      "id": "lang_2",
-      "name": "English",
-      "level": "B2 Professional"
-    }
-  ],
-  "certificates": [
-    {
-      "id": "cert_1",
-      "title": "TUSAŞ Lift Up Ar-Ge Projesi Başarı Belgesi",
-      "issuer": "Türk Havacılık ve Uzay Sanayii (TUSAŞ)",
-      "date": "2026",
-      "credentialUrl": ""
-    },
-    {
-      "id": "cert_2",
-      "title": "Berlitz İleri Düzey İngilizce Sertifikası (B2+)",
-      "issuer": "Berlitz Dil Akademisi & Esas Sosyal",
-      "date": "2026",
-      "credentialUrl": ""
-    },
-    {
-      "id": "cert_3",
-      "title": "TÜBİTAK Efficiency Challenge Katılım & Derece Belgesi",
-      "issuer": "TÜBİTAK",
-      "date": "2025",
-      "credentialUrl": ""
+      "id": "lang_en",
+      "name": {
+        "en": "English",
+        "tr": "İngilizce"
+      },
+      "level": {
+        "en": "B2 (Professional Working Proficiency)",
+        "tr": "B2 (Mesleki Yeterlilik)"
+      }
     }
   ],
   "references": [
     {
-      "id": "ref_1",
-      "name": "Prof. Dr. Volkan Kovan (Academic Advisor)",
-      "title": "Akdeniz University, Dept. of Mechanical Engineering (Construction and Mfg)",
+      "id": "ref_kovan",
+      "name": "Prof. Dr. Volkan Kovan",
+      "role": {
+        "en": "Academic Advisor",
+        "tr": "Akademik Danışman"
+      },
+      "title": {
+        "en": "Akdeniz University | Faculty of Engineering, Department of Mechanical Engineering (Construction and Manufacturing)",
+        "tr": "Akdeniz Üniversitesi | Mühendislik Fakültesi, Makine Mühendisliği Bölümü (Konstrüksiyon ve İmalat)"
+      },
       "phone": "+90 242 310 6344",
       "email": "kovan@akdeniz.edu.tr",
       "profileUrl": "https://avesis.akdeniz.edu.tr/kovan"
     },
     {
-      "id": "ref_2",
-      "name": "Prof. İbrahim Atmaca",
-      "title": "Akdeniz University, Dept. of Mechanical Engineering (Thermodynamics)",
+      "id": "ref_atmaca",
+      "name": "Prof. Dr. İbrahim Atmaca",
+      "role": {
+        "en": "Professor",
+        "tr": "Profesör"
+      },
+      "title": {
+        "en": "Akdeniz University | Faculty of Engineering, Department of Mechanical Engineering (Thermodynamics)",
+        "tr": "Akdeniz Üniversitesi | Mühendislik Fakültesi, Makine Mühendisliği Bölümü (Termodinamik)"
+      },
       "phone": "+90 242 310 6337",
       "email": "atmaca@akdeniz.edu.tr",
       "profileUrl": "http://makine.muhfak.akdeniz.edu.tr/ibrahim-atmaca"
     },
     {
-      "id": "ref_3",
+      "id": "ref_oral",
       "name": "Doç. Dr. Okan Oral",
-      "title": "Akdeniz University, Dept. of Mechanical Engineering",
+      "role": {
+        "en": "Associate Professor",
+        "tr": "Doçent Doktor"
+      },
+      "title": {
+        "en": "Akdeniz University | Faculty of Engineering, Department of Mechanical Engineering",
+        "tr": "Akdeniz Üniversitesi | Mühendislik Fakültesi, Makine Mühendisliği Bölümü"
+      },
       "phone": "+90 242 310 6377",
       "email": "okan@akdeniz.edu.tr",
       "profileUrl": "https://avesis.akdeniz.edu.tr/okanoral"
