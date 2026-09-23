@@ -32,6 +32,8 @@ async function githubRequest(path, token, options = {}) {
       errorCode = 'missing_permission';
     } else if (response.status === 404) {
       errorCode = 'not_found';
+    } else if (response.status === 409) {
+      errorCode = 'conflict';
     }
     const error = new Error(errorCode);
     error.status = response.status;
@@ -45,22 +47,7 @@ export async function verifyAdminToken(rawToken) {
   const token = sanitizeToken(rawToken);
   if (!token) throw new Error('invalid_token');
 
-  // 1. Verify access and push permissions on the repository
-  let repository;
-  try {
-    repository = await githubRequest(`/repos/${owner}/${repo}`, token);
-  } catch (err) {
-    if (err.status === 401) throw new Error('invalid_token');
-    if (err.status === 403 || err.status === 404) throw new Error('missing_permission');
-    throw err;
-  }
-
-  if (repository?.permissions?.push !== true) {
-    throw new Error('missing_permission');
-  }
-
-  // 2. If the token allows reading /user (e.g. classic PAT or fine-grained with profile scope),
-  // ensure it belongs to the repository owner
+  // 1. If /user is accessible (e.g. Classic PAT or Fine-Grained with profile scope), verify owner
   try {
     const user = await githubRequest('/user', token);
     if (user?.login && user.login.toLowerCase() !== owner.toLowerCase()) {
@@ -68,11 +55,43 @@ export async function verifyAdminToken(rawToken) {
     }
   } catch (err) {
     if (err.message === 'wrong_account') throw err;
-    // 403 is expected for fine-grained PATs scoped only to the repository without account/profile scope.
-    // Push permission to this specific repository is already verified above.
+    if (err.status === 401) throw new Error('invalid_token');
+    // 403 is normal for Fine-Grained PATs scoped only to repositories without profile scope
   }
 
-  return { owner, repo, permissions: repository.permissions };
+  // 2. Verify write permission on serdevir91/soner-portfolio.
+  // We send a dry-run PUT to an existing file with a mismatched SHA:
+  // - 401: Invalid or expired token
+  // - 403: Token has NO write permission (Resource not accessible)
+  // - 409 Conflict: Token IS authorized and has write permission (SHA mismatch check performed by GitHub)
+  const endpoint = `/repos/${owner}/${repo}/contents/public/portfolio-data.json`;
+  const dryRunPayload = {
+    message: 'Permission verify dry-run',
+    content: btoa('test'),
+    sha: '0000000000000000000000000000000000000000',
+    branch: 'master',
+  };
+
+  try {
+    await githubRequest(endpoint, token, {
+      method: 'PUT',
+      body: JSON.stringify(dryRunPayload),
+      headers: { 'Content-Type': 'application/json' },
+    });
+    return { owner, repo };
+  } catch (err) {
+    if (err.status === 409) {
+      // SHA mismatch confirms write authorization on this repository
+      return { owner, repo };
+    }
+    if (err.status === 401) {
+      throw new Error('invalid_token');
+    }
+    if (err.status === 403 || err.status === 404) {
+      throw new Error('missing_permission');
+    }
+    throw err;
+  }
 }
 
 function encodeContent(value) {
@@ -87,7 +106,7 @@ function encodeContent(value) {
 async function updateFile(token, branch, path, data) {
   const cleanToken = sanitizeToken(token);
   const endpoint = `/repos/${owner}/${repo}/contents/${path}`;
-  
+
   let currentSha = null;
   try {
     const current = await githubRequest(`${endpoint}?ref=${branch}`, cleanToken);

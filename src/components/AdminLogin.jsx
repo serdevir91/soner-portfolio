@@ -12,14 +12,15 @@ const messages = {
     checking: 'Erişim anahtarı doğrulanıyor…',
     back: 'Siteye dön',
     privacy: 'Anahtar yalnızca GitHub API ile güvenli HTTPS üzerinden iletişim kurar. Git deposuna veya kalıcı site içeriğine asla yazılmaz. Oturumunuz bu tarayıcı sekmesi boyunca aktif kalır.',
-    help: 'Fine-grained personal access token oluşturun: Yalnızca "soner-portfolio" deposu erişimi ve Repository permissions > "Contents: Read and write" izni vermeniz yeterlidir.',
-    create: 'GitHub’da anahtar oluştur',
+    help: 'GitHub erişim anahtarı oluştururken "Contents: Read and write" veya Klasik Token için "repo" kutucuğunu işaretlemeniz gerekir.',
+    create: 'Klasik anahtar oluştur (Önerilen)',
+    createFineGrained: 'Fine-grained anahtar oluştur',
     showToken: 'Anahtarı göster',
     hideToken: 'Anahtarı gizle',
     errors: {
       invalid_token: 'Erişim anahtarı geçersiz veya süresi dolmuş (401 Unauthorized).',
       wrong_account: 'Bu anahtar serdevir91 hesabına ait değil.',
-      missing_permission: 'Bu anahtarın soner-portfolio deposunda yazma izni (Contents: Read and write) bulunmuyor.',
+      missing_permission: 'Bu anahtarın soner-portfolio deposunda yazma (Contents: Read and write) izni yok. Token oluştururken Contents yetkisini "Read and write" olarak ayarlayın.',
       github_error: 'GitHub API doğrulaması şu anda tamamlanamadı. Lütfen internet bağlantınızı ve anahtarınızı kontrol edin.',
     },
   },
@@ -32,8 +33,9 @@ const messages = {
     checking: 'Verifying access token…',
     back: 'Back to site',
     privacy: 'The token is transmitted only to the GitHub API over secure HTTPS. It is never saved to the repository or published content. Your session stays active during this browser tab.',
-    help: 'Create a fine-grained personal access token: Select "soner-portfolio" repository and grant Repository permissions > "Contents: Read and write".',
-    create: 'Create token on GitHub',
+    help: 'When creating the token, check the "repo" scope for Classic tokens or "Contents: Read and write" for Fine-Grained tokens.',
+    create: 'Create classic token (Recommended)',
+    createFineGrained: 'Create fine-grained token',
     showToken: 'Show token',
     hideToken: 'Hide token',
     errors: {
@@ -115,16 +117,27 @@ export default function AdminLogin({ lang, onSuccess, onClose }) {
           <ShieldCheck size={18} />
           <p>{t.privacy}</p>
         </div>
-        <p className="admin-login-instructions">
-          {t.help}{' '}
-          <a
-            href="https://github.com/settings/personal-access-tokens/new"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {t.create} ↗
-          </a>
-        </p>
+        <div className="admin-login-instructions">
+          <p>{t.help}</p>
+          <div className="token-create-links">
+            <a
+              href="https://github.com/settings/tokens/new?description=soner-portfolio-admin&scopes=repo"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="token-link-btn"
+            >
+              🔑 {t.create} ↗
+            </a>
+            <a
+              href="https://github.com/settings/personal-access-tokens/new"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="token-link-sub"
+            >
+              {t.createFineGrained} ↗
+            </a>
+          </div>
+        </div>
       </section>
     </div>
   );
