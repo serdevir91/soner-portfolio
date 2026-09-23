@@ -1,7 +1,8 @@
 import { useRef, useState } from 'react';
-import { ArrowLeft, Download, LogOut, Plus, RotateCcw, Save, Trash2, Upload } from 'lucide-react';
+import { ArrowLeft, Camera, Download, LogOut, Plus, RotateCcw, Save, Trash2, Upload } from 'lucide-react';
 import { INITIAL_PORTFOLIO_DATA } from '../data/initialData';
 import { safeEmail, safeExternalUrl } from '../utils/safeLinks';
+import { optimizeImage } from '../utils/imageOptimizer';
 
 const sections = ['profile', 'projects', 'experience', 'skills', 'education', 'references', 'apps'];
 const titles = {
@@ -112,6 +113,7 @@ export default function ContentEditor({ data, onSaveData, onResetData, onClose, 
   const [notice, setNotice] = useState('');
   const [publishing, setPublishing] = useState(false);
   const fileInput = useRef(null);
+  const avatarInputRef = useRef(null);
 
   const list = Array.isArray(draft[section]) ? draft[section] : [];
   const item = list[selected];
@@ -291,21 +293,101 @@ export default function ContentEditor({ data, onSaveData, onResetData, onClose, 
           </div>
 
           {section === 'profile' ? (
-            <div className="editor-fields">
-              {[
-                ['name', 'Ad / Name'],
-                ['title.en', 'Unvan (EN)'],
-                ['title.tr', 'Unvan (TR)'],
-                ['location', 'Konum / Location'],
-                ['email', 'E-posta / Email'],
-                ['phone', 'Telefon / Phone'],
-                ['linkedin', 'LinkedIn URL'],
-                ['bio.tr', 'Biyografi (TR)'],
-                ['bio.en', 'Biography (EN)'],
-              ].map(([key, label]) => renderField(key, label, getPath(draft.profile, key), updateProfile, key.startsWith('bio.')))}
-              {draft.profile.linkedin && !safeExternalUrl(draft.profile.linkedin) && (
-                <p className="form-error">LinkedIn URL must start with https:// or http://</p>
-              )}
+            <div className="editor-profile-container">
+              <div className="profile-photo-editor-card">
+                <div className="photo-preview-box">
+                  <img
+                    src={
+                      draft.profile.avatar?.startsWith('data:') ||
+                      draft.profile.avatar?.startsWith('http://') ||
+                      draft.profile.avatar?.startsWith('https://')
+                        ? draft.profile.avatar
+                        : `${import.meta.env.BASE_URL}${draft.profile.avatar || 'profile.jpeg'}`
+                    }
+                    alt={draft.profile.name || 'Profile'}
+                  />
+                </div>
+                <div className="photo-actions-box">
+                  <div className="photo-actions-header">
+                    <Camera size={18} />
+                    <strong>{lang === 'tr' ? 'Profil Fotoğrafı' : 'Profile Photo'}</strong>
+                  </div>
+                  <p className="photo-actions-desc">
+                    {lang === 'tr'
+                      ? 'Cihazınızdan yeni bir görsel seçin veya internetteki bir görselin bağlantısını girin. Canlıda yayımladığınızda doğrudan depoya yüklenir.'
+                      : 'Choose an image from your device or paste an image URL. Automatically uploaded to your repository when published.'}
+                  </p>
+                  <div className="photo-buttons">
+                    <button
+                      type="button"
+                      className="action action-primary photo-upload-btn"
+                      onClick={() => avatarInputRef.current?.click()}
+                    >
+                      <Upload size={16} /> {lang === 'tr' ? 'Fotoğraf Seç & Yükle' : 'Upload New Photo'}
+                    </button>
+                    <input
+                      ref={avatarInputRef}
+                      type="file"
+                      accept="image/*"
+                      hidden
+                      onChange={async e => {
+                        const file = e.target.files?.[0];
+                        if (!file) return;
+                        try {
+                          const dataUrl = await optimizeImage(file);
+                          updateProfile('avatar', dataUrl);
+                          setNotice(
+                            lang === 'tr'
+                              ? 'Fotoğraf önizlemeye yüklendi. Canlı sitede görünmesi için "Canlıda yayımla" butonuna basın.'
+                              : 'Photo loaded in preview. Click "Publish live" to push it to the website.'
+                          );
+                        } catch {
+                          setNotice(lang === 'tr' ? 'Fotoğraf işlenirken hata oluştu.' : 'Failed to process photo.');
+                        }
+                        e.target.value = '';
+                      }}
+                    />
+                    {draft.profile.avatar && draft.profile.avatar !== 'profile.jpeg' && (
+                      <button
+                        type="button"
+                        className="action action-outline photo-reset-btn"
+                        onClick={() => {
+                          updateProfile('avatar', 'profile.jpeg');
+                          setNotice(lang === 'tr' ? 'Varsayılan fotoğrafa dönüldü.' : 'Reset to default photo.');
+                        }}
+                      >
+                        <RotateCcw size={15} /> {lang === 'tr' ? 'Varsayılana Sıfırla' : 'Reset to Default'}
+                      </button>
+                    )}
+                  </div>
+                  <label className="photo-url-field">
+                    <span>{lang === 'tr' ? 'Veya doğrudan Görsel Bağlantısı (URL):' : 'Or direct Image URL:'}</span>
+                    <input
+                      type="url"
+                      placeholder="https://.../photo.jpg"
+                      value={draft.profile.avatar?.startsWith('data:') ? '' : draft.profile.avatar || ''}
+                      onChange={e => updateProfile('avatar', e.target.value)}
+                    />
+                  </label>
+                </div>
+              </div>
+
+              <div className="editor-fields">
+                {[
+                  ['name', 'Ad / Name'],
+                  ['title.en', 'Unvan (EN)'],
+                  ['title.tr', 'Unvan (TR)'],
+                  ['location', 'Konum / Location'],
+                  ['email', 'E-posta / Email'],
+                  ['phone', 'Telefon / Phone'],
+                  ['linkedin', 'LinkedIn URL'],
+                  ['bio.tr', 'Biyografi (TR)'],
+                  ['bio.en', 'Biography (EN)'],
+                ].map(([key, label]) => renderField(key, label, getPath(draft.profile, key), updateProfile, key.startsWith('bio.')))}
+                {draft.profile.linkedin && !safeExternalUrl(draft.profile.linkedin) && (
+                  <p className="form-error">LinkedIn URL must start with https:// or http://</p>
+                )}
+              </div>
             </div>
           ) : (
             <div className="editor-item-layout">

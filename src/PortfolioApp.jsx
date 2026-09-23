@@ -35,6 +35,14 @@ const localized = (value, lang) => {
   return value || '';
 };
 
+const resolveAvatar = avatar => {
+  if (!avatar) return `${import.meta.env.BASE_URL}profile.jpeg`;
+  if (avatar.startsWith('data:') || avatar.startsWith('http://') || avatar.startsWith('https://')) {
+    return avatar;
+  }
+  return `${import.meta.env.BASE_URL}${avatar.replace(/^\//, '')}`;
+};
+
 const labels = {
   tr: {
     work: 'Çalışmalar',
@@ -416,7 +424,7 @@ export default function PortfolioApp() {
             </div>
             <div className="hero-visual">
               <div className="portrait-frame">
-                <img src={`${import.meta.env.BASE_URL}profile.jpeg`} alt={profile.name} />
+                <img src={resolveAvatar(profile.avatar)} alt={profile.name} />
               </div>
             </div>
             <div className="hero-bottom">

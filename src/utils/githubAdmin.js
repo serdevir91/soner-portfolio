@@ -133,13 +133,72 @@ async function updateFile(token, branch, path, data) {
   });
 }
 
+async function updateRawFile(token, branch, path, base64Content) {
+  const cleanToken = sanitizeToken(token);
+  const endpoint = `/repos/${owner}/${repo}/contents/${path}`;
+
+  let currentSha = null;
+  try {
+    const current = await githubRequest(`${endpoint}?ref=${branch}`, cleanToken);
+    currentSha = current?.sha;
+  } catch (err) {
+    if (err.status !== 404 && err.message !== 'not_found') {
+      throw err;
+    }
+  }
+
+  const payload = {
+    message: `Update profile photo (${branch})`,
+    content: base64Content,
+    branch,
+  };
+  if (currentSha) {
+    payload.sha = currentSha;
+  }
+
+  await githubRequest(endpoint, cleanToken, {
+    method: 'PUT',
+    body: JSON.stringify(payload),
+    headers: { 'Content-Type': 'application/json' },
+  });
+}
+
 export async function publishPortfolio(token, data) {
   await verifyAdminToken(token);
-  await updateFile(token, 'master', 'public/portfolio-data.json', data);
+
+  let dataToSave = { ...data };
+
+  // If a new avatar photo was uploaded as a data URL, push it as a file directly to repository branches
+  if (data.profile?.avatar && data.profile.avatar.startsWith('data:image/')) {
+    const base64Part = data.profile.avatar.split(',')[1];
+    if (base64Part) {
+      try {
+        await updateRawFile(token, 'master', 'public/profile.jpeg', base64Part);
+        try {
+          await updateRawFile(token, 'gh-pages', 'profile.jpeg', base64Part);
+        } catch (e) {
+          console.warn('Could not update profile.jpeg on gh-pages:', e);
+        }
+        // Save avatar as 'profile.jpeg' in published JSON to keep JSON file lightweight
+        dataToSave = {
+          ...dataToSave,
+          profile: {
+            ...dataToSave.profile,
+            avatar: 'profile.jpeg',
+          },
+        };
+      } catch (err) {
+        console.warn('Could not commit avatar image file directly, keeping data URL as fallback:', err);
+      }
+    }
+  }
+
+  await updateFile(token, 'master', 'public/portfolio-data.json', dataToSave);
   try {
-    await updateFile(token, 'gh-pages', 'portfolio-data.json', data);
+    await updateFile(token, 'gh-pages', 'portfolio-data.json', dataToSave);
   } catch (err) {
     console.error('Failed to update gh-pages branch:', err);
     throw new Error('live_publish_failed');
   }
 }
+

@@ -62,5 +62,19 @@
 .editor-account-pill small{color:var(--accent);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.05em}
 .account-dot{width:7px;height:7px;border-radius:50%;background:#38d39f;box-shadow:0 0 0 3px rgba(56,211,159,.18)}
 .login-submit-btn{margin-top:6px}
+.editor-profile-container{display:grid;gap:24px}
+.profile-photo-editor-card{display:flex;align-items:center;gap:24px;background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:22px;margin-bottom:6px}
+.photo-preview-box{width:115px;height:115px;border-radius:18px;overflow:hidden;border:2px solid var(--accent);background:var(--surface-2);flex-shrink:0;box-shadow:0 10px 25px rgba(0,0,0,.15)}
+.photo-preview-box img{width:100%;height:100%;object-fit:cover;display:block}
+.photo-actions-box{flex:1;display:grid;gap:8px}
+.photo-actions-header{display:flex;align-items:center;gap:8px;color:var(--accent);font:800 15px var(--font-display)}
+.photo-actions-desc{font-size:12px;color:var(--muted);margin:0;line-height:1.5}
+.photo-buttons{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:4px 0}
+.photo-upload-btn{padding:8px 14px;font-size:12px;min-height:36px}
+.photo-reset-btn{padding:8px 13px;font-size:12px;min-height:36px}
+.photo-url-field{display:grid;gap:5px;font-size:11px;color:var(--muted);font-weight:600}
+.photo-url-field input{width:100%;padding:9px 12px;border:1px solid var(--line);border-radius:6px;background:var(--surface);color:var(--ink);font-size:12px}
+@media(max-width:640px){.profile-photo-editor-card{flex-direction:column;align-items:flex-start}}
+
 
 
