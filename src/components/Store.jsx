@@ -3,6 +3,14 @@ import {
   ShoppingBag, ExternalLink, Download, X, ChevronLeft, ChevronRight, 
   Smartphone, Monitor, Sparkles, Code, Info, Check, Eye
 } from 'lucide-react';
+import { safeExternalUrl } from '../utils/safeLinks';
+
+const safeImage = value => {
+  if (typeof value !== 'string') return `${import.meta.env.BASE_URL}apps/autoshare/icon.png`;
+  if (/^https?:\/\//i.test(value)) return safeExternalUrl(value);
+  if (/^(?:\.\/)?apps\/[a-z0-9_/-]+\.(?:png|jpe?g|webp)$/i.test(value)) return `${import.meta.env.BASE_URL}${value.replace(/^\.\//, '')}`;
+  return `${import.meta.env.BASE_URL}apps/autoshare/icon.png`;
+};
 
 const APPS = [
   {
@@ -292,7 +300,19 @@ const Store = ({ lang, customApps }) => {
   const [currentImgIndex, setCurrentImgIndex] = useState(0);
   const [zoomedImage, setZoomedImage] = useState(null);
 
-  const activeApps = (customApps && customApps.length > 0) ? customApps : APPS;
+  const activeApps = (Array.isArray(customApps) ? customApps : APPS).filter(Boolean).map(app => ({
+    ...app,
+    category: app.category && typeof app.category === 'object' ? app.category : { en: '', tr: '' },
+    tagline: app.tagline && typeof app.tagline === 'object' ? app.tagline : { en: '', tr: '' },
+    description: app.description && typeof app.description === 'object' ? app.description : { en: '', tr: '' },
+    features: app.features && typeof app.features === 'object' ? { en: Array.isArray(app.features.en) ? app.features.en : [], tr: Array.isArray(app.features.tr) ? app.features.tr : [] } : { en: [], tr: [] },
+    platforms: Array.isArray(app.platforms) ? app.platforms : [],
+    screenshots: Array.isArray(app.screenshots) ? app.screenshots.map(safeImage) : [],
+    icon: safeImage(app.icon),
+    webUrl: safeExternalUrl(app.webUrl),
+    playStoreUrl: safeExternalUrl(app.playStoreUrl),
+    githubUrl: safeExternalUrl(app.githubUrl),
+  }));
 
   // Prevent scroll when modal is open
   useEffect(() => {
@@ -310,7 +330,7 @@ const Store = ({ lang, customApps }) => {
     if (filter === 'all') return true;
     if (filter === 'android') return app.platforms.includes('Android');
     if (filter === 'windows') return app.platforms.includes('Windows');
-    if (filter === 'playstore') return app.playStoreUrl !== null;
+    if (filter === 'playstore') return Boolean(app.playStoreUrl);
     return true;
   });
 
@@ -373,13 +393,13 @@ const Store = ({ lang, customApps }) => {
 
   const handleNextScreenshot = (e) => {
     e.stopPropagation();
-    if (!selectedApp) return;
+    if (!selectedApp?.screenshots.length) return;
     setCurrentImgIndex((prev) => (prev + 1) % selectedApp.screenshots.length);
   };
 
   const handlePrevScreenshot = (e) => {
     e.stopPropagation();
-    if (!selectedApp) return;
+    if (!selectedApp?.screenshots.length) return;
     setCurrentImgIndex((prev) => (prev - 1 + selectedApp.screenshots.length) % selectedApp.screenshots.length);
   };
 
@@ -433,6 +453,8 @@ const Store = ({ lang, customApps }) => {
                 <span className="badge badge-accent" style={{ background: 'rgba(16, 185, 129, 0.15)', color: '#10b981', border: '1px solid rgba(16, 185, 129, 0.3)' }}>
                   Google Play
                 </span>
+              ) : app.webUrl ? (
+                <span className="badge badge-accent">Web Studio</span>
               ) : (
                 <span className="badge badge-accent" style={{ background: 'rgba(244, 63, 94, 0.15)', color: '#f43f5e', border: '1px solid rgba(244, 63, 94, 0.3)' }}>
                   GitHub Only
@@ -441,7 +463,7 @@ const Store = ({ lang, customApps }) => {
             </div>
 
             <div className="store-card-header">
-              <img src={app.icon} alt={`${app.name} icon`} className="store-app-icon" onError={(e) => { e.target.src = './apps/autoshare/icon.png'; }} />
+              <img src={app.icon} alt={`${app.name} icon`} className="store-app-icon" onError={(e) => { e.target.onerror = null; e.target.src = `${import.meta.env.BASE_URL}apps/autoshare/icon.png`; }} />
               <div className="store-app-meta">
                 <h3 className="store-app-name">{app.name}</h3>
                 <span className="store-app-cat">{app.category[lang]}</span>
@@ -462,12 +484,12 @@ const Store = ({ lang, customApps }) => {
                 <Eye size={14} /> {t.details}
               </button>
 
-              {app.playStoreUrl ? (
-                <a href={app.playStoreUrl} target="_blank" rel="noopener noreferrer" className="btn btn-primary store-action-btn">
-                  Play Store <ExternalLink size={12} />
+              {app.playStoreUrl || app.webUrl ? (
+                <a href={app.playStoreUrl || app.webUrl} target="_blank" rel="noopener noreferrer" className="btn btn-primary store-action-btn">
+                  {app.playStoreUrl ? 'Play Store' : 'Web Studio'} <ExternalLink size={12} />
                 </a>
               ) : (
-                <a href={app.githubUrl} target="_blank" rel="noopener noreferrer" className="btn btn-primary store-action-btn" style={{ background: '#334155', borderColor: '#475569' }}>
+                <a href={app.githubUrl || '#app-store'} target="_blank" rel="noopener noreferrer" className="btn btn-primary store-action-btn" style={{ background: '#334155', borderColor: '#475569' }}>
                   GitHub <ExternalLink size={12} />
                 </a>
               )}
@@ -487,25 +509,25 @@ const Store = ({ lang, customApps }) => {
             <div className="store-modal-body">
               {/* MODAL HEADER */}
               <div className="store-modal-header">
-                <img src={selectedApp.icon} alt={`${selectedApp.name} icon`} className="store-modal-icon" onError={(e) => { e.target.src = './apps/autoshare/icon.png'; }} />
+                <img src={selectedApp.icon} alt={`${selectedApp.name} icon`} className="store-modal-icon" onError={(e) => { e.target.onerror = null; e.target.src = `${import.meta.env.BASE_URL}apps/autoshare/icon.png`; }} />
                 <div className="store-modal-meta">
                   <h2>{selectedApp.name}</h2>
                   <p className="store-modal-subtitle">{selectedApp.category[lang]}</p>
                   
-                  <div className="store-modal-stats-row">
-                    <div className="store-modal-stat">
+                  {(selectedApp.rating || selectedApp.reviews || selectedApp.size) && <div className="store-modal-stats-row">
+                    {selectedApp.rating && <div className="store-modal-stat">
                       <span className="store-modal-stat-label">{t.rating}</span>
                       <span className="store-modal-stat-val">★ {selectedApp.rating}</span>
-                    </div>
-                    <div className="store-modal-stat">
+                    </div>}
+                    {selectedApp.reviews && <div className="store-modal-stat">
                       <span className="store-modal-stat-label">{t.reviews}</span>
                       <span className="store-modal-stat-val" style={{ fontSize: '0.85rem' }}>{selectedApp.reviews}</span>
-                    </div>
-                    <div className="store-modal-stat">
+                    </div>}
+                    {selectedApp.size && <div className="store-modal-stat">
                       <span className="store-modal-stat-label">{t.size}</span>
                       <span className="store-modal-stat-val">{selectedApp.size}</span>
-                    </div>
-                  </div>
+                    </div>}
+                  </div>}
                 </div>
               </div>
 
@@ -522,10 +544,10 @@ const Store = ({ lang, customApps }) => {
                       <span className="info-label">{t.version}</span>
                       <span className="info-value">{selectedApp.version}</span>
                     </div>
-                    <div className="info-row">
+                    {selectedApp.releaseDate && <div className="info-row">
                       <span className="info-label">{t.releaseDate}</span>
                       <span className="info-value">{selectedApp.releaseDate}</span>
-                    </div>
+                    </div>}
                   </div>
 
                   <h3 className="store-section-title" style={{ marginTop: '1.5rem' }}>{t.downloads}</h3>
@@ -539,8 +561,17 @@ const Store = ({ lang, customApps }) => {
                         </div>
                       </a>
                     )}
+                    {selectedApp.webUrl && (
+                      <a href={selectedApp.webUrl} target="_blank" rel="noopener noreferrer" className="download-link-btn direct-download">
+                        <span className="download-btn-icon"><ExternalLink size={18} /></span>
+                        <div className="download-btn-text">
+                          <span className="dl-small">{lang === 'tr' ? 'Tarayıcıda aç' : 'Open in browser'}</span>
+                          <span className="dl-large">Web Studio</span>
+                        </div>
+                      </a>
+                    )}
                     
-                    <a href={selectedApp.githubUrl} target="_blank" rel="noopener noreferrer" className="download-link-btn github-download">
+                    <a href={selectedApp.githubUrl || '#app-store'} target="_blank" rel="noopener noreferrer" className="download-link-btn github-download">
                       <span className="download-btn-icon"><Code size={18} /></span>
                       <div className="download-btn-text">
                         <span className="dl-small">{t.githubProject}</span>
@@ -637,7 +668,7 @@ const Store = ({ lang, customApps }) => {
               </div>
 
               {/* FULL-WIDTH LOWER BLOCK: SCREENSHOTS CAROUSEL */}
-              <div className="store-modal-screenshots-section">
+              {selectedApp.screenshots.length > 0 && <div className="store-modal-screenshots-section">
                 <h3 className="store-section-title">Screenshots</h3>
                 
                 <div className="store-carousel-wrapper">
@@ -674,7 +705,7 @@ const Store = ({ lang, customApps }) => {
                     />
                   ))}
                 </div>
-              </div>
+              </div>}
             </div>
           </div>
         </div>

@@ -386,6 +386,34 @@ export const INITIAL_PORTFOLIO_DATA = {
       releaseDate: "2026-06-24"
     },
     {
+      id: "openscad_ai",
+      name: "OpenSCAD AI",
+      tagline: {
+        en: "An AI-assisted parametric CAD studio for the web and desktop.",
+        tr: "Web ve masaüstü için yapay zekâ destekli parametrik CAD stüdyosu."
+      },
+      description: {
+        en: "Generate 3D CAD designs from text or reference sketches, refine parameters, compile geometry with OpenSCAD, preview it in 3D, and export SCAD or STL files.",
+        tr: "Metin veya referans çizimlerden 3B CAD tasarımları üretin; parametreleri düzenleyin, OpenSCAD ile modeli derleyin, 3B önizleyin ve SCAD veya STL olarak dışa aktarın."
+      },
+      icon: "./apps/openscad_ai/icon.png",
+      category: { en: "Engineering / CAD", tr: "Mühendislik / CAD" },
+      platforms: ["Web", "Windows"],
+      webUrl: "https://serdevir91.github.io/openscad-ai/",
+      playStoreUrl: null,
+      githubUrl: "https://github.com/serdevir91/openscad-ai",
+      screenshots: [],
+      features: {
+        en: ["AI-assisted parametric modeling", "OpenSCAD compilation and validation", "Interactive 3D preview", "SCAD and STL export"],
+        tr: ["Yapay zekâ destekli parametrik modelleme", "OpenSCAD derleme ve doğrulama", "Etkileşimli 3B önizleme", "SCAD ve STL dışa aktarma"]
+      },
+      version: "0.2.0",
+      size: null,
+      rating: null,
+      reviews: null,
+      releaseDate: ""
+    },
+    {
       id: "stokapp",
       name: "Stokapp",
       tagline: {
