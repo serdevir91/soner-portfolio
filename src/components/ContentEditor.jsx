@@ -216,6 +216,15 @@ export default function ContentEditor({ data, onSaveData, onResetData, onClose, 
           <p>{lang === 'tr' ? 'Taslağı bu tarayıcıya kaydedebilir veya GitHub üzerinden canlı sitede anında yayımlayabilirsin.' : 'Save a local draft or publish directly to the live site through GitHub.'}</p>
         </div>
         <div className="editor-top-actions">
+          <div className="editor-account-pill">
+            <span className="account-dot" />
+            <span>serdevir91</span>
+            <small>
+              {localStorage.getItem('portfolio_admin_token_saved')
+                ? (lang === 'tr' ? 'Cihazda kayıtlı' : 'Saved on device')
+                : (lang === 'tr' ? 'Aktif oturum' : 'Active session')}
+            </small>
+          </div>
           <button className="action action-outline" onClick={onClose}>
             <ArrowLeft size={17} />{lang === 'tr' ? 'Siteye dön' : 'Back to site'}
           </button>

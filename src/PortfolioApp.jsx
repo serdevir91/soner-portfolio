@@ -183,18 +183,24 @@ export default function PortfolioApp() {
   const [theme, setTheme] = useState(() => localStorage.getItem('portfolio_theme') || 'dark');
   const [data, setData] = useState(readDraft);
   const [view, setView] = useState(() => (window.location.hash === '#admin' ? 'editor' : 'site'));
-  const [adminToken, setAdminToken] = useState(() => sessionStorage.getItem('portfolio_admin_token') || '');
+  const [adminToken, setAdminToken] = useState(
+    () => sessionStorage.getItem('portfolio_admin_token') || localStorage.getItem('portfolio_admin_token_saved') || ''
+  );
   const [menu, setMenu] = useState(false);
   const [activeProject, setActiveProject] = useState(null);
   const [activeExperience, setActiveExperience] = useState(null);
   const t = labels[lang] || labels.tr;
 
-  const updateAdminToken = token => {
+  const updateAdminToken = (token, remember = false) => {
     setAdminToken(token);
     if (token) {
       sessionStorage.setItem('portfolio_admin_token', token);
+      if (remember) {
+        localStorage.setItem('portfolio_admin_token_saved', token);
+      }
     } else {
       sessionStorage.removeItem('portfolio_admin_token');
+      localStorage.removeItem('portfolio_admin_token_saved');
     }
   };
 
