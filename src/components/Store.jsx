@@ -31,6 +31,7 @@ const APPS = [
     },
     platforms: ["Android", "Windows"],
     playStoreUrl: "https://play.google.com/store/apps/details?id=com.autoshare.app",
+    microsoftStoreUrl: "https://apps.microsoft.com/detail/9PGM24F50VR8",
     githubUrl: "https://github.com/serdevir91/autoshare",
     screenshots: [
       "./apps/autoshare/ss1.jpeg",
@@ -581,6 +582,13 @@ const Store = ({ lang, customApps }) => {
 
                     {selectedApp.id === 'autoshare' && (
                       <>
+                        <a href="https://apps.microsoft.com/detail/9PGM24F50VR8" target="_blank" rel="noopener noreferrer" className="download-link-btn" style={{ background: '#0078d4', borderColor: '#0078d4', color: '#ffffff' }}>
+                          <span className="download-btn-icon"><Monitor size={16} /></span>
+                          <div className="download-btn-text">
+                            <span className="dl-small">Microsoft Store</span>
+                            <span className="dl-large">Get for Windows</span>
+                          </div>
+                        </a>
                         <a href="https://github.com/serdevir91/autoshare/releases/latest/download/autoshare-release.apk" target="_blank" rel="noopener noreferrer" className="download-link-btn direct-download">
                           <span className="download-btn-icon"><Download size={16} /></span>
                           <div className="download-btn-text">

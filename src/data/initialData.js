@@ -336,6 +336,7 @@ export const INITIAL_PORTFOLIO_DATA = {
       category: { en: "Utility / Tools", tr: "Araçlar / Dosya Paylaşımı" },
       platforms: ["Android", "Windows"],
       playStoreUrl: "https://play.google.com/store/apps/details?id=com.autoshare.app",
+      microsoftStoreUrl: "https://apps.microsoft.com/detail/9PGM24F50VR8",
       githubUrl: "https://github.com/serdevir91/autoshare",
       screenshots: [
         "./apps/autoshare/ss1.jpeg",
