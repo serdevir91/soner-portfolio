@@ -1,122 +1,115 @@
 {
+  "version": 4,
   "profile": {
     "name": "Soner Erdevir",
     "title": {
       "en": "Mechanical Engineer | R&D, Design & Simulation",
       "tr": "Makine Mühendisi | Ar-Ge, Tasarım & Simülasyon"
     },
-    "location": "Ankara, Turkey",
+    "location": {
+      "en": "Ankara, Türkiye",
+      "tr": "Ankara, Türkiye"
+    },
     "phone": "+90 544 123 01 19",
     "email": "sonererdevir@gmail.com",
     "linkedin": "https://www.linkedin.com/in/soner-erdevir",
+    "github": "https://github.com/serdevir91",
     "avatar": "profile.jpeg",
+    "headline": {
+      "en": "I design, simulate and build mechanical systems — and write the software that speeds the work up.",
+      "tr": "Mekanik sistemleri tasarlıyor, simüle ediyor ve üretiyorum; işi hızlandıran yazılımları da kendim yazıyorum."
+    },
     "bio": {
       "en": "Results-driven Mechanical Engineer (graduated 3rd of class) with a strong foundation in mechanical design, CAD modeling, structural FEA, and advanced fabrication. Proven leadership as TUSAŞ Lift Up R&D Project Team Leader and TÜBİTAK Electric Vehicle Mechanical Captain. Experienced in delivering end-to-end engineering solutions—from conceptual CAD and FEA validation to CNC manufacturing and testing—with a primary focus on lightweight design, durability, and sustainable mobility.",
-      "tr": "Bölüm üçüncüsü olarak mezun olmuş; mekanik tasarım, CAD modelleme, yapısal FEA analizi ve ileri imalat alanlarında güçlü yetkinliklere sahip Makine Mühendisi. TUSAŞ Lift Up Ar-Ge Projesi Takım Lideri ve TÜBİTAK Elektrikli Araç Mekanik Kaptanı olarak kanıtlanmış liderlik deneyimi. Hafif tasarım, dayanıklılık ve sürdürülebilir mobilite odaklı; kavramsal CAD ve FEA doğrulamasından CNC imalat ve test süreçlerine kadar uçtan uca mühendislik çözümleri üretmektedir."
-    }
+      "tr": "Makine mühendisliği bölümünü dönem 3.sü olarak tamamlamış; mekanik tasarım, CAD modelleme, yapısal analiz (FEA) ve gelişmiş imalat teknikleri konularında güçlü bir temele sahip, motivasyonu yüksek ve sonuç odaklı bir Makine Mühendisiyim. TUSAŞ Lift Up Ar-Ge projesinde Takım Liderliği ve TÜBİTAK Efficiency Challenge elektrikli araç takımında Mekanik Bölüm Kaptanlığı gibi önemli liderlik rolleri üstlendim. Konsept tasarımdan FEA doğrulamasına, CNC imalatından test ve kalite kontrol aşamalarına kadar uçtan uca mühendislik çözümleri sunma konusunda kanıtlanmış bir başarı geçmişine sahibim. Çalışmalarımda özellikle hafif tasarım, dayanıklılık ve sürdürülebilir mobilite sistemlerine odaklanıyorum."
+    },
+    "highlights": [
+      {
+        "value": {
+          "en": "3rd",
+          "tr": "3."
+        },
+        "label": {
+          "en": "of class, B.Sc. Mechanical Eng.",
+          "tr": "bölüm derecesi, lisans"
+        }
+      },
+      {
+        "value": "4",
+        "label": {
+          "en": "R&D and EV teams",
+          "tr": "Ar-Ge ve EV takımı"
+        }
+      },
+      {
+        "value": "-15%",
+        "label": {
+          "en": "chassis mass via FEA",
+          "tr": "FEA ile şasi kütlesi"
+        }
+      },
+      {
+        "value": "6+",
+        "label": {
+          "en": "apps shipped to stores",
+          "tr": "mağazada yayınlanan uygulama"
+        }
+      }
+    ]
   },
-  "skills": [
-    {
-      "id": "skill_cad",
-      "category": {
-        "tr": "CAD & Tasarım",
-        "en": "CAD & Design"
-      },
-      "tags": [
-        "SolidWorks",
-        "PTC Creo",
-        "AutoCAD",
-        "Autodesk Fusion 360",
-        "Profil Tasarımı (Weldments)",
-        "Gelişmiş Yüzey Modelleme",
-        "Teknik İmalat Çizimleri"
-      ]
-    },
-    {
-      "id": "skill_simulation",
-      "category": {
-        "tr": "Simülasyon & Analiz",
-        "en": "Simulation & Analysis"
-      },
-      "tags": [
-        "ANSYS",
-        "SolidWorks Simulation",
-        "Sonlu Elemanlar Analizi (FEA)",
-        "Gerilme ve Titreşim Analizi",
-        "Tolerans Analizi",
-        "Malzeme Seçimi"
-      ]
-    },
-    {
-      "id": "skill_methodologies",
-      "category": {
-        "tr": "Tasarım Metodolojileri",
-        "en": "Design Methodologies"
-      },
-      "tags": [
-        "GD&T (Geometrik Boyutlandırma & Toleranslandırma)",
-        "DFM (Üretilebilirlik için Tasarım)",
-        "BOM (Malzeme Listesi) Oluşturma"
-      ]
-    },
-    {
-      "id": "skill_manufacturing",
-      "category": {
-        "tr": "İmalat & Prototipleme",
-        "en": "Manufacturing & Prototyping"
-      },
-      "tags": [
-        "CNC Talaşlı İmalat",
-        "Kompozit İmalatı (Karbon Fiber)",
-        "3D Yazıcı / Eklemeli İmalat",
-        "Sac Metal Şekillendirme"
-      ]
-    },
-    {
-      "id": "skill_software",
-      "category": {
-        "tr": "Programlama & Yazılım",
-        "en": "Programming & Software"
-      },
-      "tags": [
-        "MATLAB",
-        "Python (Temel / Veri Analitiği)",
-        "Flutter (Mobil / Masaüstü)",
-        "MS Office"
-      ]
-    },
-    {
-      "id": "skill_soft",
-      "category": {
-        "tr": "Yetkinlikler & Liderlik",
-        "en": "Soft Skills & Leadership"
-      },
-      "tags": [
-        "Liderlik & Takım Yönetimi",
-        "Problem Çözme",
-        "Analitik Düşünme",
-        "Multidisipliner İş Birliği",
-        "Teknik Rapor Hazırlama",
-        "Etkili İletişim",
-        "Adaptasyon Yeteneği"
-      ]
-    }
-  ],
   "experience": [
+    {
+      "id": "exp_robolego",
+      "role": {
+        "en": "Mechanical Design Engineer",
+        "tr": "Makine Tasarım Mühendisi"
+      },
+      "company": {
+        "en": "Robolego",
+        "tr": "Robolego"
+      },
+      "location": {
+        "en": "Ankara, Türkiye",
+        "tr": "Ankara, Türkiye"
+      },
+      "start": "2026",
+      "end": "",
+      "showOnCv": true,
+      "bullets": {
+        "en": [
+          "Design and model mechanical parts and assemblies in SolidWorks; prepare manufacturing drawings and BOMs for production.",
+          "Develop SolidWorks VBA macros that automate repetitive CAD work such as exploded views and drawing preparation.",
+          "Built a part tracking web app that follows each part from drawing release through procurement, manufacturing and assembly."
+        ],
+        "tr": [
+          "SolidWorks ile mekanik parça ve montajların tasarımını ve modellemesini yapıyor, üretim için imalat resimleri ve malzeme listeleri (BOM) hazırlıyorum.",
+          "Patlatma görünümü ve teknik resim hazırlığı gibi tekrarlayan CAD işlerini otomatikleştiren SolidWorks VBA makroları geliştiriyorum.",
+          "Her parçayı teknik resimden temin, imalat ve montaja kadar takip eden bir parça takip web uygulaması geliştirdim."
+        ]
+      }
+    },
     {
       "id": "exp_deico",
       "role": {
         "en": "Engineering Intern",
         "tr": "Mühendislik Stajyeri"
       },
-      "company": "Deico Engineering Inc.",
-      "location": "Ankara, Turkey",
-      "date": "July 2025 – August 2025",
+      "company": {
+        "en": "Deico Engineering Inc.",
+        "tr": "Deico Mühendislik A.Ş."
+      },
+      "location": {
+        "en": "Ankara, Türkiye",
+        "tr": "Ankara, Türkiye"
+      },
+      "start": "2025-07",
+      "end": "2025-08",
+      "showOnCv": true,
       "bullets": {
         "en": [
-          "Mechanical Design: Designed and modeled precision mechanical components and structural assemblies for aerospace and defense projects using SolidWorks and Creo, ensuring strict adherence to GD&T standards.",
-          "FEA & Optimization: Conducted Finite Element Analysis (FEA) to validate component durability and weight optimization, reducing structural mass by 10% while maintaining target safety factors.",
-          "DFM & Prototyping: Assisted in Design for Manufacturing (DFM) reviews and collaborated with CNC machinists to optimize manufacturing workflows, reducing prototyping cycle time by 15%."
+          "Designed and modeled precision mechanical components and structural assemblies for aerospace and defense projects using SolidWorks and Creo, ensuring strict adherence to GD&T standards.",
+          "Conducted Finite Element Analysis (FEA) to validate component durability and weight optimization, reducing structural mass by 10% while maintaining target safety factors.",
+          "Assisted in Design for Manufacturing (DFM) reviews and collaborated with CNC machinists to optimize manufacturing workflows, reducing prototyping cycle time by 15%."
         ],
         "tr": [
           "Havacılık ve savunma projeleri için hassas mekanik bileşenlerin ve yapısal montajların SolidWorks ve Creo kullanarak tasarımını ve modellemesini gerçekleştirdim, GD&T standartlarına tam uyum sağladım.",
@@ -128,17 +121,25 @@
     {
       "id": "exp_akdeniz",
       "role": {
-        "en": "Laboratory Assistant (İŞKUR Youth Program)",
-        "tr": "Laboratuvar Asistanı (İŞKUR Gençlik Programı)"
+        "en": "Laboratory Assistant (İŞKUR Program)",
+        "tr": "Laboratuvar Asistanı (İŞKUR Programı)"
       },
-      "company": "Akdeniz University Mechanical Laboratory",
-      "location": "Antalya, Turkey",
-      "date": "February 2025 – June 2025",
+      "company": {
+        "en": "Akdeniz University Mechanical Laboratory",
+        "tr": "Akdeniz Üniversitesi Makine Laboratuvarı"
+      },
+      "location": {
+        "en": "Antalya, Türkiye",
+        "tr": "Antalya, Türkiye"
+      },
+      "start": "2025-02",
+      "end": "2025-06",
+      "showOnCv": true,
       "bullets": {
         "en": [
-          "Equipment Management: Managed setup, calibration, and safety protocols for laboratory testing machinery (tensile, fatigue, and hardness testing), achieving zero safety incidents over 5 months.",
-          "Academic Support: Supported faculty and 50+ undergraduate students in conducting experimental tests and data acquisition, preparing detailed technical reports.",
-          "Maintenance: Performed regular maintenance and troubleshooting of workshop tools, increasing equipment uptime by 20%."
+          "Managed setup, calibration, and safety protocols for laboratory testing machinery (tensile, fatigue, and hardness testing), achieving zero safety incidents over 5 months.",
+          "Supported faculty and 50+ undergraduate students in conducting experimental tests and data acquisition, preparing detailed technical reports.",
+          "Performed regular maintenance and troubleshooting of workshop tools, increasing equipment uptime by 20%."
         ],
         "tr": [
           "Mekanik test cihazlarının (çekme, yorulma ve sertlik ölçüm) kurulumu, kalibrasyonu ve güvenlik protokollerini yönettim; 5 aylık süreçte sıfır iş kazası ile operasyonları tamamladım.",
@@ -153,14 +154,22 @@
         "en": "Engineering Intern",
         "tr": "Mühendislik Stajyeri"
       },
-      "company": "Kristal Industry Inc.",
-      "location": "Antalya, Turkey",
-      "date": "July 2024 – August 2024",
+      "company": {
+        "en": "Kristal Industrial Inc.",
+        "tr": "Kristal Endüstriyel A.Ş."
+      },
+      "location": {
+        "en": "Antalya, Türkiye",
+        "tr": "Antalya, Türkiye"
+      },
+      "start": "2024-07",
+      "end": "2024-08",
+      "showOnCv": true,
       "bullets": {
         "en": [
-          "Production Floor Operations: Participated in sheet metal design and CNC programming for industrial kitchen and refrigeration equipment, streamlining shop-floor fabrication.",
-          "Documentation: Created detailed engineering drawings and manufacturing documentation (BOMs), reducing assembly alignment errors by 12%.",
-          "Quality Control: Supported quality control inspections of incoming materials and finished assemblies, verifying tolerances against technical specifications."
+          "Participated in sheet metal design and CNC programming for industrial kitchen and refrigeration equipment, streamlining shop-floor fabrication.",
+          "Created detailed engineering drawings and manufacturing documentation (BOMs), reducing assembly alignment errors by 12%.",
+          "Supported quality control inspections of incoming materials and finished assemblies, verifying tolerances against technical specifications."
         ],
         "tr": [
           "Endüstriyel mutfak ve soğutma ekipmanları için sac metal tasarımı ve CNC programlama süreçlerine katılarak atölye üretim süreçlerinin hızlandırılmasına katkı sağladım.",
@@ -173,13 +182,27 @@
   "projects": [
     {
       "id": "proj_tusas",
-      "title": "Composite Matrix Structure Supported Silicone Rubber Gasket Design and Test Validation",
       "role": {
         "en": "Team Leader",
         "tr": "Takım Lideri"
       },
-      "company": "TUSAŞ Lift Up R&D Project",
-      "date": "October 2025 – June 2026",
+      "name": {
+        "en": "TUSAŞ Lift Up R&D Project",
+        "tr": "TUSAŞ Lift Up Ar-Ge Projesi"
+      },
+      "subtitle": {
+        "en": "Composite Matrix Supported Silicone Rubber Gasket Design and Test Validation",
+        "tr": "Kompozit Matris Yapı Destekli Silikon Kauçuk Conta Tasarımı ve Test Doğrulaması"
+      },
+      "start": "2025-10",
+      "end": "2026-06",
+      "tags": [
+        "ANSYS",
+        "FEA",
+        "Composites",
+        "Aerospace"
+      ],
+      "showOnCv": true,
       "bullets": {
         "en": [
           "Led a 5-member engineering team in the R&D and validation of an aerospace-grade composite matrix supported gasket, meeting all project milestones ahead of schedule.",
@@ -195,13 +218,27 @@
     },
     {
       "id": "proj_yilkat",
-      "title": "YILKAT Electric Vehicle Team (TÜBİTAK Efficiency Challenge)",
       "role": {
         "en": "Mechanical Division Captain",
-        "tr": "Mekanik Takım Kaptanı"
+        "tr": "Mekanik Bölüm Kaptanı"
       },
-      "company": "YILKAT Electric Vehicle Team",
-      "date": "2024 – 2026",
+      "name": {
+        "en": "YILKAT Electric Vehicle Team",
+        "tr": "YILKAT Elektrikli Araç Takımı"
+      },
+      "subtitle": {
+        "en": "TÜBİTAK Efficiency Challenge Electric Race Vehicle Project",
+        "tr": "TÜBİTAK Efficiency Challenge Elektrikli Yarış Aracı Projesi"
+      },
+      "start": "2024",
+      "end": "2026",
+      "tags": [
+        "ANSYS",
+        "Chassis",
+        "Drivetrain",
+        "Team Lead"
+      ],
+      "showOnCv": true,
       "bullets": {
         "en": [
           "Managed the mechanical division (5 engineers) in the design, CAD modeling, and manufacturing of chassis, steering, braking, and drivetrain systems for an electric race vehicle.",
@@ -217,13 +254,26 @@
     },
     {
       "id": "proj_umay",
-      "title": "UMAY Electromobile Team (TÜBİTAK Efficiency Challenge)",
       "role": {
         "en": "Mechanical Designer",
         "tr": "Mekanik Tasarımcı"
       },
-      "company": "UMAY Electromobile Team",
-      "date": "2023 – 2024",
+      "name": {
+        "en": "UMAY Electromobile Team",
+        "tr": "UMAY Electromobile Takımı"
+      },
+      "subtitle": {
+        "en": "",
+        "tr": ""
+      },
+      "start": "2023",
+      "end": "2024",
+      "tags": [
+        "Surface Modeling",
+        "Carbon Fiber",
+        "Aerodynamics"
+      ],
+      "showOnCv": true,
       "bullets": {
         "en": [
           "Developed the aerodynamic outer shell and carbon fiber body of the EV prototype using SolidWorks Surface Modeling, reducing the drag coefficient (Cd) by 12%.",
@@ -239,13 +289,26 @@
     },
     {
       "id": "proj_wast",
-      "title": "WAST Electromobile Team (TÜBİTAK Efficiency Challenge)",
       "role": {
         "en": "Chassis Designer",
         "tr": "Şasi Tasarımcısı"
       },
-      "company": "WAST Electromobile Team",
-      "date": "2022 – 2023",
+      "name": {
+        "en": "WAST Electromobile Team",
+        "tr": "WAST Electromobile Takımı"
+      },
+      "subtitle": {
+        "en": "",
+        "tr": ""
+      },
+      "start": "2022",
+      "end": "2023",
+      "tags": [
+        "Weldments",
+        "Impact Simulation",
+        "BOM"
+      ],
+      "showOnCv": true,
       "bullets": {
         "en": [
           "Designed and modeled the tubular safety frame for the electric vehicle using SolidWorks Weldments.",
@@ -263,43 +326,245 @@
   "education": [
     {
       "id": "edu_master",
-      "degree": {
-        "en": "M.Sc. in Mechanical Engineering (With Thesis)",
-        "tr": "Yüksek Lisans, Makine Mühendisliği (Tezli)"
+      "school": {
+        "en": "Ankara Yıldırım Beyazıt University",
+        "tr": "Ankara Yıldırım Beyazıt Üniversitesi"
       },
-      "school": "Ankara Yıldırım Beyazıt University (Ankara, Turkey)",
-      "date": "2026 – 2029 (Ongoing)",
-      "honors": "M.Sc. Candidate / Yüksek Lisans Öğrencisi"
+      "degree": {
+        "en": "M.Sc. in Mechanical Engineering (with Thesis)",
+        "tr": "Tezli Makine Mühendisliği Yüksek Lisansı (M.Sc.)"
+      },
+      "note": {
+        "en": "",
+        "tr": ""
+      },
+      "location": {
+        "en": "Ankara, Türkiye",
+        "tr": "Ankara, Türkiye"
+      },
+      "start": "2026",
+      "end": "2029",
+      "ongoing": true,
+      "showOnCv": true
     },
     {
       "id": "edu_bachelor",
+      "school": {
+        "en": "Akdeniz University",
+        "tr": "Akdeniz Üniversitesi"
+      },
       "degree": {
         "en": "B.Sc. in Mechanical Engineering",
-        "tr": "Lisans, Makine Mühendisliği"
+        "tr": "Makine Mühendisliği Lisansı"
       },
-      "school": "Akdeniz University (Antalya, Turkey)",
-      "date": "Graduated: 2026",
-      "honors": "Graduated 3rd in the Department / Bölüm 3.sü"
+      "note": {
+        "en": "Graduated 3rd in the Department",
+        "tr": "Bölüm Dönem 3.lüğü Derecesi"
+      },
+      "location": {
+        "en": "Antalya, Türkiye",
+        "tr": "Antalya, Türkiye"
+      },
+      "start": "",
+      "end": "2026",
+      "ongoing": false,
+      "showOnCv": true
     },
     {
       "id": "edu_berlitz",
-      "degree": {
-        "en": "Intensive English Training (Esas Sosyal Program)",
-        "tr": "Yoğun İngilizce Eğitimi (Esas Sosyal Programı)"
+      "school": {
+        "en": "Berlitz Language Academy",
+        "tr": "Berlitz Dil Akademisi"
       },
-      "school": "Berlitz Language Academy (Istanbul, Turkey)",
-      "date": "May 2025 – March 2026",
-      "honors": "B2 Professional Working Proficiency / B2+ İleri Düzey"
+      "degree": {
+        "en": "Intensive English Training (Esas Sosyal \"English Language Opportunity\" Program)",
+        "tr": "Yoğunlaştırılmış İngilizce Eğitimi (Esas Sosyal \"İngilizce Dil Fırsatım\" Programı)"
+      },
+      "note": {
+        "en": "",
+        "tr": ""
+      },
+      "location": {
+        "en": "İstanbul, Türkiye",
+        "tr": "İstanbul, Türkiye"
+      },
+      "start": "2025-05",
+      "end": "2026-03",
+      "ongoing": false,
+      "showOnCv": true
     },
     {
       "id": "edu_highschool",
-      "degree": {
-        "en": "High School Diploma (Science High School)",
-        "tr": "Lise Diploması (Fen Lisesi)"
+      "school": {
+        "en": "Ceyhan Eczacı Bahattin Sevinç Erdinç Science High School",
+        "tr": "Ceyhan Eczacı Bahattin Sevinç Erdinç Fen Lisesi"
       },
-      "school": "Ceyhan Eczacı Bahattin Sevinç Erdinç Science High School (Adana, Turkey)",
-      "date": "Graduated: 2021",
-      "honors": "Science High School Graduate / Fen Lisesi Derecesi"
+      "degree": {
+        "en": "High School Diploma",
+        "tr": "Lise Diploması"
+      },
+      "note": {
+        "en": "",
+        "tr": ""
+      },
+      "location": {
+        "en": "Adana, Türkiye",
+        "tr": "Adana, Türkiye"
+      },
+      "start": "",
+      "end": "2021",
+      "ongoing": false,
+      "showOnCv": true
+    }
+  ],
+  "skills": [
+    {
+      "id": "skill_cad",
+      "category": {
+        "en": "CAD & Design",
+        "tr": "CAD & Tasarım"
+      },
+      "showOnCv": true,
+      "tags": [
+        "SolidWorks",
+        "PTC Creo",
+        "AutoCAD",
+        "Autodesk Fusion 360",
+        {
+          "en": "Advanced Surface Modeling",
+          "tr": "Gelişmiş Yüzey Modelleme"
+        },
+        "Weldments",
+        {
+          "en": "Manufacturing Drawings",
+          "tr": "Teknik İmalat Resimleri"
+        }
+      ]
+    },
+    {
+      "id": "skill_simulation",
+      "category": {
+        "en": "Simulation & Analysis",
+        "tr": "Simülasyon & Analiz"
+      },
+      "showOnCv": true,
+      "tags": [
+        "ANSYS",
+        "SolidWorks Simulation",
+        {
+          "en": "Finite Element Analysis (FEA)",
+          "tr": "Sonlu Elemanlar Analizi (FEA)"
+        },
+        {
+          "en": "Stress & Vibration Analysis",
+          "tr": "Gerilme & Titreşim Analizi"
+        },
+        {
+          "en": "Tolerance Analysis",
+          "tr": "Tolerans Analizi"
+        },
+        {
+          "en": "Material Selection",
+          "tr": "Malzeme Seçimi"
+        }
+      ]
+    },
+    {
+      "id": "skill_methodologies",
+      "category": {
+        "en": "Design Methods",
+        "tr": "Tasarım Metodolojileri"
+      },
+      "showOnCv": true,
+      "tags": [
+        "GD&T",
+        {
+          "en": "DFM (Design for Manufacturing)",
+          "tr": "DFM (Üretilebilirlik için Tasarım)"
+        },
+        {
+          "en": "BOM Creation",
+          "tr": "BOM Oluşturma"
+        }
+      ]
+    },
+    {
+      "id": "skill_manufacturing",
+      "category": {
+        "en": "Manufacturing & Prototyping",
+        "tr": "İmalat & Prototipleme"
+      },
+      "showOnCv": true,
+      "tags": [
+        {
+          "en": "CNC Machining",
+          "tr": "CNC İşleme"
+        },
+        {
+          "en": "Carbon Fiber Composites",
+          "tr": "Karbon Fiber Kompozitler"
+        },
+        {
+          "en": "3D Printing",
+          "tr": "3D Yazıcı"
+        },
+        {
+          "en": "Sheet Metal Design",
+          "tr": "Sac Metal Tasarımı"
+        }
+      ]
+    },
+    {
+      "id": "skill_software",
+      "category": {
+        "en": "Programming & Software",
+        "tr": "Programlama & Yazılım"
+      },
+      "showOnCv": true,
+      "tags": [
+        "SolidWorks VBA / API",
+        "Python",
+        "MATLAB",
+        {
+          "en": "Flutter (Mobile / Desktop)",
+          "tr": "Flutter (Mobil / Masaüstü)"
+        },
+        "MS Office"
+      ]
+    },
+    {
+      "id": "skill_soft",
+      "category": {
+        "en": "Soft Skills & Leadership",
+        "tr": "Yetkinlikler & Liderlik"
+      },
+      "showOnCv": false,
+      "tags": [
+        {
+          "en": "Leadership & Team Management",
+          "tr": "Liderlik & Takım Yönetimi"
+        },
+        {
+          "en": "Problem Solving",
+          "tr": "Problem Çözme"
+        },
+        {
+          "en": "Analytical Thinking",
+          "tr": "Analitik Düşünme"
+        },
+        {
+          "en": "Cross-functional Collaboration",
+          "tr": "Multidisipliner İş Birliği"
+        },
+        {
+          "en": "Technical Reporting",
+          "tr": "Teknik Rapor Hazırlama"
+        },
+        {
+          "en": "Communication",
+          "tr": "Etkili İletişim"
+        }
+      ]
     }
   ],
   "languages": [
@@ -311,7 +576,7 @@
       },
       "level": {
         "en": "Native",
-        "tr": "Anadil"
+        "tr": "Ana Dil"
       }
     },
     {
@@ -321,8 +586,8 @@
         "tr": "İngilizce"
       },
       "level": {
-        "en": "B2 (Professional Working Proficiency)",
-        "tr": "B2 (Mesleki Yeterlilik)"
+        "en": "B2 – Professional Working Proficiency",
+        "tr": "B2 - Profesyonel Seviye"
       }
     }
   ],
@@ -334,46 +599,103 @@
         "en": "Academic Advisor",
         "tr": "Akademik Danışman"
       },
-      "title": {
-        "en": "Akdeniz University | Faculty of Engineering, Department of Mechanical Engineering (Construction and Manufacturing)",
-        "tr": "Akdeniz Üniversitesi | Mühendislik Fakültesi, Makine Mühendisliği Bölümü (Konstrüksiyon ve İmalat)"
+      "organization": {
+        "en": "Akdeniz University",
+        "tr": "Akdeniz Üniversitesi"
+      },
+      "department": {
+        "en": "Department of Mechanical Engineering (Construction and Manufacturing)",
+        "tr": "Makine Mühendisliği Bölümü (Konstrüksiyon ve İmalat)"
       },
       "phone": "+90 242 310 6344",
       "email": "kovan@akdeniz.edu.tr",
-      "profileUrl": "https://avesis.akdeniz.edu.tr/kovan"
+      "profileUrl": "https://avesis.akdeniz.edu.tr/kovan",
+      "showOnCv": true
     },
     {
       "id": "ref_atmaca",
-      "name": "Prof. Dr. İbrahim Atmaca",
+      "name": "Prof. İbrahim Atmaca",
       "role": {
-        "en": "Professor",
-        "tr": "Profesör"
+        "en": "",
+        "tr": ""
       },
-      "title": {
-        "en": "Akdeniz University | Faculty of Engineering, Department of Mechanical Engineering (Thermodynamics)",
-        "tr": "Akdeniz Üniversitesi | Mühendislik Fakültesi, Makine Mühendisliği Bölümü (Termodinamik)"
+      "organization": {
+        "en": "Akdeniz University",
+        "tr": "Akdeniz Üniversitesi"
+      },
+      "department": {
+        "en": "Department of Mechanical Engineering (Thermodynamics)",
+        "tr": "Makine Mühendisliği Bölümü (Termodinamik)"
       },
       "phone": "+90 242 310 6337",
       "email": "atmaca@akdeniz.edu.tr",
-      "profileUrl": "http://makine.muhfak.akdeniz.edu.tr/ibrahim-atmaca"
+      "profileUrl": "https://makine.muhfak.akdeniz.edu.tr/ibrahim-atmaca",
+      "showOnCv": true
     },
     {
       "id": "ref_oral",
       "name": "Doç. Dr. Okan Oral",
       "role": {
-        "en": "Associate Professor",
-        "tr": "Doçent Doktor"
+        "en": "",
+        "tr": ""
       },
-      "title": {
-        "en": "Akdeniz University | Faculty of Engineering, Department of Mechanical Engineering",
-        "tr": "Akdeniz Üniversitesi | Mühendislik Fakültesi, Makine Mühendisliği Bölümü"
+      "organization": {
+        "en": "Akdeniz University",
+        "tr": "Akdeniz Üniversitesi"
+      },
+      "department": {
+        "en": "Department of Mechanical Engineering",
+        "tr": "Makine Mühendisliği Bölümü"
       },
       "phone": "+90 242 310 6377",
       "email": "okan@akdeniz.edu.tr",
-      "profileUrl": "https://avesis.akdeniz.edu.tr/okanoral"
+      "profileUrl": "https://avesis.akdeniz.edu.tr/okanoral",
+      "showOnCv": true
     }
   ],
   "apps": [
+    {
+      "id": "parca_takip_erp",
+      "name": "Parça Takip ERP",
+      "tagline": {
+        "en": "Self-hosted ERP for manufacturing teams.",
+        "tr": "İmalat ekipleri için kendi sunucunuzda çalışan ERP."
+      },
+      "description": {
+        "en": "An ERP for manufacturing companies that runs on your own server: projects, BOMs, drawings, purchasing, stock, work orders, sales, finance and staff.",
+        "tr": "Kendi sunucunuzda çalışan, imalat firmaları için ERP: projeler, ürün ağaçları (BOM), teknik resimler, satın alma, stok, iş emirleri, satış, finans ve personel."
+      },
+      "icon": "",
+      "category": {
+        "en": "Manufacturing / ERP",
+        "tr": "İmalat / ERP"
+      },
+      "platforms": [
+        "Web",
+        "Windows",
+        "Android"
+      ],
+      "playStoreUrl": "",
+      "microsoftStoreUrl": "",
+      "webUrl": "",
+      "githubUrl": "https://github.com/serdevir91/parca-takip-erp",
+      "screenshots": [],
+      "features": {
+        "en": [
+          "Part tracking from drawing to assembly",
+          "BOM builder and Excel compare",
+          "QR labels on drawings",
+          "TR / EN / ES / DE"
+        ],
+        "tr": [
+          "Teknik resimden montaja parça takibi",
+          "Ürün ağacı oluşturucu ve Excel karşılaştırma",
+          "Teknik resimlerde QR etiket",
+          "TR / EN / ES / DE"
+        ]
+      },
+      "version": ""
+    },
     {
       "id": "autoshare",
       "name": "AutoShare",
@@ -385,7 +707,7 @@
         "en": "AutoShare is a utility that automates file sharing between devices on the same Wi-Fi or Mobile Hotspot.",
         "tr": "AutoShare, aynı Wi-Fi veya Mobil Erişim Noktası üzerindeki cihazlar arasında dosya paylaşımını otomatikleştiren bir araçtır."
       },
-      "icon": "./apps/autoshare/icon.png",
+      "icon": "apps/autoshare/icon.png",
       "category": {
         "en": "Utility / Tools",
         "tr": "Araçlar / Dosya Paylaşımı"
@@ -397,10 +719,10 @@
       "playStoreUrl": "https://play.google.com/store/apps/details?id=com.autoshare.app",
       "githubUrl": "https://github.com/serdevir91/autoshare",
       "screenshots": [
-        "./apps/autoshare/ss1.jpeg",
-        "./apps/autoshare/ss2.jpeg",
-        "./apps/autoshare/ss3.jpeg",
-        "./apps/autoshare/ss4.jpeg"
+        "apps/autoshare/ss1.jpeg",
+        "apps/autoshare/ss2.jpeg",
+        "apps/autoshare/ss3.jpeg",
+        "apps/autoshare/ss4.jpeg"
       ],
       "features": {
         "en": [
@@ -417,10 +739,8 @@
         ]
       },
       "version": "1.0.8",
-      "size": "18 MB",
-      "rating": "4.8",
-      "reviews": "42",
-      "releaseDate": "2026-07-05"
+      "microsoftStoreUrl": "https://apps.microsoft.com/detail/9PGM24F50VR8",
+      "webUrl": ""
     },
     {
       "id": "supzip",
@@ -433,7 +753,7 @@
         "en": "SubZip is a modern file manager and archive utility focused on ZIP workflows with local processing.",
         "tr": "SubZip, ZIP iş akışlarına odaklanan modern bir dosya yöneticisi ve arşivleme aracıdır."
       },
-      "icon": "./apps/supzip/icon.png",
+      "icon": "apps/supzip/icon.png",
       "category": {
         "en": "Productivity / Tools",
         "tr": "Verimlilik / Araçlar"
@@ -445,10 +765,10 @@
       "playStoreUrl": "https://play.google.com/store/apps/details?id=www.subzip.app",
       "githubUrl": "https://github.com/serdevir91/supzip",
       "screenshots": [
-        "./apps/supzip/ss1.png",
-        "./apps/supzip/ss2.png",
-        "./apps/supzip/ss3.png",
-        "./apps/supzip/ss.png"
+        "apps/supzip/ss1.png",
+        "apps/supzip/ss2.png",
+        "apps/supzip/ss3.png",
+        "apps/supzip/ss.png"
       ],
       "features": {
         "en": [
@@ -465,10 +785,8 @@
         ]
       },
       "version": "1.1.2",
-      "size": "12 MB",
-      "rating": "4.9",
-      "reviews": "31",
-      "releaseDate": "2026-06-27"
+      "microsoftStoreUrl": "",
+      "webUrl": ""
     },
     {
       "id": "workout_tracker",
@@ -481,7 +799,7 @@
         "en": "Modern Workout Tracker is a sleek fitness journal to track workouts, log sets, and explore 870+ exercises.",
         "tr": "Modern Workout Tracker, antrenmanları kaydetmek ve 870+ egzersiz kütüphanesini keşfetmek için tasarlanmış şık bir fitness günlüğüdür."
       },
-      "icon": "./apps/workout_tracker/icon.png",
+      "icon": "apps/workout_tracker/icon.png",
       "category": {
         "en": "Health & Fitness",
         "tr": "Sağlık ve Spor"
@@ -493,9 +811,9 @@
       "playStoreUrl": "https://play.google.com/store/apps/details?id=com.workouttracker.workout_tracker",
       "githubUrl": "https://github.com/serdevir91/Workout-Tracker",
       "screenshots": [
-        "./apps/workout_tracker/ss1.png",
-        "./apps/workout_tracker/ss2.png",
-        "./apps/workout_tracker/ss3.png"
+        "apps/workout_tracker/ss1.png",
+        "apps/workout_tracker/ss2.png",
+        "apps/workout_tracker/ss3.png"
       ],
       "features": {
         "en": [
@@ -512,10 +830,8 @@
         ]
       },
       "version": "3.1.21",
-      "size": "24 MB",
-      "rating": "4.9",
-      "reviews": "88",
-      "releaseDate": "2026-07-09"
+      "microsoftStoreUrl": "",
+      "webUrl": ""
     },
     {
       "id": "flappy_rogue",
@@ -528,7 +844,7 @@
         "en": "Flappy Rogue combines Flappy Bird mechanics with rogue-like progression.",
         "tr": "Flappy Rogue, Flappy Bird mekaniklerini rogue-like ilerleme ile birleştirir."
       },
-      "icon": "./apps/flappy_rogue/icon.png",
+      "icon": "apps/flappy_rogue/icon.png",
       "category": {
         "en": "Games / Arcade",
         "tr": "Oyunlar / Atari"
@@ -539,13 +855,13 @@
       "playStoreUrl": "https://play.google.com/store/apps/details?id=www.flappyrogue.app",
       "githubUrl": "https://github.com/serdevir91/flappy_rogue",
       "screenshots": [
-        "./apps/flappy_rogue/ss1.png",
-        "./apps/flappy_rogue/ss2.png",
-        "./apps/flappy_rogue/ss3.png",
-        "./apps/flappy_rogue/ss4.png",
-        "./apps/flappy_rogue/ss5.png",
-        "./apps/flappy_rogue/ss6.png",
-        "./apps/flappy_rogue/ss7.png"
+        "apps/flappy_rogue/ss1.png",
+        "apps/flappy_rogue/ss2.png",
+        "apps/flappy_rogue/ss3.png",
+        "apps/flappy_rogue/ss4.png",
+        "apps/flappy_rogue/ss5.png",
+        "apps/flappy_rogue/ss6.png",
+        "apps/flappy_rogue/ss7.png"
       ],
       "features": {
         "en": [
@@ -562,10 +878,8 @@
         ]
       },
       "version": "2.1.0",
-      "size": "15 MB",
-      "rating": "4.7",
-      "reviews": "56",
-      "releaseDate": "2026-06-24"
+      "microsoftStoreUrl": "",
+      "webUrl": ""
     },
     {
       "id": "openscad_ai",
@@ -578,7 +892,7 @@
         "en": "Generate 3D CAD designs from text or reference sketches, refine parameters, compile geometry with OpenSCAD, preview it in 3D, and export SCAD or STL files.",
         "tr": "Metin veya referans çizimlerden 3B CAD tasarımları üretin; parametreleri düzenleyin, OpenSCAD ile modeli derleyin, 3B önizleyin ve SCAD veya STL olarak dışa aktarın."
       },
-      "icon": "./apps/openscad_ai/icon.png",
+      "icon": "apps/openscad_ai/icon.png",
       "category": {
         "en": "Engineering / CAD",
         "tr": "Mühendislik / CAD"
@@ -606,10 +920,7 @@
         ]
       },
       "version": "0.2.0",
-      "size": null,
-      "rating": null,
-      "reviews": null,
-      "releaseDate": ""
+      "microsoftStoreUrl": ""
     },
     {
       "id": "stokapp",
@@ -622,7 +933,7 @@
         "en": "Stokapp is an intuitive stock and inventory tracking web application built with React, Vite, and Tailwind CSS.",
         "tr": "Stokapp; React, Vite ve Tailwind CSS ile geliştirilmiş sezgisel bir stok ve envanter takip web uygulamasıdır."
       },
-      "icon": "./apps/stokapp/icon.png",
+      "icon": "apps/stokapp/icon.png",
       "category": {
         "en": "Business / Finance",
         "tr": "İş & Finans"
@@ -649,10 +960,13 @@
         ]
       },
       "version": "1.0.0",
-      "size": "Web App",
-      "rating": "4.9",
-      "reviews": "Web App",
-      "releaseDate": "2025-12-07"
+      "microsoftStoreUrl": "",
+      "webUrl": ""
     }
-  ]
+  ],
+  "cv": {
+    "includeReferences": true,
+    "includeProjects": true,
+    "fileName": "Soner_Erdevir_CV"
+  }
 }

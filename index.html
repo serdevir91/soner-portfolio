@@ -1,14 +1,26 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
   <head>
     <meta charset="UTF-8" />
-    <meta name="theme-color" content="#0c1218" />
-    <meta name="description" content="Soner Erdevir — mechanical engineering, R&D, simulation and digital products portfolio." />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Soner Erdevir | Mechanical R&D, Design & Simulation Engineer</title>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <title>Soner Erdevir | Mechanical Engineer · R&amp;D, Design &amp; Simulation</title>
+    <meta name="description" content="Soner Erdevir — Mechanical Engineer focused on R&D, mechanical design, FEA simulation and manufacturing. Portfolio, projects, apps and downloadable CV." />
+    <meta name="theme-color" content="#090b0e" />
+    <meta property="og:type" content="profile" />
+    <meta property="og:title" content="Soner Erdevir — Mechanical Engineer" />
+    <meta property="og:description" content="R&amp;D, mechanical design, FEA simulation and manufacturing. Projects, apps and CV." />
+    <meta property="og:image" content="profile.jpeg" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23ff7a1a'/%3E%3Ctext x='32' y='42' font-family='monospace' font-size='26' font-weight='700' text-anchor='middle' fill='%231a0d02'%3ESE%3C/text%3E%3C/svg%3E" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;700&family=Roboto:ital,wght@0,400;0,500;1,400&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+    <script>
+      try {
+        var t = localStorage.getItem('portfolio_theme');
+        if (!t) t = matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+        document.documentElement.dataset.theme = t;
+      } catch (e) {}
+    </script>
   </head>
   <body>
     <div id="root"></div>

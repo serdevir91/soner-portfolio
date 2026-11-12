@@ -1,12 +1,12 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
-import fs from 'node:fs'
-import path from 'node:path'
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
 
-export default defineConfig(({ command }) => ({
-  // The OneDrive workspace resolves through D:\Code. Rollup needs the real path
-  // for output names, while the dev optimizer must use the working directory.
-  root: command === 'build' ? fs.realpathSync.native(path.resolve('./')) : undefined,
+// Vercel serves the site from the domain root. GitHub Pages serves it from
+// /soner-portfolio/. BASE_PATH overrides both.
+const base = process.env.BASE_PATH || (process.env.VERCEL ? '/' : '/soner-portfolio/');
+
+export default defineConfig({
   plugins: [react()],
-  base: '/soner-portfolio/',
-}))
+  base,
+  build: { chunkSizeWarningLimit: 1800 },
+});
