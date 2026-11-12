@@ -70,7 +70,6 @@ function Footer({ lang, name, studio }) {
       <p>© {new Date().getFullYear()} {name}</p>
       <p className="muted">{tx.builtWith}</p>
       {studio?.url && <a href={studio.url} target="_blank" rel="noopener" className="footer-labs">{studio.name} <ArrowUpRight size={13} /></a>}
-      <a href="#/admin" className="footer-edit"><Pencil size={13} /> {tx.edit}</a>
     </footer>
   );
 }

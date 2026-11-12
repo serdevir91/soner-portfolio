@@ -255,10 +255,10 @@ function Apps({ data, lang, tx, index, preview }) {
         </a>
       )}
       <div className="app-grid">
-        {shown.map(app => (
+        {shown.map((app, i) => (
           <article
             key={app.id}
-            className="card app-card reveal"
+            className={`card app-card ${i < APPS_FIRST ? 'reveal' : 'pop'}`}
             tabIndex={0}
             role="button"
             onClick={() => setActive(app)}

@@ -17,6 +17,7 @@ const DEFAULT_ON = new Set(['showOnCv', 'includeProjects', 'includeReferences'])
 
 const T = {
   en: {
+    gateTitle: 'Owner sign-in', gateHelp: 'Only the site owner can edit this page. Sign in with a GitHub token that can write to the repository.', gateOpen: 'Open editor',
     title: 'Content editor', back: 'Site', edit: 'Edit', site: 'Site preview', cv: 'CV preview',
     draftSaved: 'Draft saved in this browser', unpublished: 'Unpublished changes', upToDate: 'Same as the live site',
     exportJson: 'Export JSON', importJson: 'Import JSON', discard: 'Discard draft', publish: 'Publish',
@@ -39,6 +40,7 @@ const T = {
     note: 'Every change updates both the site and the CV PDF.',
   },
   tr: {
+    gateTitle: 'Sahip girişi', gateHelp: 'Bu sayfayı yalnızca site sahibi düzenleyebilir. Depoya yazma izni olan bir GitHub token ile giriş yap.', gateOpen: 'Düzenleyiciyi aç',
     title: 'İçerik düzenleyici', back: 'Site', edit: 'Düzenle', site: 'Site önizleme', cv: 'CV önizleme',
     draftSaved: 'Taslak bu tarayıcıda kaydedildi', unpublished: 'Yayınlanmamış değişiklikler', upToDate: 'Canlı site ile aynı',
     exportJson: 'JSON dışa aktar', importJson: 'JSON içe aktar', discard: 'Taslağı sil', publish: 'Yayınla',
@@ -352,7 +354,66 @@ function TokenDialog({ tx, onSubmit, onClose, busy, error }) {
 
 /* ---------- editor shell ---------- */
 
-export default function Editor({ published, lang, setLang, theme, setTheme }) {
+/* ---------- owner gate ---------- */
+
+// The editor opens only after a token with write access to the repository is verified.
+// Visitors without one see this sign-in form and nothing else.
+export default function Editor(props) {
+  const tx = T[props.lang];
+  const [state, setState] = useState(() => ({
+    token: readStore(sessionStorage, TOKEN_KEY) || readStore(localStorage, TOKEN_KEY),
+    ok: false, busy: true, error: '',
+  }));
+
+  useEffect(() => {
+    if (!state.token) { setState(s => ({ ...s, busy: false })); return; }
+    let live = true;
+    verifyToken(state.token)
+      .then(() => live && setState(s => ({ ...s, ok: true, busy: false })))
+      .catch(() => {
+        writeStore(sessionStorage, TOKEN_KEY, '');
+        writeStore(localStorage, TOKEN_KEY, '');
+        if (live) setState({ token: '', ok: false, busy: false, error: '' });
+      });
+    return () => { live = false; };
+    // Runs once on open; later sign-ins set ok directly.
+  }, []);
+
+  const signIn = async (tok, remember) => {
+    setState(s => ({ ...s, busy: true, error: '' }));
+    try {
+      await verifyToken(tok);
+      const clean = cleanToken(tok);
+      writeStore(sessionStorage, TOKEN_KEY, clean);
+      if (remember) writeStore(localStorage, TOKEN_KEY, clean);
+      setState({ token: clean, ok: true, busy: false, error: '' });
+    } catch (err) {
+      setState({ token: '', ok: false, busy: false, error: tx.errors[err.message] || tx.errors.default });
+    }
+  };
+
+  useEffect(() => {
+    if (!state.ok) document.title = `${tx.gateTitle} · ${props.published.profile?.name || ''}`;
+  }, [state.ok, tx.gateTitle, props.published]);
+
+  if (state.ok) return <EditorBody {...props} />;
+  if (state.busy && !state.error && state.token) {
+    return <div className="gate"><Loader2 size={22} className="spin" /></div>;
+  }
+  return (
+    <div className="gate">
+      <TokenDialog
+        tx={{ ...tx, tokenTitle: tx.gateTitle, tokenHelp: `${tx.gateHelp} ${tx.tokenHelp}`, connect: tx.gateOpen, cancel: tx.back }}
+        busy={state.busy}
+        error={state.error}
+        onSubmit={signIn}
+        onClose={() => { window.location.hash = '#/'; }}
+      />
+    </div>
+  );
+}
+
+function EditorBody({ published, lang, setLang, theme, setTheme }) {
   const tx = T[lang];
   const [data, setData] = useState(() => loadDraft(published) || structuredClone(published));
   const [active, setActive] = useState('profile');
