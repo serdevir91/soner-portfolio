@@ -57,6 +57,14 @@
       }
     ]
   },
+  "studio": {
+    "name": "Erdevir Labs",
+    "url": "https://serdevir91.github.io/",
+    "description": {
+      "en": "My app studio. Every app, its store links, privacy pages and open TestFlight betas are listed there.",
+      "tr": "Uygulama stüdyom. Tüm uygulamalar, mağaza bağlantıları, gizlilik sayfaları ve açık TestFlight betaları orada."
+    }
+  },
   "experience": [
     {
       "id": "exp_robolego",
@@ -694,7 +702,55 @@
           "TR / EN / ES / DE"
         ]
       },
-      "version": ""
+      "version": "",
+      "testFlightUrl": ""
+    },
+    {
+      "id": "workout_tracker",
+      "name": "Workout Tracker",
+      "tagline": {
+        "en": "Track sets, reps, weight, and view body progress with beautiful charts.",
+        "tr": "Setleri, tekrarları, ağırlıkları izleyin ve ilerlemenizi harika grafiklerle görün."
+      },
+      "description": {
+        "en": "Modern Workout Tracker is a sleek fitness journal to track workouts, log sets, and explore 870+ exercises.",
+        "tr": "Modern Workout Tracker, antrenmanları kaydetmek ve 870+ egzersiz kütüphanesini keşfetmek için tasarlanmış şık bir fitness günlüğüdür."
+      },
+      "icon": "apps/workout_tracker/icon.png",
+      "category": {
+        "en": "Health & Fitness",
+        "tr": "Sağlık ve Spor"
+      },
+      "platforms": [
+        "Android",
+        "Windows",
+        "iOS (beta)"
+      ],
+      "playStoreUrl": "https://play.google.com/store/apps/details?id=com.workouttracker.workout_tracker",
+      "githubUrl": "https://github.com/serdevir91/Workout-Tracker",
+      "screenshots": [
+        "apps/workout_tracker/ss1.png",
+        "apps/workout_tracker/ss2.png",
+        "apps/workout_tracker/ss3.png"
+      ],
+      "features": {
+        "en": [
+          "870+ exercise database",
+          "Body progress analytics",
+          "AMOLED themes",
+          "SAF local backups"
+        ],
+        "tr": [
+          "870+ egzersiz veritabanı",
+          "Vücut gelişim analitiği",
+          "AMOLED temalar",
+          "SAF yerel yedekleri"
+        ]
+      },
+      "version": "3.1.21",
+      "microsoftStoreUrl": "",
+      "testFlightUrl": "https://testflight.apple.com/join/rsKexDPJ",
+      "webUrl": "https://serdevir91.github.io/workout-tracker/"
     },
     {
       "id": "autoshare",
@@ -714,7 +770,8 @@
       },
       "platforms": [
         "Android",
-        "Windows"
+        "Windows",
+        "iOS (beta)"
       ],
       "playStoreUrl": "https://play.google.com/store/apps/details?id=com.autoshare.app",
       "githubUrl": "https://github.com/serdevir91/autoshare",
@@ -740,11 +797,134 @@
       },
       "version": "1.0.8",
       "microsoftStoreUrl": "https://apps.microsoft.com/detail/9PGM24F50VR8",
-      "webUrl": ""
+      "testFlightUrl": "https://testflight.apple.com/join/67VcQRs6",
+      "webUrl": "https://serdevir91.github.io/autoshare/"
+    },
+    {
+      "id": "my_language_tracker",
+      "name": "My Language Tracker",
+      "category": {
+        "en": "Education",
+        "tr": "Eğitim"
+      },
+      "tagline": {
+        "en": "English vocabulary with spaced repetition.",
+        "tr": "Aralıklı tekrarla İngilizce kelime çalışma."
+      },
+      "description": {
+        "en": "Learn English vocabulary with spaced repetition (SRS), a 50-word placement test, Oxford audio and a daily streak calendar.",
+        "tr": "Aralıklı tekrar (SRS), 50 kelimelik seviye testi, Oxford sesli telaffuz ve günlük seri takvimiyle İngilizce kelime öğrenin."
+      },
+      "icon": "apps/my_language_tracker/icon.png",
+      "platforms": [
+        "Android",
+        "iOS (beta)"
+      ],
+      "playStoreUrl": "https://play.google.com/store/apps/details?id=www.mylanguagetracker.app",
+      "microsoftStoreUrl": "",
+      "testFlightUrl": "https://testflight.apple.com/join/R7KVbU4S",
+      "webUrl": "https://serdevir91.github.io/my_language_tracker/",
+      "githubUrl": "",
+      "screenshots": [],
+      "features": {
+        "en": [
+          "4,820+ Oxford 3000 & 5000 words graded A1–C1",
+          "50-word adaptive placement test",
+          "Spaced repetition engine with studio audio"
+        ],
+        "tr": [
+          "A1–C1 seviyeli 4.820+ Oxford 3000 & 5000 kelimesi",
+          "50 kelimelik uyarlanabilir seviye testi",
+          "Stüdyo sesli aralıklı tekrar motoru"
+        ]
+      },
+      "version": ""
+    },
+    {
+      "id": "core_defender",
+      "name": "Core Defender",
+      "category": {
+        "en": "Game · Roguelike defense",
+        "tr": "Oyun · Roguelike savunma"
+      },
+      "tagline": {
+        "en": "Defend the core against endless alien swarms.",
+        "tr": "Çekirdeği bitmeyen uzaylı sürülerine karşı koruyun."
+      },
+      "description": {
+        "en": "Defend the Ancient Energy Core against alien swarms. Pick hero perks, merge turrets and survive endless waves.",
+        "tr": "Kadim Enerji Çekirdeğini uzaylı sürülerine karşı savunun. Kahraman yetenekleri seçin, taretleri birleştirin, bitmeyen dalgalara dayanın."
+      },
+      "icon": "apps/core_defender/icon.png",
+      "platforms": [
+        "Android",
+        "Windows",
+        "iOS (beta)"
+      ],
+      "playStoreUrl": "https://play.google.com/store/apps/details?id=www.coredefender.app",
+      "microsoftStoreUrl": "https://apps.microsoft.com/detail/9NNHWLW1WMQL",
+      "testFlightUrl": "https://testflight.apple.com/join/CCYhvd91",
+      "webUrl": "https://serdevir91.github.io/core_defender/",
+      "githubUrl": "",
+      "screenshots": [],
+      "features": {
+        "en": [
+          "Google Play Games leaderboards and 30 achievements",
+          "Hero synergies, turret merging and scrap bounties",
+          "Godot engine, smooth 60 FPS"
+        ],
+        "tr": [
+          "Google Play Games liderlik tablosu ve 30 başarım",
+          "Kahraman sinerjileri, taret birleştirme ve hurda ödülleri",
+          "Godot motoru, akıcı 60 FPS"
+        ]
+      },
+      "version": ""
+    },
+    {
+      "id": "markdown_keeper",
+      "name": "Markdown Keeper",
+      "category": {
+        "en": "Productivity · Notes",
+        "tr": "Verimlilik · Notlar"
+      },
+      "tagline": {
+        "en": "Markdown notes and an infinite concept map.",
+        "tr": "Markdown notlar ve sonsuz kavram haritası."
+      },
+      "description": {
+        "en": "Markdown notes and visual concept maps with Google Drive sync, checklists, voice and image attachments.",
+        "tr": "Google Drive eşitlemeli Markdown notlar ve görsel kavram haritaları; kontrol listeleri, ses ve görsel ekleri."
+      },
+      "icon": "apps/markdown_keeper/icon.png",
+      "platforms": [
+        "Android",
+        "Windows",
+        "iOS (beta)"
+      ],
+      "playStoreUrl": "https://play.google.com/store/apps/details?id=www.markdownkeeper.app",
+      "microsoftStoreUrl": "https://apps.microsoft.com/detail/9P03P665MMTC",
+      "testFlightUrl": "https://testflight.apple.com/join/36ZY1gA2",
+      "webUrl": "https://serdevir91.github.io/markdown_keeper/",
+      "githubUrl": "",
+      "screenshots": [],
+      "features": {
+        "en": [
+          "Masonry grid and infinite concept map views",
+          "Automatic Google Drive sync",
+          "Markdown (.md / ZIP) import and export"
+        ],
+        "tr": [
+          "Kart ızgarası ve sonsuz kavram haritası görünümü",
+          "Otomatik Google Drive eşitleme",
+          "Markdown (.md / ZIP) içe ve dışa aktarma"
+        ]
+      },
+      "version": ""
     },
     {
       "id": "supzip",
-      "name": "SubZip",
+      "name": "SupZip",
       "tagline": {
         "en": "Powerful ZIP manager with background operations & AMOLED theme.",
         "tr": "Arka plan işlemleri ve AMOLED temalı güçlü ZIP yöneticisi."
@@ -760,7 +940,8 @@
       },
       "platforms": [
         "Android",
-        "Windows"
+        "Windows",
+        "iOS (beta)"
       ],
       "playStoreUrl": "https://play.google.com/store/apps/details?id=www.subzip.app",
       "githubUrl": "https://github.com/serdevir91/supzip",
@@ -785,53 +966,50 @@
         ]
       },
       "version": "1.1.2",
-      "microsoftStoreUrl": "",
-      "webUrl": ""
+      "microsoftStoreUrl": "https://apps.microsoft.com/detail/9MV22F9W72FC",
+      "testFlightUrl": "https://testflight.apple.com/join/MBpbdFRx",
+      "webUrl": "https://serdevir91.github.io/supzip/"
     },
     {
-      "id": "workout_tracker",
-      "name": "Workout Tracker",
+      "id": "sneaky_rogue",
+      "name": "Snakey Rogue",
+      "category": {
+        "en": "Game · Roguelike arcade",
+        "tr": "Oyun · Roguelike arcade"
+      },
       "tagline": {
-        "en": "Track sets, reps, weight, and view body progress with beautiful charts.",
-        "tr": "Setleri, tekrarları, ağırlıkları izleyin ve ilerlemenizi harika grafiklerle görün."
+        "en": "Classic snake meets a roguelike dungeon crawler.",
+        "tr": "Klasik yılan oyunu roguelike zindanla buluşuyor."
       },
       "description": {
-        "en": "Modern Workout Tracker is a sleek fitness journal to track workouts, log sets, and explore 870+ exercises.",
-        "tr": "Modern Workout Tracker, antrenmanları kaydetmek ve 870+ egzersiz kütüphanesini keşfetmek için tasarlanmış şık bir fitness günlüğüdür."
+        "en": "Slither through 15 dungeons, stack perk cards, collect apples and fight bosses.",
+        "tr": "15 zindanda ilerleyin, yetenek kartlarını birleştirin, elma toplayın ve bosslarla savaşın."
       },
-      "icon": "apps/workout_tracker/icon.png",
-      "category": {
-        "en": "Health & Fitness",
-        "tr": "Sağlık ve Spor"
-      },
+      "icon": "apps/sneaky_rogue/icon.png",
       "platforms": [
         "Android",
-        "Windows"
+        "Windows",
+        "iOS (beta)"
       ],
-      "playStoreUrl": "https://play.google.com/store/apps/details?id=com.workouttracker.workout_tracker",
-      "githubUrl": "https://github.com/serdevir91/Workout-Tracker",
-      "screenshots": [
-        "apps/workout_tracker/ss1.png",
-        "apps/workout_tracker/ss2.png",
-        "apps/workout_tracker/ss3.png"
-      ],
+      "playStoreUrl": "https://play.google.com/store/apps/details?id=com.sneakyrogue.app",
+      "microsoftStoreUrl": "https://apps.microsoft.com/detail/9PJTFGMG98WF",
+      "testFlightUrl": "https://testflight.apple.com/join/V6PjGEan",
+      "webUrl": "https://serdevir91.github.io/sneaky_rogue/",
+      "githubUrl": "",
+      "screenshots": [],
       "features": {
         "en": [
-          "870+ exercise database",
-          "Body progress analytics",
-          "AMOLED themes",
-          "SAF local backups"
+          "15 handcrafted dungeons with portals and traps",
+          "Upgrade cards: Fireball, Ghost Phase, Magnet",
+          "4 snake heroes and a permanent shop"
         ],
         "tr": [
-          "870+ egzersiz veritabanı",
-          "Vücut gelişim analitiği",
-          "AMOLED temalar",
-          "SAF yerel yedekleri"
+          "Portal ve tuzaklı 15 el yapımı zindan",
+          "Geliştirme kartları: Ateş Topu, Hayalet, Mıknatıs",
+          "4 yılan kahraman ve kalıcı mağaza"
         ]
       },
-      "version": "3.1.21",
-      "microsoftStoreUrl": "",
-      "webUrl": ""
+      "version": ""
     },
     {
       "id": "flappy_rogue",
@@ -850,7 +1028,8 @@
         "tr": "Oyunlar / Atari"
       },
       "platforms": [
-        "Android"
+        "Android",
+        "iOS (beta)"
       ],
       "playStoreUrl": "https://play.google.com/store/apps/details?id=www.flappyrogue.app",
       "githubUrl": "https://github.com/serdevir91/flappy_rogue",
@@ -879,7 +1058,439 @@
       },
       "version": "2.1.0",
       "microsoftStoreUrl": "",
-      "webUrl": ""
+      "testFlightUrl": "https://testflight.apple.com/join/XX4dKJS3",
+      "webUrl": "https://serdevir91.github.io/flappy_rogue/"
+    },
+    {
+      "id": "ezan_vakti",
+      "name": "Ezan Vakti",
+      "category": {
+        "en": "Lifestyle · Prayer times",
+        "tr": "Yaşam · Namaz vakitleri"
+      },
+      "tagline": {
+        "en": "Prayer times, Qibla compass and Quran.",
+        "tr": "Namaz vakitleri, kıble pusulası ve Kuran."
+      },
+      "description": {
+        "en": "GPS-based prayer times, a live Qibla compass, the Quran with translations, a digital tasbih and monthly goals.",
+        "tr": "GPS tabanlı namaz vakitleri, canlı kıble pusulası, mealli Kuran, dijital tesbih ve aylık hedefler."
+      },
+      "icon": "apps/ezan_vakti/icon.png",
+      "platforms": [
+        "Android",
+        "iOS (beta)"
+      ],
+      "playStoreUrl": "https://play.google.com/store/apps/details?id=com.erdevirlabs.athan_premium",
+      "microsoftStoreUrl": "",
+      "testFlightUrl": "https://testflight.apple.com/join/eG3Aw1ZG",
+      "webUrl": "https://serdevir91.github.io/ezan_vakti_premium/",
+      "githubUrl": "",
+      "screenshots": [],
+      "features": {
+        "en": [
+          "Precise prayer times with background adhan",
+          "Live Qibla compass and holy days calendar",
+          "Works offline, no tracking"
+        ],
+        "tr": [
+          "Arka planda ezanlı hassas vakitler",
+          "Canlı kıble pusulası ve mübarek günler takvimi",
+          "Çevrimdışı çalışır, takip yok"
+        ]
+      },
+      "version": ""
+    },
+    {
+      "id": "roadster_challenge",
+      "name": "Roadster Challenge",
+      "category": {
+        "en": "Game · Racing",
+        "tr": "Oyun · Yarış"
+      },
+      "tagline": {
+        "en": "Endless 3D highway racing.",
+        "tr": "Sonsuz 3B otoyol yarışı."
+      },
+      "description": {
+        "en": "Arcade highway racing built in Unity. Weave through traffic, fire nitro boosts and tune your garage.",
+        "tr": "Unity ile yapılmış arcade otoyol yarışı. Trafikte sıyrılın, nitro kullanın, garajınızı geliştirin."
+      },
+      "icon": "apps/roadster_challenge/icon.png",
+      "platforms": [
+        "Android",
+        "iOS (beta)"
+      ],
+      "playStoreUrl": "https://play.google.com/store/apps/details?id=www.roadsterchallenge.app",
+      "microsoftStoreUrl": "",
+      "testFlightUrl": "https://testflight.apple.com/join/F9kNWQ5h",
+      "webUrl": "https://serdevir91.github.io/roadster_challenge/",
+      "githubUrl": "",
+      "screenshots": [],
+      "features": {
+        "en": [
+          "Procedural 4-lane highway with hazards",
+          "Tuning garage and unlockable cars",
+          "Synthwave audio tied to engine RPM"
+        ],
+        "tr": [
+          "Engelli, prosedürel 4 şeritli otoyol",
+          "Ayar garajı ve açılan araçlar",
+          "Motor devrine bağlı synthwave ses"
+        ]
+      },
+      "version": ""
+    },
+    {
+      "id": "tillwise",
+      "name": "Tillwise",
+      "category": {
+        "en": "Finance · Receipts",
+        "tr": "Finans · Fişler"
+      },
+      "tagline": {
+        "en": "Receipt scanner and expense reports.",
+        "tr": "Fiş tarayıcı ve harcama raporları."
+      },
+      "description": {
+        "en": "Scan receipts and build expense reports on iPhone. Text is read on the device, so receipts stay private.",
+        "tr": "iPhone ile fiş tarayın ve harcama raporu hazırlayın. Metin cihazda okunur, fişleriniz gizli kalır."
+      },
+      "icon": "apps/tillwise/icon.png",
+      "platforms": [
+        "iOS (beta)"
+      ],
+      "playStoreUrl": "",
+      "microsoftStoreUrl": "",
+      "testFlightUrl": "https://testflight.apple.com/join/E6msPT6w",
+      "webUrl": "https://serdevir91.github.io/tillwise/",
+      "githubUrl": "",
+      "screenshots": [],
+      "features": {
+        "en": [
+          "On-device receipt reading",
+          "Unsure fields are marked \"Check this\"",
+          "Expense reports and export"
+        ],
+        "tr": [
+          "Cihaz üzerinde fiş okuma",
+          "Emin olunmayan alanlar işaretlenir",
+          "Harcama raporu ve dışa aktarma"
+        ]
+      },
+      "version": ""
+    },
+    {
+      "id": "mixmere",
+      "name": "Mixmere",
+      "category": {
+        "en": "Game · Puzzle",
+        "tr": "Oyun · Bulmaca"
+      },
+      "tagline": {
+        "en": "Pour, blend and match the color.",
+        "tr": "Dök, karıştır, rengi tuttur."
+      },
+      "description": {
+        "en": "Pour and blend paints to match the target color. 300 handcrafted puzzles and a new daily mix.",
+        "tr": "Boyaları döküp karıştırarak hedef rengi yakalayın. 300 el yapımı bulmaca ve her gün yeni karışım."
+      },
+      "icon": "apps/mixmere/icon.png",
+      "platforms": [
+        "iOS (beta)"
+      ],
+      "playStoreUrl": "",
+      "microsoftStoreUrl": "",
+      "testFlightUrl": "https://testflight.apple.com/join/JHuQfzxX",
+      "webUrl": "https://serdevir91.github.io/mixmere/",
+      "githubUrl": "",
+      "screenshots": [],
+      "features": {
+        "en": [
+          "300 handcrafted color puzzles",
+          "Daily Mix, same for every player",
+          "Hints and undos paid with earned drops"
+        ],
+        "tr": [
+          "300 el yapımı renk bulmacası",
+          "Herkes için aynı Günlük Karışım",
+          "Kazanılan damlalarla ipucu ve geri alma"
+        ]
+      },
+      "version": ""
+    },
+    {
+      "id": "wherelens",
+      "name": "Wherelens",
+      "category": {
+        "en": "Game · Geography",
+        "tr": "Oyun · Coğrafya"
+      },
+      "tagline": {
+        "en": "Daily geo guessing on real streets.",
+        "tr": "Gerçek sokaklarda günlük konum tahmini."
+      },
+      "description": {
+        "en": "Look around a real street, drop your pin on the map and see how close you got. Five new places every day.",
+        "tr": "Gerçek bir sokağa bakın, haritaya iğnenizi bırakın, ne kadar yaklaştığınızı görün. Her gün beş yeni yer."
+      },
+      "icon": "apps/wherelens/icon.png",
+      "platforms": [
+        "iOS (beta)"
+      ],
+      "playStoreUrl": "",
+      "microsoftStoreUrl": "",
+      "testFlightUrl": "https://testflight.apple.com/join/6rt2x5JU",
+      "webUrl": "https://serdevir91.github.io/wherelens/",
+      "githubUrl": "",
+      "screenshots": [],
+      "features": {
+        "en": [
+          "Real street scenes from Apple Maps Look Around",
+          "5 rounds a day, up to 25,000 points",
+          "Same daily places for every player"
+        ],
+        "tr": [
+          "Apple Haritalar Look Around ile gerçek sokaklar",
+          "Günde 5 tur, 25.000 puana kadar",
+          "Herkes için aynı günlük yerler"
+        ]
+      },
+      "version": ""
+    },
+    {
+      "id": "blockgrove",
+      "name": "Blockgrove",
+      "category": {
+        "en": "Game · Block puzzle",
+        "tr": "Oyun · Blok bulmaca"
+      },
+      "tagline": {
+        "en": "Block puzzle that grows a garden.",
+        "tr": "Bahçe büyüten blok bulmaca."
+      },
+      "description": {
+        "en": "A calm 8×8 block puzzle in a wooden tray. Cleared lines earn leaves that grow your own garden.",
+        "tr": "Ahşap tepside sakin bir 8×8 blok bulmaca. Temizlenen satırlar kendi bahçenizi büyüten yapraklar kazandırır."
+      },
+      "icon": "apps/blockgrove/icon.png",
+      "platforms": [
+        "iOS (beta)"
+      ],
+      "playStoreUrl": "",
+      "microsoftStoreUrl": "",
+      "testFlightUrl": "https://testflight.apple.com/join/8AhNq3eE",
+      "webUrl": "https://serdevir91.github.io/blockgrove/",
+      "githubUrl": "",
+      "screenshots": [],
+      "features": {
+        "en": [
+          "8×8 board with line clears",
+          "Daily Grove and 60 Bloom Quests",
+          "12-plot garden that grows as you play"
+        ],
+        "tr": [
+          "Satır temizlemeli 8×8 tahta",
+          "Günlük Koru ve 60 Çiçek Görevi",
+          "Oynadıkça büyüyen 12 parselli bahçe"
+        ]
+      },
+      "version": ""
+    },
+    {
+      "id": "homespun",
+      "name": "Homespun",
+      "category": {
+        "en": "Personalization · Widgets",
+        "tr": "Kişiselleştirme · Widget"
+      },
+      "tagline": {
+        "en": "Cozy Home and Lock Screen widgets.",
+        "tr": "Ana ve kilit ekranı için şirin widget’lar."
+      },
+      "description": {
+        "en": "Design widgets for the iPhone Home Screen and Lock Screen, then place them from the widget gallery.",
+        "tr": "iPhone ana ekranı ve kilit ekranı için widget tasarlayın, sonra widget galerisinden yerleştirin."
+      },
+      "icon": "apps/homespun/icon.png",
+      "platforms": [
+        "iOS (beta)"
+      ],
+      "playStoreUrl": "",
+      "microsoftStoreUrl": "",
+      "testFlightUrl": "https://testflight.apple.com/join/YJZNJNUE",
+      "webUrl": "https://serdevir91.github.io/homespun/",
+      "githubUrl": "",
+      "screenshots": [],
+      "features": {
+        "en": [
+          "Seven kinds of widgets",
+          "Home Screen and Lock Screen designs",
+          "Live preview while designing"
+        ],
+        "tr": [
+          "Yedi çeşit widget",
+          "Ana ekran ve kilit ekranı tasarımları",
+          "Tasarlarken canlı önizleme"
+        ]
+      },
+      "version": ""
+    },
+    {
+      "id": "unbolt",
+      "name": "Unbolt",
+      "category": {
+        "en": "Game · Puzzle",
+        "tr": "Oyun · Bulmaca"
+      },
+      "tagline": {
+        "en": "Screw-removal puzzle that restores antiques.",
+        "tr": "Antika onaran vida sökme bulmacası."
+      },
+      "description": {
+        "en": "Unscrew overlapping plates on a workshop wall. Every cleared board restores a classic workshop antique.",
+        "tr": "Atölye duvarındaki üst üste plakaların vidalarını sökün. Her temizlenen tahta klasik bir antikayı onarır."
+      },
+      "icon": "apps/unbolt/icon.png",
+      "platforms": [
+        "iOS (beta)"
+      ],
+      "playStoreUrl": "",
+      "microsoftStoreUrl": "",
+      "testFlightUrl": "https://testflight.apple.com/join/BrWSK7Fv",
+      "webUrl": "https://serdevir91.github.io/unbolt/",
+      "githubUrl": "",
+      "screenshots": [],
+      "features": {
+        "en": [
+          "300+ levels",
+          "20 antiques to restore",
+          "Daily Workbench and X-ray view"
+        ],
+        "tr": [
+          "300+ bölüm",
+          "Onarılacak 20 antika",
+          "Günlük Tezgâh ve röntgen görünümü"
+        ]
+      },
+      "version": ""
+    },
+    {
+      "id": "wordloom",
+      "name": "Wordloom",
+      "category": {
+        "en": "Game · Word",
+        "tr": "Oyun · Kelime"
+      },
+      "tagline": {
+        "en": "Crossword game that weaves a tapestry.",
+        "tr": "Duvar halısı dokuyan kelime oyunu."
+      },
+      "description": {
+        "en": "Swipe letters to spell words. Every solved puzzle weaves a band of a city tapestry.",
+        "tr": "Harflerin üzerinden kaydırarak kelime yazın. Çözülen her bulmaca bir şehir halısının bir şeridini dokur."
+      },
+      "icon": "apps/wordloom/icon.png",
+      "platforms": [
+        "iOS (beta)"
+      ],
+      "playStoreUrl": "",
+      "microsoftStoreUrl": "",
+      "testFlightUrl": "https://testflight.apple.com/join/kD8pPa4G",
+      "webUrl": "https://serdevir91.github.io/wordloom/",
+      "githubUrl": "",
+      "screenshots": [],
+      "features": {
+        "en": [
+          "180 levels and 12 city tapestries",
+          "Daily Weave",
+          "Word of the Day"
+        ],
+        "tr": [
+          "180 bölüm ve 12 şehir halısı",
+          "Günlük Dokuma",
+          "Günün Kelimesi"
+        ]
+      },
+      "version": ""
+    },
+    {
+      "id": "stridemap",
+      "name": "Stridemap",
+      "category": {
+        "en": "Health · Walking",
+        "tr": "Sağlık · Yürüyüş"
+      },
+      "tagline": {
+        "en": "Turn daily steps into world journeys.",
+        "tr": "Günlük adımları dünya yolculuğuna çevirin."
+      },
+      "description": {
+        "en": "Your everyday steps move you along famous real-world routes. Reach landmarks and collect illustrated postcards.",
+        "tr": "Günlük adımlarınız sizi ünlü gerçek rotalarda ilerletir. Simge yapılara ulaşın, resimli kartpostallar toplayın."
+      },
+      "icon": "apps/stridemap/icon.png",
+      "platforms": [
+        "iOS (beta)"
+      ],
+      "playStoreUrl": "",
+      "microsoftStoreUrl": "",
+      "testFlightUrl": "https://testflight.apple.com/join/TJ94jn9p",
+      "webUrl": "https://serdevir91.github.io/stridemap/",
+      "githubUrl": "",
+      "screenshots": [],
+      "features": {
+        "en": [
+          "12 iconic world routes",
+          "Illustrated postcards and certificates",
+          "Walking journal with Apple Health steps"
+        ],
+        "tr": [
+          "12 ünlü dünya rotası",
+          "Resimli kartpostallar ve sertifikalar",
+          "Apple Sağlık adımlarıyla yürüyüş günlüğü"
+        ]
+      },
+      "version": ""
+    },
+    {
+      "id": "fastwell",
+      "name": "Fastwell",
+      "category": {
+        "en": "Health · Fasting",
+        "tr": "Sağlık · Oruç"
+      },
+      "tagline": {
+        "en": "Calm intermittent fasting tracker.",
+        "tr": "Sakin aralıklı oruç takipçisi."
+      },
+      "description": {
+        "en": "An intermittent fasting timer with gentle stages, water and weight tracking, and a private journal.",
+        "tr": "Evreli aralıklı oruç zamanlayıcısı; su ve kilo takibi, gizli günlük."
+      },
+      "icon": "apps/fastwell/icon.png",
+      "platforms": [
+        "iOS (beta)"
+      ],
+      "playStoreUrl": "",
+      "microsoftStoreUrl": "",
+      "testFlightUrl": "https://testflight.apple.com/join/BQ5aVTZe",
+      "webUrl": "https://serdevir91.github.io/fastwell/",
+      "githubUrl": "",
+      "screenshots": [],
+      "features": {
+        "en": [
+          "Fasting timer with eating window",
+          "Plans for every rhythm",
+          "Water, weight and Apple Health"
+        ],
+        "tr": [
+          "Yeme pencereli oruç zamanlayıcısı",
+          "Her ritme uygun planlar",
+          "Su, kilo ve Apple Sağlık"
+        ]
+      },
+      "version": ""
     },
     {
       "id": "openscad_ai",
@@ -920,7 +1531,8 @@
         ]
       },
       "version": "0.2.0",
-      "microsoftStoreUrl": ""
+      "microsoftStoreUrl": "",
+      "testFlightUrl": ""
     },
     {
       "id": "stokapp",
@@ -961,7 +1573,8 @@
       },
       "version": "1.0.0",
       "microsoftStoreUrl": "",
-      "webUrl": ""
+      "webUrl": "",
+      "testFlightUrl": ""
     }
   ],
   "cv": {

@@ -142,6 +142,9 @@ p { margin: 0; }
 .nav-links a { padding: .45rem .7rem; border-radius: 9px; font-size: .9rem; color: var(--muted); transition: color .2s, background .2s; }
 .nav-links a:hover { color: var(--text); background: var(--card); }
 .nav-links .nav-cv { color: var(--accent); font-weight: 600; }
+.nav-links .nav-labs { display: inline-flex; align-items: center; gap: .2rem; white-space: nowrap; }
+.footer-labs { display: inline-flex; align-items: center; gap: .3rem; color: var(--muted); }
+.footer-labs:hover { color: var(--accent); }
 .nav-links .nav-cv.active { background: var(--accent-soft); }
 .nav-tools { display: flex; gap: 8px; }
 .nav-burger { display: none; }

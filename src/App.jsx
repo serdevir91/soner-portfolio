@@ -1,5 +1,5 @@
 import { lazy, Suspense, useEffect, useState } from 'react';
-import { Sun, Moon, Menu, X, Pencil } from 'lucide-react';
+import { Sun, Moon, Menu, X, Pencil, ArrowUpRight } from 'lucide-react';
 import published from './data/portfolio.json';
 import { UI } from './lib/i18n';
 import Site from './site/Site';
@@ -21,7 +21,7 @@ const store = (key, value) => {
   try { localStorage.setItem(key, value); } catch { /* private mode */ }
 };
 
-function Nav({ lang, setLang, theme, setTheme, route }) {
+function Nav({ lang, setLang, theme, setTheme, route, studio }) {
   const tx = UI[lang];
   const [open, setOpen] = useState(false);
   const links = [
@@ -40,6 +40,11 @@ function Nav({ lang, setLang, theme, setTheme, route }) {
           {links.map(([href, label]) => (
             <a key={href} href={toSite(href)} onClick={() => setOpen(false)}>{label}</a>
           ))}
+          {studio?.url && (
+            <a href={studio.url} target="_blank" rel="noopener" className="nav-labs" onClick={() => setOpen(false)}>
+              {studio.name}<ArrowUpRight size={13} />
+            </a>
+          )}
           <a href="#/cv" className={`nav-cv ${route === 'cv' ? 'active' : ''}`} onClick={() => setOpen(false)}>CV</a>
         </div>
         <div className="nav-tools">
@@ -58,12 +63,13 @@ function Nav({ lang, setLang, theme, setTheme, route }) {
   );
 }
 
-function Footer({ lang, name }) {
+function Footer({ lang, name, studio }) {
   const tx = UI[lang];
   return (
     <footer className="footer">
       <p>© {new Date().getFullYear()} {name}</p>
       <p className="muted">{tx.builtWith}</p>
+      {studio?.url && <a href={studio.url} target="_blank" rel="noopener" className="footer-labs">{studio.name} <ArrowUpRight size={13} /></a>}
       <a href="#/admin" className="footer-edit"><Pencil size={13} /> {tx.edit}</a>
     </footer>
   );
@@ -114,9 +120,9 @@ export default function App() {
   return (
     <>
       <div className="backdrop" aria-hidden="true" />
-      <Nav lang={lang} setLang={setLang} theme={theme} setTheme={setTheme} route={route} />
+      <Nav lang={lang} setLang={setLang} theme={theme} setTheme={setTheme} route={route} studio={published.studio} />
       {route === 'cv' ? <CvPage data={published} lang={lang} /> : <Site data={published} lang={lang} />}
-      <Footer lang={lang} name={published.profile?.name} />
+      <Footer lang={lang} name={published.profile?.name} studio={published.studio} />
     </>
   );
 }

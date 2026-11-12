@@ -114,9 +114,17 @@ export const SECTIONS = [
     ],
   },
   {
+    key: 'studio', kind: 'object', label: { en: 'App studio (Erdevir Labs)', tr: 'Uygulama stüdyosu (Erdevir Labs)' },
+    fields: [
+      { key: 'name', type: 'text', label: { en: 'Name', tr: 'Ad' } },
+      { key: 'url', type: 'url', label: { en: 'Website URL (empty = hide)', tr: 'Web sitesi (boş = gizle)' } },
+      { key: 'description', type: 'locArea', label: { en: 'Short description', tr: 'Kısa açıklama' }, rows: 3 },
+    ],
+  },
+  {
     key: 'apps', kind: 'list', label: { en: 'Apps (site only)', tr: 'Uygulamalar (yalnız site)' },
     title: item => item.name || '—',
-    blank: () => ({ id: `app_${Date.now()}`, name: '', category: { en: '', tr: '' }, tagline: { en: '', tr: '' }, description: { en: '', tr: '' }, icon: '', platforms: [], playStoreUrl: '', microsoftStoreUrl: '', webUrl: '', githubUrl: '', screenshots: [], features: { en: [], tr: [] }, version: '' }),
+    blank: () => ({ id: `app_${Date.now()}`, name: '', category: { en: '', tr: '' }, tagline: { en: '', tr: '' }, description: { en: '', tr: '' }, icon: '', platforms: [], playStoreUrl: '', microsoftStoreUrl: '', testFlightUrl: '', webUrl: '', githubUrl: '', screenshots: [], features: { en: [], tr: [] }, version: '' }),
     fields: [
       { key: 'name', type: 'text', label: { en: 'Name', tr: 'Ad' } },
       { key: 'category', type: 'loc', label: { en: 'Category', tr: 'Kategori' } },
@@ -128,6 +136,7 @@ export const SECTIONS = [
       { key: 'screenshots', type: 'list', label: { en: 'Screenshot paths or URLs (one per line)', tr: 'Ekran görüntüsü yolları veya URL (her satır bir)' } },
       { key: 'playStoreUrl', type: 'url', label: { en: 'Google Play URL', tr: 'Google Play adresi' } },
       { key: 'microsoftStoreUrl', type: 'url', label: { en: 'Microsoft Store URL', tr: 'Microsoft Store adresi' } },
+      { key: 'testFlightUrl', type: 'url', label: { en: 'TestFlight public link (iOS beta)', tr: 'TestFlight herkese açık bağlantı (iOS beta)' } },
       { key: 'webUrl', type: 'url', label: { en: 'Website URL', tr: 'Web sitesi' } },
       { key: 'githubUrl', type: 'url', label: { en: 'GitHub URL', tr: 'GitHub adresi' } },
     ],

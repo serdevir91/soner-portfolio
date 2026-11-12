@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import {
   Mail, Phone, MapPin, Linkedin, Github, ArrowUpRight, X, Globe, Store, Play,
-  Briefcase, Code2, GraduationCap, Users, Wrench, Sparkles, ChevronDown,
+  Briefcase, Code2, GraduationCap, Users, Wrench, Sparkles, ChevronDown, FlaskConical,
 } from 'lucide-react';
 import { L, UI, formatRange, isCurrent, assetUrl, displayUrl } from '../lib/i18n';
 import CvMenu from '../components/CvMenu';
@@ -178,6 +178,7 @@ function AppLinks({ app, tx }) {
   const links = [
     app.playStoreUrl && { href: app.playStoreUrl, label: 'Google Play', icon: Play },
     app.microsoftStoreUrl && { href: app.microsoftStoreUrl, label: 'Microsoft Store', icon: Store },
+    app.testFlightUrl && { href: app.testFlightUrl, label: tx.testFlight, icon: FlaskConical },
     app.webUrl && { href: app.webUrl, label: tx.website, icon: Globe },
     app.githubUrl && { href: app.githubUrl, label: tx.source, icon: Github },
   ].filter(Boolean);
@@ -230,15 +231,31 @@ function AppModal({ app, lang, tx, onClose }) {
   );
 }
 
-function Apps({ data, lang, tx, index }) {
+const APPS_FIRST = 9;
+
+function Apps({ data, lang, tx, index, preview }) {
   const apps = list(data.apps);
+  const studio = data.studio;
   const [active, setActive] = useState(null);
+  const [showAll, setShowAll] = useState(false);
   if (!apps.length) return null;
+  const shown = showAll || preview ? apps : apps.slice(0, APPS_FIRST);
   return (
     <section className="section" id="apps">
       <SectionHead index={index} label={tx.apps} title={lang === 'tr' ? 'Uygulamalar & Araçlar' : 'Apps & Tools'} lead={tx.appsLead} />
+      {studio?.url && (
+        <a className="card studio reveal" href={studio.url} target="_blank" rel="noopener">
+          <span className="studio-mark">EL</span>
+          <span className="studio-body">
+            <b>{studio.name}</b>
+            <span className="muted small">{tx.studioApps(apps.length)}</span>
+            {L(studio.description, lang) && <span className="studio-desc">{L(studio.description, lang)}</span>}
+          </span>
+          <span className="btn btn-ghost studio-cta">{tx.visitStudio} <ArrowUpRight size={16} /></span>
+        </a>
+      )}
       <div className="app-grid">
-        {apps.map(app => (
+        {shown.map(app => (
           <article
             key={app.id}
             className="card app-card reveal"
@@ -255,9 +272,22 @@ function Apps({ data, lang, tx, index }) {
             <p className="muted small">{L(app.category, lang)}</p>
             <p className="app-tag">{L(app.tagline, lang)}</p>
             <div className="chips">{list(app.platforms).map(pl => <span key={pl} className="chip">{pl}</span>)}</div>
+            {app.testFlightUrl && (
+              <a className="app-beta" href={app.testFlightUrl} target="_blank" rel="noopener" onClick={e => e.stopPropagation()}>
+                <FlaskConical size={14} /> {tx.joinBeta}
+              </a>
+            )}
           </article>
         ))}
       </div>
+      {apps.length > APPS_FIRST && !preview && (
+        <div className="apps-more">
+          <button className="btn btn-ghost" onClick={() => setShowAll(v => !v)}>
+            {showAll ? tx.showFewer : tx.showAllApps(apps.length)}
+            <ChevronDown size={16} style={{ transform: showAll ? 'rotate(180deg)' : 'none' }} />
+          </button>
+        </div>
+      )}
       {active && <AppModal app={active} lang={lang} tx={tx} onClose={() => setActive(null)} />}
     </section>
   );
@@ -374,7 +404,7 @@ export default function Site({ data, lang, preview = false }) {
       <About data={data} lang={lang} tx={tx} index={next()} />
       <Experience data={data} lang={lang} tx={tx} index={next()} />
       <Projects data={data} lang={lang} tx={tx} index={next()} />
-      <Apps data={data} lang={lang} tx={tx} index={next()} />
+      <Apps data={data} lang={lang} tx={tx} index={next()} preview={preview} />
       <Skills data={data} lang={lang} tx={tx} index={next()} />
       <Education data={data} lang={lang} tx={tx} index={next()} />
       <References data={data} lang={lang} tx={tx} index={next()} />
