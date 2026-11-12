@@ -61,8 +61,8 @@
     "name": "Erdevir Labs",
     "url": "https://serdevir91.github.io/",
     "description": {
-      "en": "My app studio. Every app, its store links, privacy pages and open TestFlight betas are listed there.",
-      "tr": "Uygulama stüdyom. Tüm uygulamalar, mağaza bağlantıları, gizlilik sayfaları ve açık TestFlight betaları orada."
+      "en": "My app studio. Every app with its store links and privacy pages is listed there.",
+      "tr": "Uygulama stüdyom. Tüm uygulamalar, mağaza bağlantıları ve gizlilik sayfaları orada."
     }
   },
   "experience": [
@@ -724,7 +724,7 @@
       "platforms": [
         "Android",
         "Windows",
-        "iOS (beta)"
+        "iOS (soon)"
       ],
       "playStoreUrl": "https://play.google.com/store/apps/details?id=com.workouttracker.workout_tracker",
       "githubUrl": "https://github.com/serdevir91/Workout-Tracker",
@@ -749,7 +749,7 @@
       },
       "version": "3.1.21",
       "microsoftStoreUrl": "",
-      "testFlightUrl": "https://testflight.apple.com/join/rsKexDPJ",
+      "testFlightUrl": "",
       "webUrl": "https://serdevir91.github.io/workout-tracker/"
     },
     {
@@ -771,7 +771,7 @@
       "platforms": [
         "Android",
         "Windows",
-        "iOS (beta)"
+        "iOS (soon)"
       ],
       "playStoreUrl": "https://play.google.com/store/apps/details?id=com.autoshare.app",
       "githubUrl": "https://github.com/serdevir91/autoshare",
@@ -797,7 +797,7 @@
       },
       "version": "1.0.8",
       "microsoftStoreUrl": "https://apps.microsoft.com/detail/9PGM24F50VR8",
-      "testFlightUrl": "https://testflight.apple.com/join/67VcQRs6",
+      "testFlightUrl": "",
       "webUrl": "https://serdevir91.github.io/autoshare/"
     },
     {
@@ -818,11 +818,11 @@
       "icon": "apps/my_language_tracker/icon.png",
       "platforms": [
         "Android",
-        "iOS (beta)"
+        "iOS (soon)"
       ],
       "playStoreUrl": "https://play.google.com/store/apps/details?id=www.mylanguagetracker.app",
       "microsoftStoreUrl": "",
-      "testFlightUrl": "https://testflight.apple.com/join/R7KVbU4S",
+      "testFlightUrl": "",
       "webUrl": "https://serdevir91.github.io/my_language_tracker/",
       "githubUrl": "",
       "screenshots": [],
@@ -859,11 +859,11 @@
       "platforms": [
         "Android",
         "Windows",
-        "iOS (beta)"
+        "iOS (soon)"
       ],
       "playStoreUrl": "https://play.google.com/store/apps/details?id=www.coredefender.app",
       "microsoftStoreUrl": "https://apps.microsoft.com/detail/9NNHWLW1WMQL",
-      "testFlightUrl": "https://testflight.apple.com/join/CCYhvd91",
+      "testFlightUrl": "",
       "webUrl": "https://serdevir91.github.io/core_defender/",
       "githubUrl": "",
       "screenshots": [],
@@ -900,11 +900,11 @@
       "platforms": [
         "Android",
         "Windows",
-        "iOS (beta)"
+        "iOS (soon)"
       ],
       "playStoreUrl": "https://play.google.com/store/apps/details?id=www.markdownkeeper.app",
       "microsoftStoreUrl": "https://apps.microsoft.com/detail/9P03P665MMTC",
-      "testFlightUrl": "https://testflight.apple.com/join/36ZY1gA2",
+      "testFlightUrl": "",
       "webUrl": "https://serdevir91.github.io/markdown_keeper/",
       "githubUrl": "",
       "screenshots": [],
@@ -941,7 +941,7 @@
       "platforms": [
         "Android",
         "Windows",
-        "iOS (beta)"
+        "iOS (soon)"
       ],
       "playStoreUrl": "https://play.google.com/store/apps/details?id=www.subzip.app",
       "githubUrl": "https://github.com/serdevir91/supzip",
@@ -967,7 +967,7 @@
       },
       "version": "1.1.2",
       "microsoftStoreUrl": "https://apps.microsoft.com/detail/9MV22F9W72FC",
-      "testFlightUrl": "https://testflight.apple.com/join/MBpbdFRx",
+      "testFlightUrl": "",
       "webUrl": "https://serdevir91.github.io/supzip/"
     },
     {
@@ -989,11 +989,11 @@
       "platforms": [
         "Android",
         "Windows",
-        "iOS (beta)"
+        "iOS (soon)"
       ],
       "playStoreUrl": "https://play.google.com/store/apps/details?id=com.sneakyrogue.app",
       "microsoftStoreUrl": "https://apps.microsoft.com/detail/9PJTFGMG98WF",
-      "testFlightUrl": "https://testflight.apple.com/join/V6PjGEan",
+      "testFlightUrl": "",
       "webUrl": "https://serdevir91.github.io/sneaky_rogue/",
       "githubUrl": "",
       "screenshots": [],
@@ -1029,7 +1029,7 @@
       },
       "platforms": [
         "Android",
-        "iOS (beta)"
+        "iOS (soon)"
       ],
       "playStoreUrl": "https://play.google.com/store/apps/details?id=www.flappyrogue.app",
       "githubUrl": "https://github.com/serdevir91/flappy_rogue",
@@ -1058,7 +1058,7 @@
       },
       "version": "2.1.0",
       "microsoftStoreUrl": "",
-      "testFlightUrl": "https://testflight.apple.com/join/XX4dKJS3",
+      "testFlightUrl": "",
       "webUrl": "https://serdevir91.github.io/flappy_rogue/"
     },
     {
@@ -1079,11 +1079,11 @@
       "icon": "apps/ezan_vakti/icon.png",
       "platforms": [
         "Android",
-        "iOS (beta)"
+        "iOS (soon)"
       ],
       "playStoreUrl": "https://play.google.com/store/apps/details?id=com.erdevirlabs.athan_premium",
       "microsoftStoreUrl": "",
-      "testFlightUrl": "https://testflight.apple.com/join/eG3Aw1ZG",
+      "testFlightUrl": "",
       "webUrl": "https://serdevir91.github.io/ezan_vakti_premium/",
       "githubUrl": "",
       "screenshots": [],
@@ -1119,11 +1119,11 @@
       "icon": "apps/roadster_challenge/icon.png",
       "platforms": [
         "Android",
-        "iOS (beta)"
+        "iOS (soon)"
       ],
       "playStoreUrl": "https://play.google.com/store/apps/details?id=www.roadsterchallenge.app",
       "microsoftStoreUrl": "",
-      "testFlightUrl": "https://testflight.apple.com/join/F9kNWQ5h",
+      "testFlightUrl": "",
       "webUrl": "https://serdevir91.github.io/roadster_challenge/",
       "githubUrl": "",
       "screenshots": [],
@@ -1158,11 +1158,11 @@
       },
       "icon": "apps/tillwise/icon.png",
       "platforms": [
-        "iOS (beta)"
+        "iOS (soon)"
       ],
       "playStoreUrl": "",
       "microsoftStoreUrl": "",
-      "testFlightUrl": "https://testflight.apple.com/join/E6msPT6w",
+      "testFlightUrl": "",
       "webUrl": "https://serdevir91.github.io/tillwise/",
       "githubUrl": "",
       "screenshots": [],
@@ -1197,11 +1197,11 @@
       },
       "icon": "apps/mixmere/icon.png",
       "platforms": [
-        "iOS (beta)"
+        "iOS (soon)"
       ],
       "playStoreUrl": "",
       "microsoftStoreUrl": "",
-      "testFlightUrl": "https://testflight.apple.com/join/JHuQfzxX",
+      "testFlightUrl": "",
       "webUrl": "https://serdevir91.github.io/mixmere/",
       "githubUrl": "",
       "screenshots": [],
@@ -1236,11 +1236,11 @@
       },
       "icon": "apps/wherelens/icon.png",
       "platforms": [
-        "iOS (beta)"
+        "iOS (soon)"
       ],
       "playStoreUrl": "",
       "microsoftStoreUrl": "",
-      "testFlightUrl": "https://testflight.apple.com/join/6rt2x5JU",
+      "testFlightUrl": "",
       "webUrl": "https://serdevir91.github.io/wherelens/",
       "githubUrl": "",
       "screenshots": [],
@@ -1275,11 +1275,11 @@
       },
       "icon": "apps/blockgrove/icon.png",
       "platforms": [
-        "iOS (beta)"
+        "iOS (soon)"
       ],
       "playStoreUrl": "",
       "microsoftStoreUrl": "",
-      "testFlightUrl": "https://testflight.apple.com/join/8AhNq3eE",
+      "testFlightUrl": "",
       "webUrl": "https://serdevir91.github.io/blockgrove/",
       "githubUrl": "",
       "screenshots": [],
@@ -1314,11 +1314,11 @@
       },
       "icon": "apps/homespun/icon.png",
       "platforms": [
-        "iOS (beta)"
+        "iOS (soon)"
       ],
       "playStoreUrl": "",
       "microsoftStoreUrl": "",
-      "testFlightUrl": "https://testflight.apple.com/join/YJZNJNUE",
+      "testFlightUrl": "",
       "webUrl": "https://serdevir91.github.io/homespun/",
       "githubUrl": "",
       "screenshots": [],
@@ -1353,11 +1353,11 @@
       },
       "icon": "apps/unbolt/icon.png",
       "platforms": [
-        "iOS (beta)"
+        "iOS (soon)"
       ],
       "playStoreUrl": "",
       "microsoftStoreUrl": "",
-      "testFlightUrl": "https://testflight.apple.com/join/BrWSK7Fv",
+      "testFlightUrl": "",
       "webUrl": "https://serdevir91.github.io/unbolt/",
       "githubUrl": "",
       "screenshots": [],
@@ -1392,11 +1392,11 @@
       },
       "icon": "apps/wordloom/icon.png",
       "platforms": [
-        "iOS (beta)"
+        "iOS (soon)"
       ],
       "playStoreUrl": "",
       "microsoftStoreUrl": "",
-      "testFlightUrl": "https://testflight.apple.com/join/kD8pPa4G",
+      "testFlightUrl": "",
       "webUrl": "https://serdevir91.github.io/wordloom/",
       "githubUrl": "",
       "screenshots": [],
@@ -1431,11 +1431,11 @@
       },
       "icon": "apps/stridemap/icon.png",
       "platforms": [
-        "iOS (beta)"
+        "iOS (soon)"
       ],
       "playStoreUrl": "",
       "microsoftStoreUrl": "",
-      "testFlightUrl": "https://testflight.apple.com/join/TJ94jn9p",
+      "testFlightUrl": "",
       "webUrl": "https://serdevir91.github.io/stridemap/",
       "githubUrl": "",
       "screenshots": [],
@@ -1470,11 +1470,11 @@
       },
       "icon": "apps/fastwell/icon.png",
       "platforms": [
-        "iOS (beta)"
+        "iOS (soon)"
       ],
       "playStoreUrl": "",
       "microsoftStoreUrl": "",
-      "testFlightUrl": "https://testflight.apple.com/join/BQ5aVTZe",
+      "testFlightUrl": "",
       "webUrl": "https://serdevir91.github.io/fastwell/",
       "githubUrl": "",
       "screenshots": [],
